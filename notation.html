@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>UBUK.NET — Notation des 54 Ministères & Audit des Agences</title>
+<style>
+:root{--bg:#0A0D12;--hdr:#11161F;--crd:#151C28;--cy:#00E5FF;--gd:#F5B800;--gn:#10B981;--rd:#EF4444;--txt:#F1F5F9;--mut:#94A3B8;--brd:#242E40}
+*{box-sizing:border-box;margin:0;padding:0;font-family:system-ui,-apple-system,sans-serif}
+body{background:var(--bg);color:var(--txt);line-height:1.45;padding-bottom:40px}
+header{background:linear-gradient(180deg,#151C28 0%,#0A0D12 100%);border-bottom:1.5px solid var(--gd);padding:16px 14px;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:10px}
+.brand{display:flex;align-items:center;gap:10px}
+.brand h1{font-size:1.12rem;color:var(--gd);letter-spacing:.8px}
+.brand p{font-size:.72rem;color:var(--mut)}
+.nav-links{display:flex;gap:8px;flex-wrap:wrap}
+.btn-top{text-decoration:none;font-size:.75rem;font-weight:700;padding:6px 12px;border-radius:14px;border:1px solid var(--cy);color:var(--cy);background:rgba(0,229,255,.08)}
+.btn-top.gold{border-color:var(--gd);color:var(--gd);background:rgba(245,184,0,.1)}
+.wrap{max-width:1200px;margin:0 auto;padding:14px}
+.tabs{display:flex;gap:8px;margin-bottom:14px;border-bottom:1px solid var(--brd);padding-bottom:10px;overflow-x:auto}
+.tbtn{background:var(--crd);border:1px solid var(--brd);color:var(--mut);padding:8px 14px;border-radius:8px;font-size:.82rem;font-weight:700;cursor:pointer;white-space:nowrap}
+.tbtn.active{border-color:var(--gd);color:#000;background:var(--gd)}
+.sec{display:none}.sec.active{display:block}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:10px;margin-bottom:14px}
+.kpi{background:var(--crd);border:1px solid var(--brd);border-left:3px solid var(--gd);padding:12px;border-radius:8px}
+.kpi small{color:var(--mut);font-size:.72rem;display:block}.kpi strong{font-size:1.1rem;color:var(--txt)}
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px}
+.filters input,.filters select{background:var(--crd);border:1px solid var(--brd);color:var(--txt);padding:9px 12px;border-radius:8px;font-size:.85rem;flex:1;min-width:180px}
+.tbl-box{overflow-x:auto;background:var(--crd);border:1px solid var(--brd);border-radius:10px;margin-bottom:16px}
+table{width:100%;border-collapse:collapse;font-size:.8rem;min-width:860px}
+th{background:#0E131B;color:var(--gd);text-align:left;padding:10px 8px;border-bottom:1px solid var(--brd);position:sticky;top:0}
+td{padding:9px 8px;border-bottom:1px solid var(--brd);vertical-align:middle}
+tr:hover{background:rgba(0,229,255,.05);cursor:pointer}
+.bdg{padding:3px 7px;border-radius:6px;font-size:.72rem;font-weight:700;display:inline-block}
+.inv{background:rgba(16,185,129,.18);color:var(--gn);border:1px solid var(--gn)}
+.spec{background:rgba(245,184,0,.15);color:var(--gd);border:1px solid var(--gd)}
+.risk{background:rgba(239,68,68,.18);color:var(--rd);border:1px solid var(--rd)}
+.nr{background:rgba(148,163,184,.15);color:var(--mut);border:1px solid var(--mut)}
+.ag-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:12px}
+.ag-card{background:var(--crd);border:1px solid var(--brd);border-radius:10px;padding:14px}
+.ag-card h3{color:var(--cy);font-size:.95rem;margin-bottom:6px;display:flex;justify-content:space-between;align-items:center}
+.ag-card p{font-size:.82rem;color:var(--mut);margin-bottom:8px}
+.ag-meta{background:#0E131B;padding:8px 10px;border-radius:6px;font-size:.76rem;border-left:2px solid var(--gd)}
+#modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.82);z-index:50;align-items:center;justify-content:center;padding:14px}
+.mcard{background:var(--hdr);border:1.5px solid var(--gd);border-radius:12px;max-width:620px;width:100%;padding:18px;max-height:88vh;overflow-y:auto}
+.mcard h2{color:var(--gd);font-size:1.1rem;margin-bottom:6px}
+.mclose{float:right;background:var(--rd);color:#fff;border:none;padding:4px 10px;border-radius:6px;font-weight:700;cursor:pointer}
+.src-list{margin-top:10px;padding:10px;background:#0A0D12;border:1px dashed var(--cy);border-radius:8px;font-size:.8rem}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="brand">
+    <svg width="38" height="38" viewBox="0 0 100 100" fill="none">
+      <circle cx="50" cy="50" r="46" stroke="#F5B800" stroke-width="2" fill="#151C28"/>
+      <path d="M50 12 C60 24, 60 36, 50 46 C40 36, 40 24, 50 12 Z" stroke="#F5B800" stroke-width="2" fill="rgba(245,184,0,0.2)"/>
+      <path d="M50 12 C60 24, 60 36, 50 46 C40 36, 40 24, 50 12 Z" transform="rotate(90 50 50)" stroke="#F5B800" stroke-width="2" fill="rgba(245,184,0,0.2)"/>
+      <path d="M50 12 C60 24, 60 36, 50 46 C40 36, 40 24, 50 12 Z" transform="rotate(180 50 50)" stroke="#F5B800" stroke-width="2" fill="rgba(245,184,0,0.2)"/>
+      <path d="M50 12 C60 24, 60 36, 50 46 C40 36, 40 24, 50 12 Z" transform="rotate(270 50 50)" stroke="#F5B800" stroke-width="2" fill="rgba(245,184,0,0.2)"/>
+      <circle cx="50" cy="50" r="8" fill="#00E5FF"/>
+    </svg>
+    <div>
+      <h1>UBUK.NET — OBSERVATOIRE SOUVERAIN</h1>
+      <p>Notation des 54 Ministères des Finances & Tableau d'Audit des Agences</p>
+    </div>
+  </div>
+  <div class="nav-links">
+    <a href="index.html" class="btn-top">⬅ Portail UBUK</a>
+    <a href="https://vercel.app" target="_blank" class="btn-top gold">🐝 Ouvrir LATIF CONNECT</a>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="tabs">
+    <button class="tbtn active" onclick="switchTab('minfi',this)">🏛️ 54 Ministères des Finances (Exhaustif)</button>
+    <button class="tbtn" onclick="switchTab('agences',this)">⚖️ Tableau d'Audit des Agences (/100)</button>
+    <button class="tbtn" onclick="switchTab('methodo',this)">📑 Méthodologie & Régulation</button>
+  </div>
+
+  <div id="sec-minfi" class="sec active">
+    <div class="kpis">
+      <div class="kpi"><small>Couverture Continentale</small><strong style="color:var(--gd)">54 / 54 États</strong></div>
+      <div class="kpi" style="border-color:var(--cy)"><small>Pays Notés (Big Three)</small><strong style="color:var(--cy)">33 Pays Notés</strong></div>
+      <div class="kpi" style="border-color:var(--gn)"><small>Catégorie Investissement</small><strong style="color:var(--gn)">2 Pays (BWA, MUS)</strong></div>
+      <div class="kpi" style="border-color:var(--rd)"><small>Non Notés (Biais Couverture)</small><strong style="color:var(--rd)">21 Pays (NR)</strong></div>
+    </div>
+
+    <div class="filters">
+      <input type="text" id="q" placeholder="Rechercher un pays, un ministère ou une note (ex: Cameroun, B2, CEMAC)..." oninput="renderTable()">
+      <select id="reg" onchange="renderTable()">
+        <option value="ALL">Toutes les Régions (54 Pays)</option>
+        <option value="CEMAC">Zone CEMAC (6 Pays)</option>
+        <option value="UEMOA">Zone UEMOA (8 Pays)</option>
+        <option value="CEDEAO">CEDEAO hors UEMOA (7 Pays)</option>
+        <option value="NORD">Afrique du Nord (6 Pays)</option>
+        <option value="EST">Afrique de l'Est & Corne (13 Pays)</option>
+        <option value="SADC">Afrique Australe & Centrale hors CEMAC (14 Pays)</option>
+      </select>
+      <select id="stat" onchange="renderTable()">
+        <option value="ALL">Tous les Statuts de Notation</option>
+        <option value="INV">Qualité Investissement (Investment Grade)</option>
+        <option value="SPEC">Spéculatif (B / Ba)</option>
+        <option value="RISK">Risque Élevé / Restructuration (Caa / CCC / SD)</option>
+        <option value="NR">Non Noté par les Big Three (NR — Couvert par UBUK)</option>
+      </select>
+    </div>
+
+    <div class="tbl-box">
+      <table>
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Pays & Ministère</th>
+            <th>Zone</th>
+            <th>Moody's</th>
+            <th>S&P</th>
+            <th>Fitch</th>
+            <th>Score UBUK /100</th>
+            <th>Rapports Compilés</th>
+          </tr>
+        </thead>
+        <tbody id="tbody"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <div id="sec-agences" class="sec">
+    <div class="kpis">
+      <div class="kpi" style="border-color:var(--gn)"><small>1er Indice Fiabilité Afrique</small><strong style="color:var(--gn)">AfCRA (94 / 100)</strong></div>
+      <div class="kpi" style="border-color:var(--cy)"><small>Leaders Régionaux Agréés</small><strong style="color:var(--cy)">Bloomfield (89) & GCR (88)</strong></div>
+      <div class="kpi" style="border-color:var(--gd)"><small>Moyenne Big Three (Afrique)</small><strong style="color:var(--gd)">77.0 / 100</strong></div>
+      <div class="kpi" style="border-color:var(--rd)"><small>Critères d'Audit Supervisés</small><strong>4 Piliers / 100 pts</strong></div>
+    </div>
+
+    <div class="tbl-box">
+      <table>
+        <thead>
+          <tr>
+            <th>Agence de Notation</th>
+            <th>Statut & Régulateur</th>
+            <th>Ancrage Terrain (30)</th>
+            <th>Précision (25)</th>
+            <th>Transparence (25)</th>
+            <th>Actifs Réels (20)</th>
+            <th>Score Audit</th>
+            <th>Verdict</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr onclick="openAgence('AfCRA (Africa Credit Rating Agency)','94 / 100','UA / MAEP (Port-Louis, Maurice)','Évaluation fondée sur les fondamentaux endogènes, la dette en monnaie locale et les réserves réelles des 55 États membres de l\'Union Africaine.')">
+            <td><strong>1. AfCRA</strong><br><small style="color:var(--mut)">Union Africaine / MAEP</small></td>
+            <td><span class="bdg inv">PANAFRICAINE</span></td>
+            <td><strong>29 / 30</strong></td><td><strong>23 / 25</strong></td><td><strong>23 / 25</strong></td><td><strong>19 / 20</strong></td>
+            <td><strong style="color:var(--gn)">94/100</strong></td>
+            <td><span class="bdg inv">RÉFÉRENCE UA</span></td>
+          </tr>
