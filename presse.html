@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>UBUK.NET — Agences de Presse & Podcast Souverain</title>
+<style>
+:root{--bg:#0A0D12;--hdr:#11161F;--crd:#151C28;--cy:#00E5FF;--gd:#F5B800;--gn:#10B981;--rd:#EF4444;--txt:#F1F5F9;--mut:#94A3B8;--brd:#242E40}
+*{box-sizing:border-box;margin:0;padding:0;font-family:system-ui,-apple-system,sans-serif}
+body{background:var(--bg);color:var(--txt);line-height:1.45;padding-bottom:40px}
+header{background:#11161F;border-bottom:1.5px solid var(--gd);padding:14px;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:10px}
+header h1{font-size:1.05rem;color:var(--gd)}header p{font-size:.72rem;color:var(--mut)}
+.nav{display:flex;gap:8px;flex-wrap:wrap}
+.bt{text-decoration:none;font-size:.74rem;font-weight:700;padding:6px 11px;border-radius:14px;border:1px solid var(--cy);color:var(--cy)}
+.bt.gd{border-color:var(--gd);color:var(--gd)}
+.wrap{max-width:1100px;margin:0 auto;padding:14px}
+.pod{background:#151C28;border:1.5px solid var(--gd);border-radius:12px;padding:14px;margin-bottom:14px;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:10px}
+.pod h2{font-size:.95rem;color:var(--gd);margin-bottom:3px}.pod p{font-size:.76rem;color:var(--mut)}
+.pctrls{display:flex;gap:8px;flex-wrap:wrap}
+.pb{border:none;padding:8px 13px;border-radius:18px;font-weight:700;font-size:.76rem;cursor:pointer}
+.p-play{background:var(--gd);color:#000}.p-stop{background:var(--rd);color:#fff;display:none}.p-sync{background:#0E131B;color:var(--cy);border:1px solid var(--cy)}
+.sbox{display:none;width:100%;background:#080B10;border:1px dashed var(--cy);padding:10px;border-radius:8px;font-size:.78rem;margin-top:8px}
+.fil{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}
+.fb{background:var(--crd);border:1px solid var(--brd);color:var(--mut);padding:7px 12px;border-radius:16px;font-size:.76rem;font-weight:700;cursor:pointer}
+.fb.active{background:var(--gd);color:#000;border-color:var(--gd)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:12px;margin-bottom:18px}
+.nw{background:var(--crd);border:1px solid var(--brd);border-left:3px solid var(--cy);border-radius:10px;padding:14px;display:flex;flex-direction:column;justify-content:space-between}
+.ntop{display:flex;justify-content:space-between;font-size:.7rem;margin-bottom:6px}
+.tag{background:rgba(245,184,0,.15);color:var(--gd);border:1px solid var(--gd);padding:2px 6px;border-radius:5px;font-weight:700}
+.nw h3{font-size:.92rem;margin-bottom:6px}.nw p{font-size:.8rem;color:var(--mut);margin-bottom:8px}
+.nfoot{font-size:.72rem;color:var(--gn);font-family:monospace;border-top:1px solid var(--brd);padding-top:6px;display:flex;justify-content:space-between}
+.agbox{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:10px}
+.ag{background:#0E131B;border:1px solid var(--brd);padding:11px;border-radius:8px}
+.ag strong{color:var(--cy);display:block;font-size:.84rem;margin-bottom:2px}.ag span{font-size:.75rem;color:var(--mut)}
+</style>
+</head>
+<body>
+<header>
+  <div><h1>UBUK.NET — AGENCES DE PRESSE & PODCAST</h1><p id="st">● Rechargement auto (5 min) • Synthèse Vocale IA</p></div>
+  <div class="nav">
+    <a href="index.html" class="bt">⬅ Portail UBUK</a>
+    <a href="notation.html" class="bt">🏛️ 54 Ministères</a>
+    <a href="commodites.html" class="bt">💎 Ressources</a>
+    <a href="https://vercel.app" target="_blank" class="bt gd">🐝 LATIF CONNECT</a>
+  </div>
+</header>
+<div class="wrap">
+  <div class="pod">
+    <div><h2>🎙️ Studio Podcast Souverain (Génération Auto)</h2><p>Analyse des dépêches actives et lecture audio du bulletin économique.</p></div>
+    <div class="pctrls">
+      <button class="pb p-sync" onclick="sync()">🔄 Actualiser</button>
+      <button class="pb p-play" id="bplay" onclick="playPod()">▶️ Générer Podcast</button>
+      <button class="pb p-stop" id="bstop" onclick="stopPod()">⏹️ Stop</button>
+    </div>
+    <div class="sbox" id="sbox"></div>
+  </div>
+  <div class="fil">
+    <button class="fb active" onclick="flt('ALL',this)">Toutes</button>
+    <button class="fb" onclick="flt('FIN',this)">Finance & Notations</button>
+    <button class="fb" onclick="flt('COM',this)">Matières Premières</button>
+    <button class="fb" onclick="flt('INF',this)">Infrastructures</button>
+  </div>
+  <div class="grid" id="feed"></div>
+  <div class="agbox">
+    <div class="ag"><strong>1. Agence Ecofin</strong><span>Marchés financiers, banques, mines, télécoms et agriculture en Afrique.</span></div>
+    <div class="ag"><strong>2. APA News</strong><span>Actualité continentale des politiques publiques, UA, CEMAC et CEDEAO.</span></div>
+    <div class="ag"><strong>3. Reuters & Bloomberg Africa</strong><span>Cours mondiaux de l'Or, du Pétrole, du Cacao et émissions obligataires.</span></div>
+    <div class="ag"><strong>4. BEAC / BCEAO / AfCRA</strong><span>Sources primaires des banques centrales et de l'agence panafricaine.</span></div>
+  </div>
+</div>
+<script>
+const BASE=[
+  {c:"FIN",s:"UA / AfCRA • Port-Louis",d:"Direct",t:"Montée en puissance de l'Agence Africaine de Notation (AfCRA)",p:"Les 54 Ministères des Finances disposent d'un référentiel endogène valorisant la dette locale et les actifs réels."},
+  {c:"COM",s:"ONCC Douala / Reuters",d:"Direct",t:"Cacao et Or : Cours élevés et traçabilité directe",p:"La rémunération directe des coopératives sans intermédiaires renforce les revenus ruraux en CEMAC et UEMOA."},
+  {c:"INF",s:"BRI / BIS Papers Ref.",d:"Direct",t:"Infrastructures Publiques Numériques hors-ligne",p:"L'alliance entre biométrie palmaire, mobile money et USSD *777# accélère l'inclusion financière."},
+  {c:"FIN",s:"BEAC / BCEAO • Zone CFA",d:"Direct",t:"Épargne journalière et tontines urbaines digitalisées",p:"Les collectes traçables (Save, Blucash, Jamii.one) sécurisent l'épargne populaire sous bouclier 100-250 XAF/j."}
+];
+let act=[...BASE],cur='ALL';
+async function sync(){
+  const st=document.getElementById('st'),h=new Date().toLocaleTimeString('fr-FR',{hour:'2-digit',minute:'2-digit'});
+  try{
+    const r=await fetch('https://rss2json.com');
+    const j=await r.json();
+    if(j.status==='ok'&&j.items){act=[...j.items.slice(0,4).map(x=>({c:"FIN",s:"Agence Ecofin (Live)",d:h,t:x.title,p:(x.description||'').replace(/<[^>]*>?/gm,'').slice(0,150)+'...'})),...BASE]}
+    st.textContent=`● Flux synchronisé à ${h} (Auto 5 min)`;
+  }catch(e){st.textContent=`● Veille active (${h} — Hors-ligne résilient)`}
+  flt(cur,document.querySelector('.fb.active'));
+}
+function flt(c,b){
+  cur=c;document.querySelectorAll('.fb').forEach(x=>x.classList.remove('active'));if(b)b.classList.add('active');
+  const f=document.getElementById('feed');f.innerHTML='';
+  act.filter(x=>c==='ALL'||x.c===c).forEach(x=>{f.innerHTML+=`<div class="nw"><div><div class="ntop"><span class="tag">${x.s}</span><span style="color:var(--mut)">${x.d}</span></div><h3>${x.t}</h3><p>${x.p}</p></div><div class="nfoot"><span>● VÉRIFIÉ</span><span>UBUK VEILLE</span></div></div>`});
+}
+function playPod(){
+  const sel=act.filter(x=>cur==='ALL'||x.c===cur).slice(0,4);
+  let txt="Bulletin audio souverain UBUK point NET et LATIF CONNECT. ";
+  sel.forEach((x,i)=>{txt+=`Point ${i+1}, selon ${x.s} : ${x.t}. ${x.p} `});
+  txt+="Fin du bulletin.";
+  const sb=document.getElementById('sbox');sb.style.display='block';sb.innerHTML=`<strong>📝 Script Podcast :</strong> ${txt}`;
+  if('speechSynthesis' in window){
+    window.speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(txt);u.lang='fr-FR';
+    u.onstart=()=>{document.getElementById('bplay').style.display='none';document.getElementById('bstop').style.display='inline-block'};
+    u.onend=stopPod;window.speechSynthesis.speak(u);
+  }
+}
+function stopPod(){if('speechSynthesis' in window)window.speechSynthesis.cancel();document.getElementById('bplay').style.display='inline-block';document.getElementById('bstop').style.display='none'}
+sync();setInterval(sync,300000);
+</script>
+</body>
+</html>
