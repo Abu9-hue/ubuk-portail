@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>UBUK.NET — Ressources, Anti-Conflit & Score Incorruptible</title>
+<style>
+:root{--bg:#0A0D12;--hdr:#11161F;--crd:#151C28;--cy:#00E5FF;--gd:#F5B800;--gn:#10B981;--txt:#F1F5F9;--mut:#94A3B8;--brd:#242E40}
+*{box-sizing:border-box;margin:0;padding:0;font-family:system-ui,-apple-system,sans-serif}
+body{background:var(--bg);color:var(--txt);line-height:1.45;padding-bottom:40px}
+header{background:#11161F;border-bottom:1.5px solid var(--gd);padding:14px;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:10px}
+header h1{font-size:1.05rem;color:var(--gd)}header p{font-size:.72rem;color:var(--mut)}
+.nav{display:flex;gap:8px;flex-wrap:wrap}
+.btn-t{text-decoration:none;font-size:.74rem;font-weight:700;padding:6px 11px;border-radius:14px;border:1px solid var(--cy);color:var(--cy)}
+.btn-t.gd{border-color:var(--gd);color:var(--gd)}
+.wrap{max-width:1100px;margin:0 auto;padding:14px}
+.tick{background:#0E131B;border:1px solid var(--brd);border-left:3px solid var(--gd);padding:8px 12px;border-radius:8px;font-family:monospace;font-size:.76rem;margin-bottom:14px;display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between}
+.tabs{display:flex;gap:8px;margin-bottom:14px;overflow-x:auto}
+.tb{background:var(--crd);border:1px solid var(--brd);color:var(--mut);padding:8px 13px;border-radius:8px;font-size:.8rem;font-weight:700;cursor:pointer;white-space:nowrap}
+.tb.active{background:var(--gd);color:#000;border-color:var(--gd)}
+.sec{display:none}.sec.active{display:block}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px;margin-bottom:14px}
+.crd{background:var(--crd);border:1px solid var(--brd);border-radius:10px;padding:14px}
+.crd h3{color:var(--gd);font-size:.92rem;margin-bottom:6px;display:flex;justify-content:space-between}
+.pr{font-size:1.2rem;font-weight:800;margin:4px 0}.up{color:var(--gn);font-size:.75rem;font-weight:700}
+.meta{background:#0E131B;padding:8px 10px;border-radius:6px;font-size:.76rem;color:var(--mut);margin-top:8px;border-left:2px solid var(--cy)}
+.fld{width:100%;background:#0E131B;border:1px solid var(--brd);color:var(--txt);padding:10px;border-radius:6px;margin-bottom:8px;font-size:.86rem}
+.btn{width:100%;padding:11px;border:none;border-radius:6px;font-weight:700;font-size:.82rem;cursor:pointer;text-transform:uppercase;background:var(--gn);color:#000}
+.hbox{display:none;background:#05070A;border:1px dashed var(--gn);padding:10px;border-radius:6px;font-family:monospace;font-size:.74rem;color:var(--gn);word-break:break-all;margin-top:10px}
+.rng{margin-bottom:10px}.rng label{display:flex;justify-content:space-between;font-size:.8rem;font-weight:700;margin-bottom:3px}
+.rng input{width:100%;accent-color:var(--gd)}
+.scbox{background:#0E131B;border:1.5px solid var(--gd);border-radius:10px;padding:16px;text-align:center}
+.scnum{font-size:2.2rem;font-weight:800;color:var(--gd)}
+</style>
+</head>
+<body>
+<header>
+  <div><h1>UBUK.NET — RESSOURCES & TRAÇABILITÉ</h1><p>Matières Premières, Anti-Conflit SHA-256 & Score Incorruptible</p></div>
+  <div class="nav">
+    <a href="index.html" class="btn-t">⬅ Portail UBUK</a>
+    <a href="notation.html" class="btn-t">🏛️ 54 Ministères</a>
+    <a href="https://vercel.app" target="_blank" class="btn-t gd">🐝 LATIF CONNECT</a>
+  </div>
+</header>
+<div class="wrap">
+  <div class="tick">
+    <span>🪙 OR (XAU) : <strong>4 054.45 USD/oz</strong></span>
+    <span>🍫 CACAO DOUALA : <strong>3 057.0 XAF/kg</strong></span>
+    <span>🛢️ BRENT : <strong>98.32 USD/bbl</strong></span>
+    <span>🛡️ CHAÎNE : <strong class="up">● 0% CONFLIT</strong></span>
+  </div>
+  <div class="tabs">
+    <button class="tb active" onclick="sw('cours',this)">📊 Matières Premières</button>
+    <button class="tb" onclick="sw('trace',this)">🛡️ Registre Anti-Conflit</button>
+    <button class="tb" onclick="sw('moteur',this)">⚙️ Score Incorruptible</button>
+  </div>
+  <div id="sec-cours" class="sec active">
+    <div class="grid">
+      <div class="crd" style="border-color:var(--gd)"><h3>Or Monétaire & Artisanal <span>XAU</span></h3><div class="pr">4 054.45 USD/oz</div><span class="up">● Réf. Niṣāb Zakat (85g)</span><div class="meta">Certification biométrique des artisans et ancrage des réserves souveraines.</div></div>
+      <div class="crd" style="border-color:var(--gn)"><h3>Cacao & Café (ONCC) <span>AGRO</span></h3><div class="pr">3 057.00 XAF/kg</div><span class="up">▲ +2.4% • Paiement Direct</span><div class="meta">Encaissement direct coopérative via LATIF CONNECT (scan palmaire / USSD *777#).</div></div>
+      <div class="crd" style="border-color:var(--cy)"><h3>Pétrole Brut & Gaz <span>ÉNERGIE</span></h3><div class="pr">98.32 USD/bbl</div><span class="up">● Golfe de Guinée & Nord</span><div class="meta">Suivi automatisé des redevances versées aux Trésors Nationaux.</div></div>
+      <div class="crd"><h3>Minerais Critiques <span>STRATÉGIQUE</span></h3><div class="pr">Cobalt / Lithium / Bauxite</div><span class="up">● Transformation Locale</span><div class="meta">Intégrés dans le Score Souverain UBUK des 54 Ministères des Finances.</div></div>
+    </div>
+  </div>
+  <div id="sec-trace" class="sec">
+    <div class="grid">
+      <div class="crd" style="border-color:var(--gn)">
+        <h3>Certifier un Lot Anti-Conflit (SHA-256)</h3>
+        <form id="flot">
+          <select id="lt" class="fld"><option>🍫 Cacao Marchand (Coopérative)</option><option>🪙 Or Artisanal Certifié</option><option>🔋 Minerai Critique (Cobalt/Lithium)</option><option>🌾 Coton / Café / Vivrier</option></select>
+          <input id="lz" class="fld" placeholder="Zone / Village d'origine" required>
+          <input id="lv" type="number" class="fld" placeholder="Valeur du lot (XAF)" required>
+          <button class="btn">GÉNÉRER EMPREINTE SHA-256</button>
+        </form>
+        <div id="hout" class="hbox"></div>
+      </div>
+      <div class="crd"><h3>Protocole de Paix Économique</h3><div class="meta" style="margin-top:0;line-height:1.6"><strong>1. Zéro Lot Anonyme :</strong> Chaque cargaison est horodatée.<br><strong>2. Rémunération Directe :</strong> Paiement immédiat aux producteurs locaux.<br><strong>3. Retombées Sociales :</strong> Ventilation 60% Infra / 40% Solidarité + Zakat 2,5%.</div></div>
+    </div>
+  </div>
+  <div id="sec-moteur" class="sec">
+    <div class="grid">
+      <div class="crd" style="border-color:var(--gd)">
+        <h3>Moteur Déterministe (Changer par le Travail)</h3>
+        <div class="rng"><label><span>1. Exécution Budgétaire Réelle (30%)</span><span id="v1">70%</span></label><input type="range" id="r1" value="70" oninput="calc()"></div>
+        <div class="rng"><label><span>2. Épargne Locale & Soutenabilité (25%)</span><span id="v2">65%</span></label><input type="range" id="r2" value="65" oninput="calc()"></div>
+        <div class="rng"><label><span>3. Traçabilité Ressources (25%)</span><span id="v3">75%</span></label><input type="range" id="r3" value="75" oninput="calc()"></div>
+        <div class="rng"><label><span>4. Redistribution Sociale & Santé (20%)</span><span id="v4">80%</span></label><input type="range" id="r4" value="80" oninput="calc()"></div>
+      </div>
+      <div class="crd"><div class="scbox"><small style="color:var(--mut)">SCORE SOUVERAIN AUTOMATISÉ</small><div class="scnum" id="stot">72.0 / 100</div><div id="scat" style="color:var(--gn);font-weight:700;margin-top:6px">DYNAMIQUE PRODUCTIVE</div><p style="font-size:.76rem;color:var(--mut);margin-top:8px">Score = 0.30(E) + 0.25(S) + 0.25(R) + 0.20(I)<br>Aucune intervention humaine possible.</p></div></div>
+    </div>
+  </div>
+</div>
+<script>
+function sw(id,b){document.querySelectorAll('.sec').forEach(s=>s.classList.remove('active'));document.querySelectorAll('.tb').forEach(t=>t.classList.remove('active'));document.getElementById('sec-'+id).classList.add('active');b.classList.add('active')}
+async function h256(s){const b=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(s));return Array.from(new Uint8Array(b)).map(x=>x.toString(16).padStart(2,'0')).join('')}
+document.getElementById('flot').onsubmit=async e=>{e.preventDefault();const t=document.getElementById('lt').value,z=document.getElementById('lz').value,v=+document.getElementById('lv').value,ts=new Date().toISOString(),h=await h256(t+z+v+ts),o=document.getElementById('hout');o.style.display='block';o.innerHTML=`✅ LOT CERTIFIÉ : ${t} (${z})<br>Valeur : ${v.toLocaleString('fr-FR')} XAF | Zakat 2,5% : ${Math.round(v*.025).toLocaleString('fr-FR')} XAF<br>SHA-256 : ${h}`};
+function calc(){const e=+document.getElementById('r1').value,s=+document.getElementById('r2').value,r=+document.getElementById('r3').value,i=+document.getElementById('r4').value;document.getElementById('v1').textContent=e+'%';document.getElementById('v2').textContent=s+'%';document.getElementById('v3').textContent=r+'%';document.getElementById('v4').textContent=i+'%';const tot=(.3*e+.25*s+.25*r+.2*i).toFixed(1);document.getElementById('stot').textContent=tot+' / 100';document.getElementById('scat').textContent=tot>=80?'EXCELLENCE SOUVERAINE':tot>=60?'DYNAMIQUE PRODUCTIVE':'EFFORT REQUIS'}
+</script>
+</body>
+</html>
+
