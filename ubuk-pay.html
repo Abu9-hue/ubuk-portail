@@ -105,3 +105,82 @@ h2{font-size:.82rem;font-weight:800;color:#fff}
     <div class="lev"><div class="lev-icon ic-gold">02</div><div><h3>Micro-Bourse & Zakat Souveraine</h3><p>Investissement accessible dès 1 000 XAF et calcul automatique selon les 4 écoles.</p></div></div>
     <a href="koone.html" style="text-decoration:none;display:block">
       <div class="lev" style="border-color:rgba(16,185,129,.45);background:linear-gradient(135deg,rgba(16,185,129,.12),rgba(4,9,18,.85))">
+<div class="lev-icon ic-em">03</div>
+        <div style="flex:1"><h3 style="color:var(--emerald)">UBUK KO'ONE • Esprit Ruisseaux →</h3><p>Ouvrir la Page 3 : Micro-arrondis solidaires, mutuelle santé et protection famille.</p></div>
+      </div>
+    </a>
+  </section>
+
+  <section class="atm-chassis">
+    <div class="atm-top-led"></div>
+    <div class="atm-header"><h2>ATM VIRTUEL • GUICHET CENTRAL</h2><div class="kyc-pills"><span class="kpill">● KYC VALIDÉ</span></div></div>
+    <div class="atm-screen">
+      <div class="guide-bar">
+        <div class="bot-avatar">U</div>
+        <div class="guide-txt" id="atm-guide">Bienvenue sur la dorsale <strong>UBUK PAY</strong>. Chaque transaction arrondie propulse <strong>l'esprit ruisseaux</strong> vers Ko'one.</div>
+        <button type="button" class="guide-next" onclick="nextAtmTip()">Aide</button>
+      </div>
+      <div class="atm-keys">
+        <button type="button" class="atm-key on" id="k-depot" onclick="setAtmOp('depot')">Dépôt / Achat</button>
+        <button type="button" class="atm-key" id="k-retrait" onclick="setAtmOp('retrait')">Retrait MoMo</button>
+        <a href="ubuk-koone.html" class="atm-key" style="border-color:var(--emerald);color:var(--emerald)">Page 3 Ko'one</a>
+      </div>
+      <div class="sim-box">
+        <div class="grp-title">SIMULATEUR DE FLUX & MICRO-ARRONDI RUISSEAUX</div>
+        <div class="g2">
+          <input type="number" id="atm-amount" class="inp" value="2350" min="500" step="100" oninput="calcAtm()">
+          <select id="atm-mode" class="sel" onchange="calcAtm()">
+            <option value="cinetpay">Passerelle CinetPay</option>
+            <option value="mtn">MTN Mobile Money</option>
+            <option value="om">Orange Money</option>
+          </select>
+        </div>
+        <div class="cols">
+          <div class="col-bar lit"><div class="col-lbl">MONTANT</div><div class="col-val" id="atm-v1">2 350 F</div></div>
+          <div class="col-bar lit-em"><div class="col-lbl">ARRONDI KO'ONE</div><div class="col-val" id="atm-v2">+150 F</div></div>
+          <div class="col-bar"><div class="col-lbl">TOTAL DÉBITÉ</div><div class="col-val" id="atm-v3">2 500 F</div></div>
+        </div>
+        <button type="button" class="go" onclick="execAtm()">Exécuter & Propulser vers Ko'one</button>
+        <div class="res" id="atm-res"></div>
+      </div>
+      <div style="margin-top:12px">
+        <div class="grp-title">COMPARTIMENTS ÉTANCHES • DORSALE</div>
+        <div class="atm-slots">
+          <div class="slot"><span style="background:var(--gold)"></span><div class="col-lbl">SOUVERAINE</div><div class="col-val">Épargne</div></div>
+          <div class="slot"><span style="background:var(--emerald)"></span><div class="col-lbl">KO'ONE</div><div class="col-val">Esprit Ruisseaux</div></div>
+          <div class="slot"><span style="background:var(--cyan)"></span><div class="col-lbl">ZAKAT</div><div class="col-val">4 Écoles</div></div>
+        </div>
+        <div class="acc"><strong>Architecture Étanche :</strong> Les micro-arrondis collectés sur UBUK PAY sont isolés automatiquement pour financer votre couverture santé et familiale sur <strong>UBUK KO'ONE</strong>.</div>
+      </div>
+    </div>
+  </section>
+</main>
+<script>
+const atmTips=[
+  "Bienvenue sur la dorsale <strong>UBUK PAY</strong>. Chaque transaction arrondie propulse <strong>l'esprit ruisseaux</strong> vers Ko'one.",
+  "Touchez votre carte 3D en haut pour afficher le <strong>QR Code</strong> de paiement marchand et tiers payant pharmacie.",
+  "Le bouton <strong>Page 3 Ko'one</strong> vous emmène directement sur votre bouclier de micro-assurance solidaire."
+];
+let atmIdx=0;
+function nextAtmTip(){atmIdx=(atmIdx+1)%atmTips.length;document.getElementById('atm-guide').innerHTML=atmTips[atmIdx]}
+function setAtmOp(op){
+  document.getElementById('k-depot').classList.toggle('on',op==='depot');
+  document.getElementById('k-retrait').classList.toggle('on',op==='retrait');
+  document.getElementById('atm-guide').innerHTML=op==='depot'?"Mode <strong>Dépôt / Achat</strong> actif : L'arrondi au 500 F supérieur alimente votre bouclier Ko'one.":"Mode <strong>Retrait MoMo</strong> actif : Transfert instantané vers votre numéro Mobile Money.";
+}
+function calcAtm(){
+  const val=parseFloat(document.getElementById('atm-amount').value)||0;
+  const arrondi=val%500===0?0:500-(val%500);
+  document.getElementById('atm-v1').innerText=val.toLocaleString('fr-FR')+' F';
+  document.getElementById('atm-v2').innerText='+'+arrondi.toLocaleString('fr-FR')+' F';
+  document.getElementById('atm-v3').innerText=(val+arrondi).toLocaleString('fr-FR')+' F';
+}
+function execAtm(){
+  const arrondi=document.getElementById('atm-v2').innerText;
+  const box=document.getElementById('atm-res');
+  box.style.display='block';
+  box.innerHTML=`Transaction validée ! <strong>${arrondi}</strong> ont été propulsés vers votre cagnotte <strong>UBUK KO'ONE</strong>.`;
+}
+</script>
+</body>
+  </html>
