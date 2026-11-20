@@ -1,0 +1,180 @@
+B<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bourse des Talents • UBUK.NET (« Taking Talent to the World »)</title>
+  <style>
+    :root {
+      --bg: #080d14;
+      --card: #0f1722;
+      --border: #1e2d40;
+      --gold: #eab308;
+      --gold-soft: rgba(234, 179, 8, 0.14);
+      --green: #10b981;
+      --green-soft: rgba(16, 185, 129, 0.14);
+      --cyan: #06b6d4;
+      --text: #f8fafc;
+      --muted: #94a3b8;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: system-ui, -apple-system, sans-serif; }
+    body { background: var(--bg); color: var(--text); line-height: 1.5; padding: 16px; max-width: 720px; margin: 0 auto; }
+    .topbar { display: flex; justify-content: space-between; align-items: center; padding: 12px 16px; background: var(--card); border: 1px solid var(--border); border-radius: 14px; margin-bottom: 18px; }
+    .badge { font-size: 11px; font-weight: 700; padding: 4px 10px; border-radius: 999px; background: var(--green-soft); color: var(--green); border: 1px solid rgba(16,185,129,0.3); }
+    .btn-back { text-decoration: none; color: var(--gold); font-size: 12px; font-weight: 700; border: 1px solid var(--gold); padding: 6px 12px; border-radius: 999px; }
+    h1 { font-size: 22px; color: var(--gold); margin-bottom: 6px; }
+    .subtitle { font-size: 13px; color: var(--muted); margin-bottom: 18px; }
+    .section-title { font-size: 13px; font-weight: 800; letter-spacing: 0.6px; color: var(--cyan); text-transform: uppercase; margin: 22px 0 12px; }
+    .grid { display: grid; grid-template-columns: 1fr; gap: 12px; }
+    @media (min-width: 560px) { .grid { grid-template-columns: 1fr 1fr; } }
+    .card { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 16px; }
+    .card h3 { font-size: 15px; color: var(--gold); margin-bottom: 6px; }
+    .card p { font-size: 13px; color: var(--muted); }
+    .tag { display: inline-block; font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 6px; margin-bottom: 8px; background: var(--gold-soft); color: var(--gold); }
+    .tag-green { background: var(--green-soft); color: var(--green); }
+    .project-card { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 16px; margin-bottom: 14px; }
+    .progress-wrap { background: #1e293b; border-radius: 999px; height: 10px; overflow: hidden; margin: 10px 0 6px; }
+    .progress-bar { height: 100%; background: linear-gradient(90deg, var(--green), var(--gold)); }
+    .stats-row { display: flex; justify-content: space-between; font-size: 12px; color: var(--muted); }
+    .form-box { background: var(--card); border: 1px solid var(--gold); border-radius: 18px; padding: 18px; margin-top: 20px; }
+    label { display: block; font-size: 12px; color: var(--muted); margin: 10px 0 5px; font-weight: 600; }
+    input, select { width: 100%; padding: 12px; border-radius: 12px; border: 1px solid var(--border); background: #09101a; color: var(--text); font-size: 14px; }
+    .btn-pay { width: 100%; margin-top: 16px; padding: 14px; border: none; border-radius: 12px; background: var(--gold); color: #080d14; font-weight: 800; font-size: 15px; cursor: pointer; }
+    .btn-pay:disabled { opacity: 0.6; cursor: not-allowed; }
+    #out { display: none; margin-top: 12px; padding: 12px; border-radius: 12px; background: #09101a; border: 1px solid var(--border); font-size: 13px; }
+  </style>
+</head>
+<body>
+
+  <div class="topbar">
+    <span class="badge">● 54 ÉTATS • 0 % USURE</span>
+    <a href="ubuk-pay.html" class="btn-back">← CARTE UBUK PAY</a>
+  </div>
+
+  <h1>🎓 Bourse des Talents</h1>
+  <p class="subtitle">« Taking Talent to the World » — Financement éthique des artisans, ingénieurs, chercheurs et producteurs africains par dons non remboursables ou partage de bénéfices.</p>
+
+  <div class="section-title">1. Les 4 Guichets de Financement Éthique</div>
+  <div class="grid">
+    <div class="card">
+      <span class="tag tag-green">SANS REMBOURSEMENT</span>
+      <h3>🎁 Dons & Fonds Non Remboursables</h3>
+      <p>Subventions pures, Sadaqah, bourses d'amorçage et mécénat destinés aux jeunes talents, inventeurs et projets à fort impact social, sans aucune dette à rembourser.</p>
+    </div>
+    <div class="card">
+      <span class="tag tag-green">0 % INTÉRÊT</span>
+      <h3>🤝 Prêt d'Honneur (Qard Hassan)</h3>
+      <p>Avance de trésorerie remboursable uniquement au montant nominal reçu (0 % usure) dès que l'activité du talent démarre.</p>
+    </div>
+    <div class="card">
+      <span class="tag">PARTAGE DE PROFIT</span>
+      <h3>⚖️ Moudharaba (Commandite)</h3>
+      <p>L'investisseur apporte le capital financier et le talent apporte son savoir-faire. Les bénéfices nets sont partagés selon une clé transparente.</p>
+    </div>
+    <div class="card">
+      <span class="tag">CO-INVESTISSEMENT</span>
+      <h3>🏗️ Moucharaka (Partenariat)</h3>
+      <p>Co-financement d'ateliers, d'unités agricoles ou technologiques avec gouvernance partagée et suivi par séquestre.</p>
+    </div>
+  </div>
+
+  <div class="section-title">2. Mécanismes de Protection des Fonds</div>
+  <div class="grid">
+    <div class="card">
+      <h3>🎯 Diaspora Fléchée (Compte 08)</h3>
+      <p>Les contributions de la diaspora sont verrouillées sur un besoin précis (équipement, matières premières, formation) et réglées directement aux fournisseurs agréés.</p>
+    </div>
+    <div class="card">
+      <h3>🛡️ Séquestre / Escrow (Compte 06)</h3>
+      <p>Les fonds sont cantonnés en sécurité et débloqués par paliers uniquement après vérification matérielle des livrables sur le terrain.</p>
+    </div>
+  </div>
+
+  <div class="section-title">3. Cadrans de Collecte Actifs (Exemple Pilote)</div>
+  <div class="project-card">
+    <div style="display:flex; justify-content:space-between; align-items:center;">
+      <strong style="color:#f8fafc; font-size:15px;">Atelier Numérique & Agro-Transformation (Cameroun)</strong>
+      <span class="badge">Vérifié</span>
+    </div>
+    <p style="font-size:12px; color:#94a3b8; margin-top:4px;">Équipement de 4 jeunes ingénieurs et artisans locaux • Fonds sous Séquestre UBUK.</p>
+    <div class="progress-wrap"><div class="progress-bar" style="width: 78%;"></div></div>
+    <div class="stats-row">
+      <span>Collecté : <strong style="color:#10b981;">1 560 000 XAF</strong></span>
+      <span>Objectif : 2 000 000 XAF (78 %)</span>
+    </div>
+  </div>
+
+  <div class="form-box">
+    <h3 style="color:var(--gold); font-size:16px; margin-bottom:4px;">⚡ Soutenir ou Financer un Talent</h3>
+    <p style="font-size:12px; color:var(--muted);">Choisissez le mode d'affectation étanche (Don non remboursable, Diaspora fléchée ou Séquestre).</p>
+
+    <label for="mode">Nature du financement</label>
+    <select id="mode">
+      <option value="sadaqah">🎁 Don / Fonds Non Remboursable (0 frais)</option>
+      <option value="diaspora">🎯 Diaspora Fléchée (Achat équipement verrouillé)</option>
+      <option value="seq">🛡️ Investissement sous Séquestre (Moudharaba / Qard)</option>
+      <option value="waqf">🏛️ Fonds Pérenne / Waqf Éducatif & Technologique</option>
+    </select>
+
+    <label for="donor">Nom du donateur ou de l'investisseur (optionnel)</label>
+    <input type="text" id="donor" placeholder="Ex: Membre Diaspora / Bienfaiteur" />
+
+    <label for="amt">Montant en XAF (minimum 100 XAF)</label>
+    <input type="number" id="amt" placeholder="Ex: 5000" min="100" />
+
+    <button id="btn-contribute" class="btn-pay">Soutenir un Talent via UBUK PAY</button>
+    <div id="out"></div>
+  </div>
+
+  <script>
+    document.getElementById("btn-contribute").onclick = async () => {
+      const btn = document.getElementById("btn-contribute");
+      const out = document.getElementById("out");
+      const amount = Math.round(Number(document.getElementById("amt").value));
+      const accountType = document.getElementById("mode").value;
+      const customerName = document.getElementById("donor").value.trim() || "Bienfaiteur Bourse des Talents";
+
+      out.style.display = "block";
+
+      if (!amount || amount < 100) {
+        out.innerHTML = '<span style="color:#ef4444;">Veuillez saisir un montant valide (minimum 100 XAF).</span>';
+        return;
+      }
+
+      btn.disabled = true;
+      btn.textContent = "Connexion au guichet sécurisé...";
+      out.innerHTML = "<strong>Initialisation du cantonnement UBUK PAY...</strong>";
+
+      try {
+        const apiUrl = "https://" + "ubuk-superapp.vercel.app" + "/api/cinetpay/init";
+        const response = await fetch(apiUrl, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            amount: amount,
+            accountType: accountType,
+            customerName: customerName,
+            customerPhone: ""
+          })
+        });
+
+        const data = await response.json();
+
+        if (data.success && data.payment_url) {
+          out.innerHTML = "<strong>Redirection vers le guichet CinetPay...</strong>";
+          window.location.href = data.payment_url;
+        } else {
+          out.innerHTML = `<span style="color:#ef4444;">Erreur : ${data.error || "Impossible d'initialiser la transaction."}</span>`;
+          btn.disabled = false;
+          btn.textContent = "Soutenir un Talent via UBUK PAY";
+        }
+      } catch (err) {
+        out.innerHTML = '<span style="color:#ef4444;">Erreur réseau : vérifiez votre connexion internet.</span>';
+        btn.disabled = false;
+        btn.textContent = "Soutenir un Talent via UBUK PAY";
+      }
+    };
+  </script>
+
+</body>
+    </html>
