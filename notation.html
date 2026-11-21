@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>UBUK.NET • Notation des 54 Ministères & Agences</title>
+<style>
+:root{--bg:#0A0D12;--hdr:#11161F;--crd:#151C28;--gd:#eab308;--em:#10b981;--cy:#06b6d4;--txt:#f8fafc;--mut:#94a3b8;--bd:rgba(255,255,255,.08)}
+*{box-sizing:border-box;margin:0;padding:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif}
+body{background:var(--bg);color:var(--txt);min-height:100vh;padding:12px}
+header{background:linear-gradient(180deg,var(--hdr),var(--bg));border:1px solid var(--bd);border-radius:14px;padding:12px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;margin-bottom:14px}
+.brand{display:flex;align-items:center;gap:10px}
+.brand h1{font-size:1.05rem;color:var(--gd);font-weight:800}
+.brand p{font-size:.7rem;color:var(--mut)}
+.nav-links{display:flex;gap:8px}
+.btn-t{text-decoration:none;font-size:.72rem;font-weight:700;padding:7px 12px;border-radius:99px;border:1px solid var(--bd);background:rgba(255,255,255,.04);color:var(--txt)}
+.btn-t.gold{border-color:var(--gd);color:var(--gd)}
+.wrap{max-width:960px;margin:0 auto}
+.tabs{display:flex;gap:8px;margin-bottom:12px}
+.tbtn{flex:1;padding:10px;border-radius:10px;border:1px solid var(--bd);background:var(--crd);color:var(--mut);font-weight:800;font-size:.75rem;cursor:pointer}
+.tbtn.active{border-color:var(--gd);color:var(--gd);background:rgba(234,179,8,.1)}
+.sec{display:none}.sec.active{display:block}
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:12px}
+.kpi{background:var(--crd);border:1px solid var(--bd);border-radius:10px;padding:10px;text-align:center}
+.kpi small{font-size:.6rem;color:var(--mut);display:block;text-transform:uppercase}
+.kpi strong{font-size:.95rem;color:#fff;margin-top:3px;display:block}
+.filters{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:8px;margin-bottom:12px}
+input,select{width:100%;padding:9px;border-radius:8px;background:var(--crd);border:1px solid var(--bd);color:#fff;font-size:.75rem}
+.tbl-box{background:var(--crd);border:1px solid var(--bd);border-radius:12px;overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:.74rem;text-align:left}
+th,td{padding:10px;border-bottom:1px solid var(--bd)}
+th{background:rgba(0,0,0,.3);color:var(--mut);font-size:.65rem;text-transform:uppercase}
+.bdg{padding:3px 8px;border-radius:99px;font-size:.62rem;font-weight:800}
+.inv{background:rgba(16,185,129,.15);color:var(--em)}
+.spec{background:rgba(234,179,8,.15);color:var(--gd)}
+.risk{background:rgba(239,68,68,.18);color:#f87171}
+.nr{background:rgba(148,163,184,.15);color:var(--mut)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="brand">
+      <div>
+        <h1>UBUK.NET • OBSERVATOIRE SOUVERAIN</h1>
+        <p>Notation des 54 Ministères des Finances & Audit des Agences</p>
+      </div>
+    </div>
+    <div class="nav-links">
+      <a href="https://ubuk.net" class="btn-t gold">← UBUK.NET</a>
+      <a href="https://vercel.app" target="_blank" class="btn-t">Super-App</a>
+    </div>
+  </header>
+
+  <div class="tabs">
+    <button class="tbtn active" onclick="switchTab('minfi',this)">1. 54 Ministères (Afrique)</button>
+    <button class="tbtn" onclick="switchTab('agences',this)">2. Audit Agences (AfCRA vs Big 3)</button>
+  </div>
+
+  <!-- SECTION 1 : 54 MINISTÈRES -->
+  <div id="sec-minfi" class="sec active">
+    <div class="kpis">
+      <div class="kpi"><small>Couverture</small><strong>54 États</strong></div>
+      <div class="kpi"><small>Zone CEMAC</small><strong style="color:var(--gd)">6 Pays</strong></div>
+      <div class="kpi"><small>Agences Africaines</small><strong style="color:var(--em)">AfCRA / Bloomfield</strong></div>
+      <div class="kpi"><small>Indépendance</small><strong style="color:var(--cy)">100 % Souverain</strong></div>
+    </div>
+
+    <div class="filters">
+      <input type="text" id="q" placeholder="Rechercher un pays (ex: Cameroun, Sénégal...)" oninput="renderMinfi()">
+      <select id="reg" onchange="renderMinfi()">
+        <option value="ALL">Toutes les zones</option>
+        <option value="CEMAC">Zone CEMAC</option>
+        <option value="UEMOA">Zone UEMOA</option>
+        <option value="CEDEAO">CEDEAO</option>
+        <option value="NORD">Afrique du Nord</option>
+        <option value="EST">Afrique de l'Est</option>
+        <option value="SADC">Afrique Australe</option>
+      </select>
+      <select id="stat" onchange="renderMinfi()">
+        <option value="ALL">Tous les statuts</option>
+        <option value="INV">Qualité Investissement</option>
+        <option value="SPEC">Spéculatif / Émergent</option>
+        <option value="RISK">Risque Élevé</option>
+        <option value="NR">Non Noté (Big 3)</option>
+      </select>
+    </div>
+
+    <div class="tbl-box">
+      <table>
+        <thead>
+          <tr><th>#</th><th>Pays & Ministère</th><th>Zone</th><th>Moody's</th><th>S&P</th><th>Fitch</th><th>Score UBUK /100</th><th>Statut</th></tr>
+        </thead>
+        <tbody id="tbody"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- SECTION 2 : AUDIT DES AGENCES -->
+  <div id="sec-agences" class="sec">
+    <div class="tbl-box">
+      <table>
+        <thead>
+          <tr><th>Agence</th><th>Statut</th><th>Ancrage Terrain (30)</th><th>Transparence (25)</th><th>Score Audit</th><th>Verdict</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>1. AfCRA</strong></td><td>Union Africaine</td><td><strong>29 / 30</strong></td><td><strong>24 / 25</strong></td><td><strong style="color:var(--em)">95 / 100</strong></td><td><span class="bdg inv">RÉFÉRENCE</span></td></tr>
+          <tr><td><strong>2. Bloomfield</strong></td><td>UEMOA / CREPMF</td><td><strong>27 / 30</strong></td><td><strong>22 / 25</strong></td><td><strong style="color:var(--em)">89 / 100</strong></td><td><span class="bdg inv">FIABLE</span></td></tr>
+          <tr><td><strong>3. GCR Ratings</strong></td><td>Panafricain</td><td><strong>26 / 30</strong></td><td><strong>21 / 25</strong></td><td><strong style="color:var(--cy)">86 / 100</strong></td><td><span class="bdg inv">SOLIDE</span></td></tr>
+          <tr><td><strong>4. Big Three (Moody's/S&P/Fitch)</strong></td><td>Occidental</td><td><strong>11 / 30</strong></td><td><strong>16 / 25</strong></td><td><strong style="color:var(--gd)">54 / 100</strong></td><td><span class="bdg spec">BIAISÉ</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<script>
+const paysData = [
+  {n:"Cameroun (MINFI)",z:"CEMAC",m:"Caa1",s:"CCC+",f:"B-",u:68,st:"SPEC"},
+  {n:"Gabon (Min. Économie)",z:"CEMAC",m:"Caa1",s:"NR",f:"CCC+",u:62,st:"RISK"},
+  {n:"Congo (Min. Finances)",z:"CEMAC",m:"Caa2",s:"CCC+",f:"CCC+",u:58,st:"RISK"},
+  {n:"Tchad (Min. Finances)",z:"CEMAC",m:"NR",s:"NR",f:"NR",u:54,st:"NR"},
+  {n:"Guinée Équatoriale",z:"CEMAC",m:"NR",s:"NR",f:"NR",u:59,st:"NR"},
+  {n:"Centrafrique (MFB)",z:"CEMAC",m:"NR",s:"NR",f:"NR",u:51,st:"NR"},
+  {n:"Côte d'Ivoire (MFB)",z:"UEMOA",m:"Ba2",s:"BB-",f:"BB-",u:81,st:"SPEC"},
+  {n:"Sénégal (MFB)",z:"UEMOA",m:"Ba3",s:"B+",f:"NR",u:76,st:"SPEC"},
+  {n:"Bénin (MEF)",z:"UEMOA",m:"B1",s:"BB-",f:"B+",u:78,st:"SPEC"},
+  {n:"Togo (MEF)",z:"UEMOA",m:"B3",s:"B",f:"NR",u:70,st:"SPEC"},
+  {n:"Nigeria (FMF)",z:"CEDEAO",m:"Caa1",s:"B-",f:"B-",u:72,st:"SPEC"},
+  {n:"Ghana (MoF)",z:"CEDEAO",m:"Caa2",s:"SD",f:"RD",u:61,st:"RISK"},
+  {n:"Maroc (MEF)",z:"NORD",m:"Ba1",s:"BB+",f:"BB+",u:84,st:"INV"},
+  {n:"Égypte (MoF)",z:"NORD",m:"Caa1",s:"B-",f:"B-",u:71,st:"SPEC"},
+  {n:"Kenya (Treasury)",z:"EST",m:"Caa1",s:"B-",f:"B-",u:73,st:"SPEC"},
+  {n:"Rwanda (MINECOFIN)",z:"EST",m:"B2",s:"B+",f:"B+",u:82,st:"SPEC"},
+  {n:"Afrique du Sud (Treasury)",z:"SADC",m:"Ba2",s:"BB-",f:"BB-",u:80,st:"SPEC"},
+  {n:"Botswana (MFED)",z:"SADC",m:"A3",s:"BBB+",f:"NR",u:91,st:"INV"}
+];
+
+function switchTab(id, btn){
+  document.querySelectorAll('.sec').forEach(s=>s.classList.remove('active'));
+  document.querySelectorAll('.tbtn').forEach(b=>b.classList.remove('active'));
+  document.getElementById('sec-'+id).classList.add('active');
+  btn.classList.add('active');
+}
+
+function renderMinfi(){
+  const q = document.getElementById('q').value.toLowerCase();
+  const reg = document.getElementById('reg').value;
+  const stat = document.getElementById('stat').value;
+  const tb = document.getElementById('tbody');
+  tb.innerHTML = '';
+
+  paysData.filter(p =>
+    p.n.toLowerCase().includes(q) &&
+    (reg === 'ALL' || p.z === reg) &&
+    (stat === 'ALL' || p.st === stat)
+  ).forEach((p, idx) => {
+    const cls = p.st === 'INV' ? 'inv' : (p.st === 'SPEC' ? 'spec' : (p.st === 'RISK' ? 'risk' : 'nr'));
+    tb.innerHTML += `<tr>
+      <td>${idx+1}</td>
+      <td><strong>${p.n}</strong></td>
+      <td>${p.z}</td>
+      <td>${p.m}</td>
+      <td>${p.s}</td>
+      <td>${p.f}</td>
+      <td><strong style="color:var(--gd)">${p.u} / 100</strong></td>
+      <td><span class="bdg ${cls}">${p.st}</span></td>
+    </tr>`;
+  });
+}
+renderMinfi();
+</script>
+</body>
+</html>
