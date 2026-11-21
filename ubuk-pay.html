@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UBUK PAY | Latif Connect — Solidarité & Cantonnement</title>
+    <style>
+        :root {
+            --bg: #0b1120; --card: #151e32; --border: #28354f;
+            --text: #f8fafc; --muted: #94a3b8; --primary: #10b981; --accent: #38bdf8;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: system-ui, -apple-system, sans-serif; }
+        body { background: var(--bg); color: var(--text); padding: 14px; max-width: 720px; margin: 0 auto; line-height: 1.45; }
+        header { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border); padding-bottom: 12px; margin-bottom: 16px; gap: 10px; }
+        h1 { font-size: 1.1rem; color: var(--accent); }
+        .sub { font-size: 0.75rem; color: var(--muted); }
+        select, input, button { width: 100%; padding: 10px; border-radius: 6px; border: 1px solid var(--border); background: #0f172a; color: var(--text); font-size: 0.9rem; margin-top: 6px; }
+        select.lang-select { width: auto; margin-top: 0; font-weight: bold; }
+        button { background: var(--primary); color: #042f2e; font-weight: 700; border: none; cursor: pointer; margin-top: 12px; }
+        button.secondary { background: var(--accent); color: #082f49; }
+        .card { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 14px; margin-bottom: 16px; }
+        .card h2 { font-size: 0.95rem; color: var(--accent); margin-bottom: 10px; }
+        .kpi-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 16px; }
+        .kpi { background: var(--card); border: 1px solid var(--border); padding: 12px; border-radius: 8px; }
+        .kpi span { font-size: 0.75rem; color: var(--muted); display: block; }
+        .kpi strong { font-size: 1.05rem; color: var(--primary); }
+        label { font-size: 0.8rem; color: var(--muted); display: block; margin-top: 8px; }
+        .item { border-top: 1px solid var(--border); padding: 8px 0; font-size: 0.82rem; }
+        .badge { background: rgba(16,185,129,0.2); color: #6ee7b7; padding: 2px 6px; border-radius: 4px; font-size: 0.72rem; }
+    </style>
+</head>
+<body>
+
+<header>
+    <div>
+        <h1>UBUK PAY • Latif Connect</h1>
+        <div class="sub">FEFEO GROUP SARL • Cantonnement Advans (CA-102-002872)</div>
+    </div>
+    <select class="lang-select" id="lang" onchange="setLang(this.value)">
+        <option value="fr">FR</option>
+        <option value="en">EN</option>
+        <option value="ar">AR</option>
+    </select>
+</header>
+
+<div class="kpi-grid">
+    <div class="kpi">
+        <span id="t-kpi-seq">Compte Séquestre Tiers (98%)</span>
+        <strong id="val-sequestre">0 FCFA</strong>
+    </div>
+    <div class="kpi">
+        <span id="t-kpi-fonc">Fonctionnement FEFEO (2%)</span>
+        <strong id="val-fonctionnement" style="color:#38bdf8;">0 FCFA</strong>
+    </div>
+</div>
+
+<div class="card" style="text-align:center; border-color:#10b981;">
+    <h2 id="t-voc-title">🎙️ Latif Voice — Parlez dans votre langue</h2>
+    <p class="sub" style="margin-bottom:10px;">Appuyez, dites votre nom, votre bloc et votre besoin (15s max)</p>
+    <button id="btn-record" onclick="toggleVocal()" style="border-radius:50px; padding:16px; font-size:1rem;">
+        🟢 APPUYER POUR PARLER
+    </button>
+    <div id="voice-status" class="sub" style="margin-top:8px;"></div>
+</div>
+
+<div class="card">
+    <h2 id="t-pay-title">1. Encaissement & Aide Directe (Mobile Money / Carte)</h2>
+    <label>Bloc / Quartier (Douala)</label>
+    <input type="text" id="pay-bloc" placeholder="Ex: New-Bell, Nylon, Bonabéri, Akwa...">
+    
+    <label>Objet (Scolarité, Aide alimentaire, Cotisation)</label>
+    <input type="text" id="pay-motif" placeholder="Ex: Frais de scolarité / Soutien famille">
+    
+    <label>Bénéficiaire (École, Mutuelle ou Famille)</label>
+    <input type="text" id="pay-benef" placeholder="Nom de l'école ou du bénéficiaire">
+    
+    <label>Montant (FCFA)</label>
+    <input type="number" id="pay-montant" value="5000" min="100" step="5">
+    
+    <label>Téléphone du payeur</label>
+    <input type="tel" id="pay-tel" placeholder="697015643">
+    
+    <button onclick="lancerPaiement()" id="t-btn-pay">Payer / Cantoner via CinetPay</button>
+    <div id="pay-status" style="margin-top:8px; font-size:0.85rem;"></div>
+</div>
+
+<div class="card">
+    <h2 id="t-ter-title">2. Relevé Terrain des Blocs (Vécu Citoyen)</h2>
+    <label>Bloc visité</label>
+    <input type="text" id="ter-bloc" placeholder="Nom du bloc / quartier">
+    <label>Prix constaté du kg de riz (FCFA) & Coupures élec. (heures/j)</label>
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px;">
+        <input type="number" id="ter-riz" placeholder="Riz (ex: 550)">
+        <input type="number" id="ter-elec" placeholder="Coupures (ex: 4)">
+    </div>
+    <label>Besoin urgent constaté sur place</label>
+    <input type="text" id="ter-besoin" placeholder="Ex: 3 élèves sans fournitures / Eau potable">
+    <button class="secondary" onclick="envoyerTerrain()">Enregistrer le constat terrain</button>
+</div>
+
+<div class="card">
+    <h2 id="t-aud-title">3. Journal d'Audit & Reçus Infalsifiables</h2>
+    <div id="audit-list"><div class="sub">Chargement des opérations...</div></div>
+</div>
+
+<script>
+const i18n = {
+    fr: { dir: 'ltr', vocTitle: '🎙️ Latif Voice — Parlez dans votre langue', payTitle: '1. Encaissement & Aide Directe (Mobile Money / Carte)', btnPay: 'Payer / Cantoner via CinetPay', terTitle: '2. Relevé Terrain des Blocs (Vécu Citoyen)', audTitle: '3. Journal d\'Audit & Reçus Infalsifiables' },
+    en: { dir: 'ltr', vocTitle: '🎙️ Latif Voice — Speak in your language', payTitle: '1. Direct Collection & Aid (Mobile Money / Card)', btnPay: 'Pay / Escrow via CinetPay', terTitle: '2. Block Field Survey (Citizen Reality)', audTitle: '3. Audit Ledger & Tamper-Proof Receipts' },
+    ar: { dir: 'rtl', vocTitle: '🎙️ صوت لطيف — تحدث بلغتك', payTitle: '1. التحصيل والدعم المباشر (الدفع عبر الهاتف / البطاقة)', btnPay: 'دفع وتأمين عبر CinetPay', terTitle: '2. المسح الميداني للأحياء (واقع المواطنين)', audTitle: '3. سجل التدقيق والإيصالات الموثقة' }
+};
+
+function setLang(l) {
+    document.documentElement.lang = l;
+    document.documentElement.dir = i18n[l].dir;
+    document.getElementById('t-voc-title').innerText = i18n[l].vocTitle;
+    document.getElementById('t-pay-title').innerText = i18n[l].payTitle;
+    document.getElementById('t-btn-pay').innerText = i18n[l].btnPay;
+    document.getElementById('t-ter-title').innerText = i18n[l].terTitle;
+    document.getElementById('t-aud-title').innerText = i18n[l].audTitle;
+}
+
+let mediaRecorder, audioChunks = [];
+async function toggleVocal() {
+    const btn = document.getElementById('btn-record');
+    const st = document.getElementById('voice-status');
+    if (!mediaRecorder || mediaRecorder.state === 'inactive') {
+        try {
+            const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+            mediaRecorder = new MediaRecorder(stream);
+            audioChunks = [];
+            mediaRecorder.ondataavailable = e => audioChunks.push(e.data);
+            mediaRecorder.onstop = async () => {
+                const blob = new Blob(audioChunks, { type: 'audio/webm' });
+                st.innerText = 'Envoi de la note vocale...';
+                await fetch('/api/voice/note', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'audio/webm',
+                        'x-bloc': document.getElementById('pay-bloc').value || 'Douala',
+                        'x-tel': document.getElementById('pay-tel').value || 'Non renseigne'
+                    },
+                    body: blob
+                });
+                st.innerText = '✅ Message vocal transmis à l’équipe terrain.';
+                chargerAudit();
+            };
+            mediaRecorder.start();
+            btn.innerText = '🔴 ENREGISTREMENT... APPUYER POUR ENVOYER';
+            btn.style.background = '#ef4444';
+            btn.style.color = '#fff';
+        } catch (e) {
+            st.innerText = '⚠️ Autorisez le microphone sur votre navigateur.';
+        }
+    } else {
+        mediaRecorder.stop();
+        btn.innerText = '🟢 APPUYER POUR PARLER';
+        btn.style.background = '#10b981';
+        btn.style.color = '#042f2e';
+    }
+}
+
+async function lancerPaiement() {
+    const status = document.getElementById('pay-status');
+    status.innerText = 'Connexion à CinetPay en cours...';
+    const res = await fetch('/api/pay/init', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+            bloc: document.getElementById('pay-bloc').value,
+            motif: document.getElementById('pay-motif').value,
+            beneficiaire: document.getElementById('pay-benef').value,
+            montant: document.getElementById('pay-montant').value,
+            telephone: document.getElementById('pay-tel').value
+        })
+    });
+    const data = await res.json();
+    if (data.success && data.payment_url) {
+        status.innerHTML = `✅ Lien généré (${data.transaction_id}). Redirection...`;
+        window.open(data.payment_url, '_blank');
+        chargerAudit();
+    } else {
+        status.innerText = '⚠️ ' + (data.error || 'Vérifiez vos clés Sandbox dans Vercel');
+    }
+}
+
+async function envoyerTerrain() {
+    await fetch('/api/terrain/releve', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+            bloc: document.getElementById('ter-bloc').value,
+            prix_riz_kg: document.getElementById('ter-riz').value,
+            heures_coupure_elec: document.getElementById('ter-elec').value,
+      
