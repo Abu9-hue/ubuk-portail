@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>UBUK KALAM • Rasm, Tajwîd, Maths & IA 24/7</title>
+<style>
+:root{--bg:#04070d;--chassis:#0e1522;--gold:#eab308;--emerald:#10b981;--cyan:#06b6d4;--muted:#94a3b8;--border:rgba(255,255,255,.08)}
+*{box-sizing:border-box;margin:0;padding:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif}
+body{background:radial-gradient(circle at top,#0b1324 0%,var(--bg) 70%);color:#f8fafc;min-height:100vh;display:flex;justify-content:center;padding:12px}
+.wrap{width:100%;max-width:560px}
+.rib{display:flex;justify-content:space-between;align-items:center;font-size:.65rem;color:var(--muted);padding:6px 10px;background:rgba(255,255,255,.03);border-radius:99px;margin-bottom:10px;border:1px solid var(--border)}
+.dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--emerald);box-shadow:0 0 8px var(--emerald);margin-right:5px}
+.hdr{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}
+h1{font-size:1.1rem;font-weight:800;background:linear-gradient(90deg,#fff,var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.sub{font-size:.72rem;color:var(--muted)}
+.ret-pill{display:inline-flex;align-items:center;gap:8px;text-decoration:none;background:rgba(255,255,255,.04);border:1px solid var(--border);padding:5px 10px;border-radius:99px;color:#fff}
+.ret-orb{width:26px;height:26px;border-radius:50%;background:rgba(234,179,8,.15);color:var(--gold);display:grid;place-items:center;font-weight:bold;font-size:.85rem}
+.ret-txt{display:flex;flex-direction:column}.ret-txt small{font-size:.52rem;color:var(--muted);text-transform:uppercase}.ret-txt strong{font-size:.72rem;color:var(--gold)}
+
+.chassis{background:var(--chassis);border:1px solid var(--border);border-radius:16px;overflow:hidden;box-shadow:0 20px 40px rgba(0,0,0,.6)}
+.top-led{height:5px;background:linear-gradient(90deg,var(--gold),var(--emerald),var(--cyan))}
+.sec{padding:12px;border-bottom:1px solid var(--border)}
+.grp-title{font-size:.65rem;font-weight:800;letter-spacing:.6px;color:var(--muted);text-transform:uppercase;margin-bottom:8px;display:flex;justify-content:space-between;align-items:center}
+
+/* APPELS VOCAUX & AUDIO SUPER-APP */
+.call-bar{display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;margin-bottom:10px}
+.cbtn{padding:9px 6px;border-radius:10px;border:1px solid var(--border);background:#09111e;color:#fff;font-size:.7rem;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:5px}
+.cbtn.audio{border-color:rgba(16,185,129,.4);color:var(--emerald)}
+.cbtn.video{border-color:rgba(6,182,212,.4);color:var(--cyan)}
+.cbtn.ia{border-color:rgba(234,179,8,.4);color:var(--gold)}
+
+/* VISUALISEUR ACOUSTIQUE (STYLE LUCIO ARESE) */
+.wave-box{background:#050912;border:1px solid rgba(16,185,129,.3);border-radius:12px;padding:10px;text-align:center}
+#voice-canvas{width:100%;height:140px;display:block;border-radius:8px;background:radial-gradient(circle,#0b172a,#04070d)}
+
+/* TABLEAU BLANC TACTILE (WHITEBOARD KALAM) */
+#kalam-board{width:100%;height:200px;background:#070c16;border:1px solid rgba(234,179,8,.35);border-radius:12px;touch-action:none;cursor:crosshair;display:block}
+.tools{display:flex;gap:6px;margin-top:8px}
+.tbtn{flex:1;padding:7px;border-radius:8px;border:1px solid var(--border);background:#09111e;color:#cbd5e1;font-size:.68rem;font-weight:700;cursor:pointer}
+
+.sel{width:100%;padding:8px;border-radius:8px;background:#09111e;border:1px solid rgba(255,255,255,.12);color:#fff;font-size:.74rem;margin-top:6px}
+.res{margin-top:8px;padding:8px;border-radius:8px;background:rgba(16,185,129,.1);border:1px solid rgba(16,185,129,.3);font-size:.7rem;color:#e2e8f0}
+</style>
+</head>
+<body>
+<main class="wrap">
+  <div class="rib"><span><i class="dot"></i>TABLETTE KALAM • IA TUTEUR 24/7</span><span>10 QIRÂ'ÂT • RASM</span></div>
+  <header class="hdr">
+    <div><h1>Académie Kalam • Rasm & Voix</h1><div class="sub">Tajwîd, Mathématiques, Code & Analyse d'Onde</div></div>
+    <a href="https://ubuk.net" class="ret-pill"><span class="ret-orb">←</span><span class="ret-txt"><small>ACCUEIL</small><strong>UBUK.NET</strong></span></a>
+  </header>
+
+  <section class="chassis">
+    <div class="top-led"></div>
+
+    <!-- 1. BOUTONS APPELS AUDIO / VIDÉO & RELAIS IA 24/7 -->
+    <div class="sec">
+      <div class="grp-title"><span>1. CLASSE CONNECTÉE & RELAIS IA</span><span style="color:var(--emerald)">● EN LIGNE 24/7</span></div>
+      <div class="call-bar">
+        <button class="cbtn audio" onclick="statusMsg('Appel Audio Super-App prêt : Canal voix basse consommation (3G/4G) activé.')">📞 Appel Audio</button>
+        <button class="cbtn video" onclick="statusMsg('Visio & Partage Whiteboard prêt : Connexion salle de cours en direct.')">📹 Appel Vidéo</button>
+        <button class="cbtn ia" onclick="statusMsg('Relais IA 24/7 activé : Suivi autonome de votre récitation et de vos tracés.')">🤖 Tuteur IA 24/7</button>
+      </div>
+      <div class="res" id="kalam-status">Sélectionnez une Qirâ'a ou activez le micro pour visualiser la géométrie de votre voix.</div>
+    </div>
+
+    <!-- 2. ANALYSE ACOUSTIQUE & VISUALISATION D'ONDE (STYLE LUCIO ARESE) -->
+    <div class="sec">
+      <div class="grp-title"><span>2. GÉOMÉTRIE DE LA VOIX (TAJWÎD & HARMONIQUES)</span><span style="color:var(--gold)">BRIDGES / 10 QIRÂ'ÂT</span></div>
+      <select id="qiraat-sel" class="sel" style="margin-bottom:8px" onchange="statusMsg('Référentiel chargé : ' + this.options[this.selectedIndex].text)">
+        <option value="hafs">Qirâ'a : Hafs 'an 'Asim (Référence Rasm)</option>
+        <option value="warsh">Qirâ'a : Warsh 'an Nafi' (Maghreb / Afrique de l'Ouest)</option>
+        <option value="qalun">Qirâ'a : Qalun 'an Nafi'</option>
+        <option value="douri">Qirâ'a : Al-Douri 'an Abi 'Amr (Afrique Centrale / Soudan)</option>
+      </select>
+
+      <div class="wave-box">
+        <canvas id="voice-canvas"></canvas>
+        <button id="mic-btn" onclick="toggleMic()" style="margin-top:8px;padding:8px 16px;border-radius:99px;border:none;background:var(--emerald);color:#04070d;font-weight:800;font-size:.72rem;cursor:pointer">
+          🎙️ Activer l'Analyse Vocale (Onde Géométrique)
+        </button>
+      </div>
+    </div>
+
+    <!-- 3. WHITEBOARD TACTILE (TABLETTE KALAM : RASM, MATHS, CODE) -->
+    <div class="sec" style="border-bottom:none">
+      <div class="grp-title"><span>3. WHITEBOARD INTERACTIF (TRACE & SQUELETTE MATHS)</span><span style="color:var(--cyan)">STYLETS / TACTILE</span></div>
+      <canvas id="kalam-board"></canvas>
+      <div class="tools">
+        <button class="tbtn" style="color:var(--gold)" onclick="setColor('#eab308')">✒️ Or (Rasm)</button>
+        <button class="tbtn" style="color:var(--emerald)" onclick="setColor('#10b981')">📐 Émeraude (Maths)</button>
+        <button class="tbtn" style="color:var(--cyan)" onclick="setColor('#06b6d4')">💻 Cyan (Code)</button>
+        <button class="tbtn" onclick="clearBoard()">🗑️ Effacer</button>
+      </div>
+    </div>
+  </section>
+</main>
+
+<script>
+function statusMsg(t){document.getElementById('kalam-status').innerHTML=t}
+
+// --- WHITEBOARD TACTILE ---
+const board=document.getElementById('kalam-board');
+const bctx=board.getContext('2d');
+let drawing=false, strokeColor='#eab308';
+
+function resizeBoard(){
+  const rect=board.getBoundingClientRect();
+  board.width=rect.width; board.height=rect.height;
+  bctx.lineCap='round'; bctx.lineWidth=3;
+}
+window.addEventListener('resize',resizeBoard);
+resizeBoard();
+
+function setColor(c){strokeColor=c}
+function clearBoard(){bctx.clearRect(0,0,board.width,board.height)}
+
+function getPos(e){
+  const r=board.getBoundingClientRect();
+  const t=e.touches?e.touches[0]:e;
+  return {x:t.clientX-r.left, y:t.clientY-r.top};
+}
+board.addEventListener('pointerdown',e=>{drawing=true;const p=getPos(e);bctx.beginPath();bctx.moveTo(p.x,p.y)});
+board.addEventListener('pointermove',e=>{if(!drawing)return;const p=getPos(e);bctx.strokeStyle=strokeColor;bctx.lineTo(p.x,p.y);bctx.stroke()});
+board.addEventListener('pointerup',()=>drawing=false);
+
+// --- VISUALISEUR D'ONDE VOCALE (STYLE LUCIO ARESE) ---
+const vcan=document.getElementById('voice-canvas');
+const vctx=vcan.getContext('2d');
+let audioCtx, analyser, dataArray, micActive=false, phase=0;
+
+function drawWave(){
+  vcan.width=vcan.offsetWidth; vcan.height=vcan.offsetHeight;
+  const w=vcan.width, h=vcan.height, cx=w/2, cy=h/2;
+  vctx.clearRect(0,0,w,h);
+
+  let amp=18;
+  if(micActive && analyser){
+    analyser.getByteFrequencyData(dataArray);
+    const avg=dataArray.reduce((a,b)=>a+b,0)/dataArray.length;
+    amp=12 + avg*0.75;
+  }
+
+  // Dessin des harmoniques géométriques (3 cercles en phase)
+  const colors=['rgba(234,179,8,0.75)','rgba(16,185,129,0.75)','rgba(6,182,212,0.65)'];
+  colors.forEach((col,idx)=>{
+    vctx.beginPath();
+    vctx.strokeStyle=col;
+    vctx.lineWidth=1.8;
+    for(let a=0;a<=Math.PI*2;a+=0.05){
+      const r=34 + idx*8 + Math.sin(a*(4+idx*2)+phase*(idx+1))*(amp*0.35);
+      const x=cx+Math.cos(a)*r;
+      const y=cy+Math.sin(a)*r;
+      a===0?vctx.moveTo(x,y):vctx.lineTo(x,y);
+    }
+    vctx.closePath();
+    vctx.stroke();
+  });
+  phase+=0.04;
+  requestAnimationFrame(drawWave);
+}
+drawWave();
+
+async function toggleMic(){
+  const btn=document.getElementById('mic-btn');
+  if(!micActive){
+    try{
+      const stream=await navigator.mediaDevices.getUserMedia({audio:true});
+      audioCtx=new (window.AudioContext||window.webkitAudioContext)();
+      const src=audioCtx.createMediaStreamSource(stream);
+      analyser=audioCtx.createAnalyser();
+      analyser.fftSize=64;
+      src.connect(analyser);
+      dataArray=new Uint8Array(analyser.frequencyBinCount);
+      micActive=true;
+      btn.innerText='⏹️ Arrêter le Micro';
+      btn.style.background='#eab308';
