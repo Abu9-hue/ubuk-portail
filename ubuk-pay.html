@@ -135,3 +135,117 @@ h2{font-size:.82rem;font-weight:800;color:var(--gold)}
 
       <!-- PANNEAU 1 : FONDS LOCAUX (CARE / VSLA / CRS & ÉCONOMIE RÉELLE) -->
       <div class="panel show" id="panel-local">
+<div class="grp-title"><span>CAISSES COMMUNAUTAIRES (MODÈLE CARE / VSLA / CRS)</span><span style="color:var(--emerald)">PROXIMITÉ</span></div>
+        <div class="fund-card">
+          <div>
+            <h3>Fonds 1 • Épargne Rotative & Solidarité (VSLA)</h3>
+            <p>Caisse villageoise et tontine sécurisée (parts sociales + caisse d'urgence santé inspirée CARE/CRS).</p>
+          </div>
+          <div class="fund-amt" style="color:var(--emerald)">18 500 F</div>
+        </div>
+        <div class="fund-card">
+          <div>
+            <h3>Fonds 2 • Fonds Économie & Activités Génératrices</h3>
+            <p>Micro-trésorerie locale dédiée au petit commerce, intrants agricoles et fonds de roulement.</p>
+          </div>
+          <div class="fund-amt" style="color:var(--gold)">27 300 F</div>
+        </div>
+      </div>
+
+      <div class="panel" id="panel-islam">
+        <div class="grp-title"><span>COMPARTIMENTS ISLAMIQUES (0 % USURE)</span><span style="color:var(--gold)">4 ÉCOLES</span></div>
+        <div class="fund-card">
+          <div>
+            <h3>Zakat Souveraine (Hanafite, Malikite, Chafiite, Hanbalite)</h3>
+            <p>Calcul automatique du Nisab et redistribution directe aux ayants droit vérifiés.</p>
+          </div>
+          <div class="fund-amt" style="color:var(--gold)">Collecte Active</div>
+        </div>
+        <div class="fund-card">
+          <div>
+            <h3>Sadaqah, Waqf & Qard Hasan (Prêt sans intérêt)</h3>
+            <p>Fonds social d'urgence vitale et dotations pérennes communautaires.</p>
+          </div>
+          <div class="fund-amt" style="color:var(--emerald)">0 % Usure</div>
+        </div>
+        <div class="fund-card">
+          <div>
+            <h3>Moudharaba & Moucharaka (Participation productive)</h3>
+            <p>Financement participatif des artisans, ingénieurs et producteurs (partage des profits réels).</p>
+          </div>
+          <div class="fund-amt" style="color:var(--cyan)">Partage Réel</div>
+        </div>
+      </div>
+
+      <div class="panel" id="panel-central">
+        <div class="grp-title"><span>DORSALE CENTRALE • TOTAL DES FONDS ENCAISSÉS</span><span style="color:var(--cyan)">AUDIT SHA-256</span></div>
+        <div class="fund-card">
+          <div>
+            <h3>Réserve Souveraine UBUK & Liquidité CinetPay</h3>
+            <p>Total des dépôts utilisateurs, règlements marchands et compensations inter-opérateurs.</p>
+          </div>
+          <div class="fund-amt" style="color:var(--cyan)">100 % Couvert</div>
+        </div>
+        <div class="fund-card">
+          <div>
+            <h3>Cagnotte Mutuelle UBUK KO'ONE (Esprit Ruisseaux)</h3>
+            <p>Cumul centralisé des micro-arrondis (500 F) garantissant la couverture santé et indicielle CIMA.</p>
+          </div>
+          <div class="fund-amt" style="color:var(--emerald)">Fonds Sécurisé</div>
+        </div>
+      </div>
+
+      <div class="sim-box">
+        <div class="grp-title" style="color:var(--muted)">SIMULATEUR D'AFFECTATION & MICRO-ARRONDI</div>
+        <div class="g2">
+          <input type="number" id="atm-amount" class="inp" value="2350" min="500" step="100" oninput="calcAtm()">
+          <select id="atm-dest" class="sel">
+            <option value="Local (VSLA / Économique)">Affecter → Local (VSLA / Éco)</option>
+            <option value="Intermédiaire (Fonds Islamiques)">Affecter → Fonds Islamiques</option>
+            <option value="Central (Épargne Souveraine)">Affecter → Niveau Central</option>
+          </select>
+        </div>
+        <div class="cols">
+          <div class="col-bar lit"><div class="col-lbl">MONTANT</div><div class="col-val" id="atm-v1">2 350 F</div></div>
+          <div class="col-bar lit-em"><div class="col-lbl">ARRONDI KO'ONE</div><div class="col-val" id="atm-v2">+150 F</div></div>
+          <div class="col-bar"><div class="col-lbl">TOTAL DÉBITÉ</div><div class="col-val" id="atm-v3">2 500 F</div></div>
+        </div>
+        <button type="button" class="go" onclick="execAtm()">Exécuter & Sceller en SHA-256</button>
+        <div class="res" id="atm-res"></div>
+      </div>
+
+      <a href="ubuk-koone.html" class="koone-bar">
+        <span>🛡️ Ouvrir Page 3 : UBUK KO'ONE (Esprit Ruisseaux)</span>
+        <span>→</span>
+      </a>
+    </div>
+  </section>
+</main>
+
+<script>
+function switchTier(tier){
+  ['local','islam','central'].forEach(t=>{
+    document.getElementById('panel-'+t).style.display=(t===tier)?'block':'none';
+    document.getElementById('tab-'+t).className='tab-btn';
+  });
+  if(tier==='local')document.getElementById('tab-local').classList.add('on-em');
+  if(tier==='islam')document.getElementById('tab-islam').classList.add('on-gold');
+  if(tier==='central')document.getElementById('tab-central').classList.add('on-cyan');
+}
+function calcAtm(){
+  const val=parseFloat(document.getElementById('atm-amount').value)||0;
+  const arrondi=val%500===0?0:500-(val%500);
+  document.getElementById('atm-v1').innerText=val.toLocaleString('fr-FR')+' F';
+  document.getElementById('atm-v2').innerText='+'+arrondi.toLocaleString('fr-FR')+' F';
+  document.getElementById('atm-v3').innerText=(val+arrondi).toLocaleString('fr-FR')+' F';
+}
+function execAtm(){
+  const dest=document.getElementById('atm-dest').value;
+  const arrondi=document.getElementById('atm-v2').innerText;
+  const box=document.getElementById('atm-res');
+  box.style.display='block';
+  box.innerHTML=`Affectation validée vers <strong>${dest}</strong> ! <strong>${arrondi}</strong> propulsés vers <strong>UBUK KO'ONE</strong>.`;
+}
+</script>
+</body>
+        </html>
