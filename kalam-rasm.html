@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="fr">
 <head>
 <meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
@@ -175,3 +175,17 @@ async function toggleMic(){
       micActive=true;
       btn.innerText='⏹️ Arrêter le Micro';
       btn.style.background='#eab308';
+      statusMsg('Micro actif : Récitez un verset pour observer la géométrie harmonique de votre voix.');
+    }catch(err){
+      statusMsg('Autorisez le microphone dans votre navigateur pour activer la visualisation vocale.');
+    }
+  }else{
+    micActive=false;
+    if(audioCtx)audioCtx.close();
+    btn.innerText="🎙️ Activer l'Analyse Vocale (Onde Géométrique)";
+    btn.style.background='#10b981';
+  }
+}
+</script>
+</body>
+</html>
