@@ -972,4 +972,29 @@
       if (!txt && !audioBlobUrl) return alert('Écrivez ou enregistrez votre suggestion.');
       if (audioBlobUrl) telechargerNoteVocale();
       window.open('https://t.me' + encodeURIComponent('💡 SUGGESTION UBUK FALAH : ' + (txt || 'Note vocale jointe')), '_blank');
-      
+            fermerModaleSuggestion();
+    }
+
+    function filtrerRecherche() {
+      const q = document.getElementById('champRecherche').value.toLowerCase();
+      const res = FORMULES.filter(f => f.nom.toLowerCase().includes(q) || f.desc.toLowerCase().includes(q));
+      document.getElementById('resultatsRecherche').innerHTML = res.map(f => '<div onclick="choisirFormule(\'' + f.id + '\'); fermerModaleRecherche();" class="p-2.5 rounded-lg bg-stone-100 cursor-pointer"><strong>' + f.nom + '</strong></div>').join('');
+    }
+
+    function ouvrirMenuTiroir() { document.getElementById('menuTiroir').classList.remove('hidden'); }
+    function fermerMenuTiroir() { document.getElementById('menuTiroir').classList.add('hidden'); }
+    function ouvrirModaleCompte() { document.getElementById('modaleCompte').classList.remove('hidden'); }
+    function fermerModaleCompte() { document.getElementById('modaleCompte').classList.add('hidden'); }
+    function ouvrirModaleRecherche() { document.getElementById('modaleRecherche').classList.remove('hidden'); filtrerRecherche(); }
+    function fermerModaleRecherche() { document.getElementById('modaleRecherche').classList.add('hidden'); }
+    function ouvrirModaleSuggestion() { document.getElementById('modaleSuggestion').classList.remove('hidden'); }
+    function fermerModaleSuggestion() { document.getElementById('modaleSuggestion').classList.add('hidden'); }
+    function ouvrirModaleContact() { document.getElementById('modaleContact').classList.remove('hidden'); }
+    function fermerModaleContact() { document.getElementById('modaleContact').classList.add('hidden'); }
+
+    afficherGrilleProduits();
+    recalculerTarifFoyer();
+  </script>
+</body>
+</html>
+
