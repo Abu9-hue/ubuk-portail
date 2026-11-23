@@ -827,4 +827,149 @@
       recalculerTarifFoyer();
       parlerGuide('Formule choisie : ' + formuleSelectionnee.nom);
     }
-          
+    function afficherTableMembres() {
+      const tbody = document.getElementById('tableMembresBody');
+      const strate = document.getElementById('classificationSociale').value;
+      tbody.innerHTML = membresFoyer.map((m, index) => {
+        const rang = index + 1;
+        let tarifMembre = formuleSelectionnee.mensuel;
+        let badgeTarif = 'Tarif plein (100 %)';
+        if (strate === 'CAT_1') { tarifMembre = 0; badgeTarif = 'Zakāh / Waqf (0 F)'; }
+        else if (rang >= 4) { tarifMembre = Math.round(formuleSelectionnee.mensuel * 0.5); badgeTarif = 'Tarif réduit (-50 %)'; }
+        const nomVal = index === 0 ? (document.getElementById('nomComplet')?.value || m.nom) : m.nom;
+        return '<tr class="bg-white"><td class="p-2 font-bold text-emerald-950">' + rang + '</td>' +
+          '<td class="p-2"><input type="text" value="' + nomVal + '" onchange="membresFoyer[' + index + '].nom = this.value" placeholder="Nom & Prénoms" class="w-full p-1.5 rounded border border-stone-300" ' + (index === 0 ? 'readonly' : '') + ' /></td>' +
+          '<td class="p-2"><select onchange="membresFoyer[' + index + '].lien = this.value" class="p-1.5 rounded border border-stone-300 bg-white"><option>' + m.lien + '</option><option>Conjoint(e)</option><option>Enfant</option><option>Parent / À charge</option></select></td>' +
+          '<td class="p-2"><input type="date" value="' + m.naissance + '" onchange="membresFoyer[' + index + '].naissance = this.value" class="p-1.5 rounded border border-stone-300" /></td>' +
+          '<td class="p-2"><select onchange="membresFoyer[' + index + '].sante = this.value" class="p-1.5 rounded border border-stone-300 bg-white"><option>RAS</option><option>Grossesse</option><option>Enfant &lt; 5 ans</option><option>Senior</option><option>Chronique</option></select></td>' +
+          '<td class="p-2 font-semibold text-emerald-800">' + tarifMembre.toLocaleString('fr-FR') + ' F/mois <span class="block text-[10px] text-slate-500">' + badgeTarif + '</span></td>' +
+          '<td class="p-2 text-center">' + (index === 0 ? '<span class="text-slate-400">Titulaire</span>' : '<button type="button" onclick="supprimerMembreFoyer(' + index + ')" class="text-red-600 font-bold">Retirer</button>') + '</td></tr>';
+      }).join('');
+    }
+
+    function ajouterMembreFoyer() { membresFoyer.push({ lien: 'Enfant', nom: '', naissance: '', sante: 'RAS' }); recalculerTarifFoyer(); }
+    function supprimerMembreFoyer(index) { membresFoyer.splice(index, 1); recalculerTarifFoyer(); }
+
+    function recalculerTarifFoyer() {
+      afficherTableMembres();
+      const strate = document.getElementById('classificationSociale').value;
+      const nb = membresFoyer.length;
+      let totalMensuel = 0;
+      if (strate !== 'CAT_1') {
+        for (let i = 1; i <= nb; i++) totalMensuel += i <= 3 ? formuleSelectionnee.mensuel : Math.round(formuleSelectionnee.mensuel * 0.5);
+      }
+      const totalAnnuel = totalMensuel * 12;
+      const partTabarru = Math.round(totalMensuel * 0.80);
+      const partWakala = totalMensuel - partTabarru;
+      document.getElementById('resumeFormuleTitre').textContent = formuleSelectionnee.nom + ' — ' + nb + ' membre(s)';
+      document.getElementById('resumeTotalMensuel').textContent = totalMensuel.toLocaleString('fr-FR') + ' FCFA / mois';
+      document.getElementById('resumeTotalAnnuel').textContent = 'Soit ' + totalAnnuel.toLocaleString('fr-FR') + ' FCFA / an';
+      document.getElementById('resumeTabarru').textContent = partTabarru.toLocaleString('fr-FR') + ' FCFA / mois';
+      document.getElementById('resumeWakala').textContent = partWakala.toLocaleString('fr-FR') + ' FCFA / mois';
+      return { totalMensuel, totalAnnuel, partTabarru, partWakala, nb };
+    }
+
+    document.getElementById('nomComplet').addEventListener('input', () => {
+      const val = document.getElementById('nomComplet').value.trim();
+      membresFoyer.nom = val;
+      document.getElementById('carteTitulaireDisplay').textContent = val ? val.toUpperCase() : 'ADHÉRENT UBUK • FALAH';
+      afficherTableMembres();
+    });
+
+    function construireSyntheseTexte() {
+      if (!policeGeneree) {
+        const suffixe = Math.floor(100000 + Math.random() * 900000);
+        policeGeneree = 'FALAH-2026-' + suffixe;
+        document.getElementById('displayPolice').textContent = policeGeneree;
+        document.getElementById('carteIdDisplay').textContent = 'ID UBUK : 237-2026-' + suffixe;
+      }
+      const calc = recalculerTarifFoyer();
+      const nom = document.getElementById('nomComplet').value || 'Non renseigné';
+      const tel = document.getElementById('telephone').value || 'Non renseigné';
+      const loc = document.getElementById('localisation').value || 'Non renseigné';
+      return '🛡️ SOUSCRIPTION & PAIEMENT UBUK • FALAH\n• Police : ' + policeGeneree + '\n• Souscripteur : ' + nom + ' (' + tel + ')\n• Localisation : ' + loc + '\n• Formule : ' + formuleSelectionnee.nom + '\n• Cotisation : ' + calc.totalMensuel + ' FCFA/mois (80% Tabarru: ' + calc.partTabarru + ' F | 20% Wakalah: ' + calc.partWakala + ' F)';
+    }
+
+    function genererEtSoumettreContrat(e) {
+      e.preventDefault();
+      construireSyntheseTexte();
+      const calc = recalculerTarifFoyer();
+      const nomVal = document.getElementById('nomComplet').value;
+      document.getElementById('recTitrePolice').textContent = 'Police N° ' + policeGeneree + ' — ' + nomVal;
+      document.getElementById('recContenuDetails').innerHTML = '<p><strong>Souscripteur :</strong> ' + nomVal + '</p><p><strong>Formule :</strong> ' + formuleSelectionnee.nom + ' (' + calc.nb + ' membre(s))</p><p><strong>Cotisation :</strong> ' + calc.totalMensuel.toLocaleString('fr-FR') + ' FCFA / mois</p>';
+      const sec = document.getElementById('sectionRecepisse');
+      sec.classList.remove('hidden');
+      sec.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function envoyerDossierWhatsApp(numero) { window.open('https://wa.me' + numero + '?text=' + encodeURIComponent(construireSyntheseTexte()), '_blank'); }
+    function envoyerDossierTelegram() { window.open('https://t.me' + encodeURIComponent(construireSyntheseTexte()), '_blank'); }
+
+    function telechargerContratVierge() {
+      const contenu = 'CONTRAT UBUK • FALAH (FEFEO GROUP SARL)\nPortail : https://ubuk.net | USSD : #150*7711#\n' + FORMULES.map(f => '- ' + f.nom + ' : ' + f.mensuel + ' FCFA/mois').join('\n');
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(new Blob([contenu], { type: 'text/plain;charset=utf-8' }));
+      a.download = 'Contrat_Officiel_UBUK_Falah.txt';
+      a.click();
+    }
+
+    function validerAdhesionRuchePhase1() {
+      const nom = document.getElementById('rucheNom').value.trim();
+      const pays = document.getElementById('ruchePays').value;
+      const tel = document.getElementById('rucheTel').value.trim();
+      const pin = document.getElementById('ruchePin').value.trim();
+      if (!nom || !tel || pin.length !== 4) return alert('Renseignez votre nom, téléphone et code PIN à 4 chiffres.');
+      document.getElementById('nomComplet').value = nom;
+      document.getElementById('telephone').value = pays + ' ' + tel;
+      document.getElementById('carteTitulaireDisplay').textContent = nom.toUpperCase();
+      construireSyntheseTexte();
+      fermerModaleCompte();
+      document.getElementById('section-carte').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    async function demarrerEnregistrementVocal() {
+      try {
+        const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+        audioChunks = [];
+        mediaRecorder = new MediaRecorder(stream);
+        mediaRecorder.ondataavailable = (e) => { if (e.data.size > 0) audioChunks.push(e.data); };
+        mediaRecorder.onstop = () => {
+          audioBlobUrl = URL.createObjectURL(new Blob(audioChunks, { type: 'audio/webm' }));
+          const lecteur = document.getElementById('lecteurAudioSuggestion');
+          lecteur.src = audioBlobUrl; lecteur.classList.remove('hidden');
+          document.getElementById('btnTelechargerAudio').classList.remove('hidden');
+          stream.getTracks().forEach(t => t.stop());
+        };
+        mediaRecorder.start();
+        document.getElementById('statutMicro').textContent = '🔴 Enregistrement...';
+        document.getElementById('btnStartRec').disabled = true;
+        document.getElementById('btnStopRec').disabled = false;
+      } catch { alert('Autorisez le microphone pour enregistrer votre suggestion vocale.'); }
+    }
+
+    function arreterEnregistrementVocal() {
+      if (mediaRecorder && mediaRecorder.state !== 'inactive') mediaRecorder.stop();
+      document.getElementById('statutMicro').textContent = '✅ Note vocale prête';
+      document.getElementById('btnStartRec').disabled = false;
+      document.getElementById('btnStopRec').disabled = true;
+    }
+
+    function telechargerNoteVocale() {
+      if (!audioBlobUrl) return;
+      const a = document.createElement('a'); a.href = audioBlobUrl; a.download = 'Suggestion_Vocale_Falah.webm'; a.click();
+    }
+
+    function envoyerSuggestionWhatsApp(num) {
+      const txt = document.getElementById('sugTexte').value.trim();
+      if (!txt && !audioBlobUrl) return alert('Écrivez ou enregistrez votre suggestion.');
+      if (audioBlobUrl) telechargerNoteVocale();
+      window.open('https://wa.me' + num + '?text=' + encodeURIComponent('💡 SUGGESTION UBUK FALAH : ' + (txt || 'Note vocale jointe')), '_blank');
+      fermerModaleSuggestion();
+    }
+
+    function envoyerSuggestionTelegram() {
+      const txt = document.getElementById('sugTexte').value.trim();
+      if (!txt && !audioBlobUrl) return alert('Écrivez ou enregistrez votre suggestion.');
+      if (audioBlobUrl) telechargerNoteVocale();
+      window.open('https://t.me' + encodeURIComponent('💡 SUGGESTION UBUK FALAH : ' + (txt || 'Note vocale jointe')), '_blank');
+      
