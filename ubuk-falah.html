@@ -143,3 +143,146 @@
         <a href="https://ubuk.net" class="flex items-center justify-between p-3.5 rounded-xl bg-emerald-950 border-2 border-amber-400/60 text-amber-300 font-extrabold text-sm">
           <span>← PORTAIL UBUK.NET</span><span>→</span>
         </a>
+        <button onclick="fermerMenuTiroir(); ouvrirModaleSuggestion();" class="w-full flex items-center justify-between p-3.5 rounded-xl bg-stone-900 border border-amber-400/40 text-amber-300 font-bold text-sm">
+          <span>🎙️ Suggestion Écrite ou Vocale</span><span>→</span>
+        </button>
+        <button onclick="fermerMenuTiroir(); ouvrirModaleContact();" class="w-full flex items-center justify-between p-3.5 rounded-xl bg-green-600 text-white font-bold text-sm">
+          <span>📞 WhatsApp (2 N°) & Canal Telegram (Appel/Paiement)</span><span>→</span>
+        </button>
+      </div>
+
+      <div class="space-y-1 border-t border-emerald-900 pt-4">
+        <div class="text-[11px] uppercase tracking-widest text-stone-400 font-bold mb-2">Rubriques Falah (فَلَاح)</div>
+        <a href="#section-rural" onclick="fermerMenuTiroir()" class="flex justify-between items-center py-3 border-b border-emerald-950 text-sm font-semibold">
+          <span>Interface Vocale Rurale (Icônes Universelles)</span><span class="text-cyan-400">›</span>
+        </a>
+        <a href="#section-carte" onclick="fermerMenuTiroir()" class="flex justify-between items-center py-3 border-b border-emerald-950 text-sm font-semibold">
+          <span>Carte Hybride Recto & Verso</span><span class="text-amber-400">›</span>
+        </a>
+        <a href="#section-formules" onclick="fermerMenuTiroir()" class="flex justify-between items-center py-3 border-b border-emerald-950 text-sm font-semibold">
+          <span>Les 6 Formules Micro-Takaful</span><span class="text-amber-400">›</span>
+        </a>
+        <a href="#section-adhesion" onclick="fermerMenuTiroir()" class="flex justify-between items-center py-3 border-b border-emerald-950 text-sm font-semibold">
+          <span>Formulaire d'Adhésion Familiale (-50 %)</span><span class="text-amber-400">›</span>
+        </a>
+        <button onclick="fermerMenuTiroir(); telechargerContratVierge();" class="w-full flex justify-between items-center py-3 text-left text-sm font-semibold text-amber-300">
+          <span>📥 Télécharger le Contrat & Statuts</span><span>›</span>
+        </button>
+      </div>
+
+      <div class="flex items-center justify-between text-[11px] text-cyan-300 bg-emerald-950/90 border border-cyan-500/30 rounded-xl px-4 py-3 font-mono">
+        <span>🛡️ FIDO2 • UIT-FIGI</span>
+        <span>AAOIFI FAS 12-13</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONTENEUR PRINCIPAL -->
+  <main class="max-w-6xl mx-auto px-4 pt-5 space-y-6">
+
+    <!-- EN-TÊTE PRINCIPAL + FIDO2 • UIT-FIGI -->
+    <article class="bg-[#051d24] text-white rounded-2xl p-6 shadow-lg border-l-4 border-amber-400">
+      <div class="flex flex-wrap items-center justify-between gap-2 text-xs font-bold mb-2">
+        <div class="flex flex-wrap items-center gap-2 text-amber-400">
+          <span class="px-2.5 py-0.5 rounded bg-amber-400/20">MICRO-TAKAFUL SOLIDAIRE • CIMA & CHARIA</span>
+          <span>USSD #150*7711#</span>
+        </div>
+        <span class="px-3 py-1 rounded-full bg-emerald-950 border border-cyan-400/50 text-cyan-300 font-mono text-[11px]">
+          FIDO2 • UIT-FIGI
+        </span>
+      </div>
+      <h1 class="text-2xl sm:text-3xl font-extrabold leading-tight">
+        UBUK • FALAH (فَلَاح) : La protection mutuelle familiale dès 500 FCFA/mois, sans intérêt (0 % Ribā)
+      </h1>
+      <p class="text-xs sm:text-sm text-emerald-100 mt-2 leading-relaxed">
+        Opéré par <strong>FEFEO GROUP SARL</strong> avec comme canal principal la <strong>SuperApp UBUK</strong>. Ventilation comptable étanche : <strong>80 % Fonds Solidaire <em>Tabarru‘</em></strong> (indemnisation sous 24h–48h) et <strong>20 % Gestion <em>Wakālah</em></strong>.
+      </p>
+      <div class="mt-4 flex flex-wrap gap-2.5 text-xs font-bold">
+        <a href="https://ubuk.net" target="_blank" class="px-4 py-2.5 rounded-full bg-cyan-400 text-emerald-950 hover:bg-cyan-300 shadow">
+          🐝 Télécharger SuperApp UBUK (Canal Principal)
+        </a>
+        <button onclick="ouvrirModaleCompte()" class="px-4 py-2.5 rounded-full bg-emerald-600 text-white hover:bg-emerald-500 shadow">
+          🐝 Rejoindre la Ruche (Phase 1 PIN)
+        </button>
+        <button onclick="telechargerContratVierge()" class="px-4 py-2.5 rounded-full bg-white text-stone-950 hover:bg-stone-200">
+          📥 Télécharger Contrat & Statuts
+        </button>
+        <a href="https://wa.me" target="_blank" class="px-3.5 py-2.5 rounded-full bg-green-600 text-white hover:bg-green-500">
+          📲 WhatsApp 1 : +237 679 70 50 38
+        </a>
+        <a href="https://wa.me" target="_blank" class="px-3.5 py-2.5 rounded-full bg-green-700 text-white hover:bg-green-600">
+          📲 WhatsApp 2 : +237 697 01 56 43
+        </a>
+        <a href="https://t.me" target="_blank" class="px-3.5 py-2.5 rounded-full bg-sky-600 text-white hover:bg-sky-500">
+          ✈️ Canal Telegram
+        </a>
+      </div>
+    </article>
+
+    <!-- MODULE ACCESSIBILITÉ RURALE VOCALE -->
+    <section id="section-rural" class="bg-gradient-to-br from-emerald-950 via-[#051d24] to-stone-950 text-white rounded-2xl p-6 shadow-xl border border-amber-400/40">
+      <div class="flex flex-wrap items-center justify-between gap-2 border-b border-emerald-800/80 pb-3 mb-4">
+        <div>
+          <span class="text-[11px] font-extrabold uppercase tracking-wider text-cyan-300">Inclusion Rurale & Accessibilité Sans Lecture</span>
+          <h2 class="text-lg font-extrabold text-amber-400">ASSISTANT VOCAL DIRECT & RACCOURCIS UNIVERSELS</h2>
+        </div>
+        <span class="text-xs text-emerald-200">Appuyez sur une icône pour parler ou appeler directement</span>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-4 items-center">
+        <div class="md:col-span-5 flex flex-col items-center justify-center bg-emerald-950/70 rounded-2xl p-5 border border-emerald-700/60">
+          <button onclick="ouvrirModaleSuggestion(); demarrerEnregistrementVocal();"
+                  class="w-24 h-24 rounded-full bg-gradient-to-b from-emerald-500 to-emerald-800 border-4 border-amber-400 shadow-2xl shadow-emerald-500/40 flex items-center justify-center text-4xl hover:scale-105 transition">
+            🎙️
+          </button>
+          <span class="font-extrabold text-sm text-amber-300 mt-3">Parler à UBUK • FALAH</span>
+          <span class="text-[11px] text-emerald-200 text-center mt-0.5">Enregistrez votre besoin ou suggestion dans votre langue</span>
+        </div>
+
+        <div class="md:col-span-7 grid grid-cols-3 gap-3 text-center">
+          <a href="tel:+237679705038" class="rounded-2xl bg-green-600 hover:bg-green-500 p-5 flex flex-col items-center justify-center shadow-lg border border-green-400/50 transition">
+            <span class="text-3xl mb-2">📞</span>
+            <span class="font-extrabold text-xs sm:text-sm">Appeler Agent</span>
+            <span class="text-[10px] text-green-100 mt-0.5">Assistance Directe</span>
+          </a>
+
+          <a href="https://wa.me?text=Salam%20UBUK%20FALAH%2C%20je%20souhaite%20envoyer%20ma%20cotisation%20Mobile%20Money." target="_blank"
+             class="rounded-2xl bg-amber-500 hover:bg-amber-400 text-emerald-950 p-5 flex flex-col items-center justify-center shadow-lg border border-amber-300 transition">
+            <span class="text-3xl mb-2">💵</span>
+            <span class="font-extrabold text-xs sm:text-sm">Cotiser / Payer</span>
+            <span class="text-[10px] text-emerald-900 mt-0.5">MoMo / OM / USSD</span>
+          </a>
+
+          <a href="https://wa.me?text=URGENCE%20SINISTRE%20UBUK%20FALAH%20%3A%20J'envoie%20la%20photo%20de%20mon%20accident%20ou%20hospitalisation." target="_blank"
+             class="rounded-2xl bg-red-600 hover:bg-red-500 text-white p-5 flex flex-col items-center justify-center shadow-lg border border-red-400/50 transition">
+            <span class="text-3xl mb-2">➕</span>
+            <span class="font-extrabold text-xs sm:text-sm">Urgence Sinistre</span>
+            <span class="text-[10px] text-red-100 mt-0.5">Photo 24h-48h</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- VITRINE OFFICIELLE DE LA CARTE HYBRIDE UBUK • FALAH (RECTO & VERSO) -->
+    <section id="section-carte" class="bg-white rounded-2xl shadow-sm border border-stone-200 p-6">
+      <div class="flex flex-wrap justify-between items-center gap-2 border-b border-stone-200 pb-3 mb-5">
+        <div>
+          <span class="text-[11px] font-extrabold uppercase tracking-wider text-amber-700">Carte Membre & Tiers-Payant Santé</span>
+          <h2 class="text-lg font-extrabold text-emerald-950">LA CARTE HYBRIDE « UBUK • FALAH » (RECTO & VERSO)</h2>
+        </div>
+        <span class="text-xs text-slate-500">Certification Biométrique Aratek Marshall R / 8 Plus, NFC & QR Code</span>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 items-center">
+        <!-- 1. RECTO -->
+        <div>
+          <div class="text-xs font-extrabold text-emerald-950 uppercase mb-2">1. RECTO (Identité Souveraine)</div>
+          <div class="relative rounded-2xl p-6 text-white shadow-xl overflow-hidden border-2 border-amber-400/80 aspect-[1.586/1] flex flex-col justify-between"
+               style="background: radial-gradient(circle at top right, #065f46 0%, #022c22 65%, #011c16 100%);">
+            <div class="flex justify-between items-start">
+              <div class="flex items-center gap-2.5">
+                <div class="w-9 h-9 rounded-lg bg-[#0a2536] border border-cyan-400 flex items-center justify-center">
+                  <svg viewBox="0 0 64 64" class="w-6 h-6">
+                    <circle cx="32" cy="21" r="6" fill="#fbbf24" />
+                    <ellipse cx="18" cy="31" rx="11" ry="6" transform="rotate(-18 18 31)" fill="#0284c7" stroke="#22d3ee" stroke-width="3" />
+                    
