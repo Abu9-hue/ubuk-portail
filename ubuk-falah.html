@@ -605,4 +605,140 @@
         <label class="flex items-start gap-3 text-xs text-emerald-100 bg-emerald-950/60 p-3.5 rounded-xl cursor-pointer">
           <input type="checkbox" id="consentementCima" required class="mt-1 accent-amber-400 w-4 h-4" />
           <span>
-            
+                  <strong>Consentement Éclairé (Art. 701 Code CIMA & Normes Charia) :</strong> Je certifie l'exactitude des informations déclarées et valide mon adhésion à <strong>UBUK • FALAH (FEFEO GROUP SARL)</strong> selon la ventilation 80 % <em>Tabarru‘</em> / 20 % <em>Wakālah</em> et 0 % intérêt (<em>Ribā</em>).
+          </span>
+        </label>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+          <button type="submit" class="py-3.5 px-4 rounded-xl bg-amber-500 hover:bg-amber-400 text-emerald-950 font-extrabold text-xs shadow-lg">
+            ✅ Générer & Télécharger Police
+          </button>
+          <button type="button" onclick="envoyerDossierWhatsApp('237679705038')" class="py-3.5 px-4 rounded-xl bg-green-600 hover:bg-green-500 text-white font-extrabold text-xs shadow-lg">
+            📲 WhatsApp 1 (+237 679 70 50 38)
+          </button>
+          <button type="button" onclick="envoyerDossierWhatsApp('237697015643')" class="py-3.5 px-4 rounded-xl bg-green-700 hover:bg-green-600 text-white font-extrabold text-xs shadow-lg">
+            📲 WhatsApp 2 (+237 697 01 56 43)
+          </button>
+          <button type="button" onclick="envoyerDossierTelegram()" class="py-3.5 px-4 rounded-xl bg-sky-600 hover:bg-sky-500 text-white font-extrabold text-xs shadow-lg">
+            ✈️ Envoyer sur Telegram
+          </button>
+        </div>
+      </div>
+    </form>
+
+    <!-- RÉCÉPISSÉ IMPRIMABLE -->
+    <section id="sectionRecepisse" class="hidden bg-white rounded-2xl shadow-lg border-2 border-emerald-800 p-6 space-y-4">
+      <div class="flex flex-wrap justify-between items-center gap-2 border-b border-stone-200 pb-3">
+        <div>
+          <span class="px-2.5 py-1 rounded bg-green-100 text-green-900 text-xs font-bold">DOSSIER ENREGISTRÉ</span>
+          <h3 class="text-lg font-extrabold text-emerald-950 mt-1" id="recTitrePolice">Police N° FALAH-2026-000000</h3>
+        </div>
+        <button onclick="window.print()" class="px-4 py-2 rounded-xl bg-stone-900 text-amber-400 text-xs font-bold no-print">
+          🖨️ Imprimer / Enregistrer PDF
+        </button>
+      </div>
+      <div id="recContenuDetails" class="text-xs text-slate-800 space-y-2 leading-relaxed"></div>
+    </section>
+
+    <!-- STATUTS CIMA & CHARIA -->
+    <details id="section-statuts" class="bg-white rounded-2xl shadow-sm border border-stone-200 p-6">
+      <summary class="font-extrabold text-emerald-950 text-base cursor-pointer">
+        📜 Statuts & Règlement Intérieur Communautaire « UBUK • FALAH » (Articles 1 à 4 — CIMA & Charia)
+      </summary>
+      <div class="mt-4 text-xs text-slate-700 space-y-3 leading-relaxed border-t border-stone-200 pt-4">
+        <p><strong>Article 1 — Personnalité Morale & Fondement Juridique :</strong> Opéré par <strong>FEFEO GROUP SARL</strong> (Douala, Cameroun) sous le Livre VII du Code CIMA (Art. 700-701) et les normes AAOIFI. Le Fonds Mutuel (<em>Ṣundūq at-Tabarru‘</em>) est logé sur un compte séquestre bancaire autonome.</p>
+        <p><strong>Article 2 — Gouvernance Démocratique (EXCO) & Conseil Charia :</strong> Comité Exécutif élu + Conseil de Surveillance Charia + Comité d'Arbitrage Paritaire de 5 membres.</p>
+        <p><strong>Article 3 — Ventilation 80 / 20 & Muḍārabah :</strong> <strong>80 %</strong> Fonds Solidaire <em>Tabarru‘</em> / <strong>20 %</strong> Commission fixe <em>Al-Wakālah</em>. Partage des excédents d'investissement licites : <strong>70 % Participants / 30 % Gestionnaire</strong>. Déficits couverts par <em>Qarḍ Ḥasan</em> (prêt sans intérêt).</p>
+        <p><strong>Article 4 — Prestations & Délais :</strong> 0 jour de carence pour tout accident ; règlement sous <strong>24h à 48h</strong> par Mobile Money. Ristourne annuelle : <strong>70 % participants sans sinistre / 30 % réserve ou Fonds Waqf / Zakāh</strong>.</p>
+      </div>
+    </details>
+  </main>
+
+  <!-- PIED DE PAGE AVEC ACQUIS IMAGE 5 (FIDO2 • UIT-FIGI & RETOUR PORTAIL UBUK.NET) -->
+  <footer class="max-w-6xl mx-auto px-4 pt-6 pb-8 text-xs text-slate-600 flex flex-wrap items-center justify-between gap-3 no-print">
+    <div class="flex items-center gap-2">
+      <span class="px-3 py-1.5 rounded-full bg-[#051d24] text-cyan-300 font-mono font-bold border border-cyan-500/40">FIDO2 • UIT-FIGI</span>
+      <span>FEFEO GROUP SARL • Douala, Cameroun</span>
+    </div>
+    <a href="https://ubuk.net" class="px-4 py-2 rounded-full bg-[#051d24] text-amber-300 font-extrabold border border-amber-400/60 hover:bg-emerald-950">
+      ← PORTAIL UBUK.NET
+    </a>
+  </footer>
+
+  <!-- BANDEAU NOTIFICATIONS BAS D'ÉCRAN -->
+  <div id="bandeauNotif" class="fixed bottom-3 left-3 right-3 max-w-md mx-auto bg-white rounded-2xl shadow-2xl border border-stone-300 p-4 z-30 no-print">
+    <div class="flex justify-between items-start gap-2">
+      <div>
+        <h4 class="font-extrabold text-sm text-stone-950">Activez le suivi Falah & SuperApp UBUK</h4>
+        <p class="text-xs text-stone-600 mt-0.5">Recevez vos reçus <em>Tabarru‘</em> (80/20) et alertes sinistres 24h-48h sur la SuperApp ou WhatsApp.</p>
+      </div>
+      <button onclick="document.getElementById('bandeauNotif').remove()" class="w-7 h-7 rounded-full border border-stone-300 text-stone-600 text-xs font-bold">✕</button>
+    </div>
+    <div class="mt-3 flex gap-2 text-xs font-bold">
+      <a href="https://ubuk.net" target="_blank" class="flex-1 py-2.5 rounded-full bg-[#051d24] text-cyan-300 text-center">
+        🐝 ouvrir SuperApp UBUK
+      </a>
+      <button onclick="document.getElementById('bandeauNotif').remove()" class="flex-1 py-2.5 rounded-full border border-stone-900 text-stone-900">
+        plus tard
+      </button>
+    </div>
+  </div>
+
+  <!-- MODALE RUCHE UBUK PHASE 1 -->
+  <div id="modaleCompte" class="hidden fixed inset-0 bg-[#051d24]/95 z-50 overflow-y-auto p-5 flex items-center justify-center no-print">
+    <div class="bg-white rounded-3xl max-w-md w-full p-6 space-y-4 shadow-2xl border-2 border-amber-400">
+      <div class="flex items-center justify-between border-b border-stone-200 pb-2">
+        <span class="font-extrabold text-sm text-emerald-950">🐝 Bienvenue dans la Ruche UBUK</span>
+        <button onclick="fermerModaleCompte()" class="font-bold text-stone-500 hover:text-stone-900">✕</button>
+      </div>
+      <p class="text-xs text-slate-700 leading-relaxed">
+        <em>Adhésion légère Phase 1 • Everytime • Everywhere • Everyone.</em> Votre Numéro Unique Souverain sera certifié en Phase 2 sur terminal <strong>Aratek Marshall R / 8 Plus</strong>.
+      </p>
+      <div class="space-y-3 text-sm">
+        <input type="text" id="rucheNom" placeholder="Votre Nom complet..." class="w-full p-3 rounded-xl border border-stone-300" />
+        <select id="ruchePays" class="w-full p-3 rounded-xl border border-stone-300 bg-white">
+          <option value="+237">🇨🇲 Cameroun (+237)</option>
+          <option value="+225">🇨🇮 Côte d'Ivoire (+225)</option>
+          <option value="+221">🇸🇳 Sénégal (+221)</option>
+          <option value="+241">🇬🇦 Gabon (+241)</option>
+          <option value="+235">🇹🇩 Tchad (+235)</option>
+        </select>
+        <input type="tel" id="rucheTel" placeholder="Numéro de téléphone..." class="w-full p-3 rounded-xl border border-stone-300" />
+        <input type="password" id="ruchePin" maxlength="4" pattern="[0-9]{4}" placeholder="Code PIN Secret 4 chiffres (Sécurité perte téléphone)" class="w-full p-3 rounded-xl border border-stone-300" />
+        <button onclick="validerAdhesionRuchePhase1()" class="w-full py-3.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold text-xs shadow-lg">
+          🐝 Rejoindre la Ruche (Générer mon N° Souverain)
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODALE RECHERCHE -->
+  <div id="modaleRecherche" class="hidden fixed inset-0 bg-black/75 z-50 flex items-start justify-center p-4 pt-16 no-print">
+    <div class="bg-white rounded-2xl max-w-md w-full p-5 space-y-3 shadow-2xl">
+      <div class="flex justify-between items-center">
+        <span class="font-extrabold text-sm text-emerald-950">🔍 Recherche Rapide UBUK • FALAH</span>
+        <button onclick="fermerModaleRecherche()" class="font-bold text-stone-500">✕</button>
+      </div>
+      <input type="text" id="champRecherche" oninput="filtrerRecherche()" placeholder="Tapez : moto, santé, décès, 500, zakat, carte..." class="w-full p-3 rounded-xl border border-stone-300 text-sm" />
+      <div id="resultatsRecherche" class="text-xs text-slate-700 space-y-2 max-h-60 overflow-y-auto"></div>
+    </div>
+  </div>
+
+  <!-- MODALE SUGGESTION ÉCRITE & VOCALE -->
+  <div id="modaleSuggestion" class="hidden fixed inset-0 bg-black/75 z-50 flex items-center justify-center p-4 no-print">
+    <div class="bg-white rounded-2xl max-w-md w-full p-6 space-y-4 shadow-2xl">
+      <div class="flex justify-between items-center border-b border-stone-200 pb-2">
+        <h3 class="font-extrabold text-emerald-950 text-base">🎙️ Suggestion Écrite ou Vocale</h3>
+        <button onclick="fermerModaleSuggestion()" class="font-bold text-slate-500">✕</button>
+      </div>
+      <div class="p-3.5 rounded-xl bg-emerald-50 border border-emerald-300 space-y-2">
+        <div class="flex items-center justify-between">
+          <span class="text-xs font-extrabold text-emerald-950">Enregistrement Vocal :</span>
+          <span id="statutMicro" class="text-[11px] font-bold text-slate-500">Prêt</span>
+        </div>
+        <div class="flex gap-2">
+          <button type="button" id="btnStartRec" onclick="demarrerEnregistrementVocal()" class="flex-1 py-2 px-3 rounded-lg bg-red-600 text-white font-bold text-xs">
+            🎙️ Parler
+          </button>
+          <button type="button" id="btnStopRec" onclick="arreterEnregistrementVocal()" disabled class="flex-1 py-2 px-3 rounded-lg bg-stone-300 text-slate-600 font-bold text-xs">
+          
