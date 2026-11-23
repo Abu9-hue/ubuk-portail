@@ -445,4 +445,164 @@
             <label class="block text-xs font-bold text-slate-700 mb-1">ID Agent Terrain (PSP) — Optionnel</label>
             <input type="text" id="agentPsp" placeholder="Code Agent Aratek" class="w-full p-2.5 rounded-xl border border-stone-300" />
           </div>
-          
+                  </div>
+      </div>
+
+      <!-- SECTION 2 : PROFIL SOCIO-ÉCONOMIQUE & HABITAT -->
+      <div class="bg-white rounded-2xl shadow-sm border border-stone-200 p-6">
+        <h2 class="text-base font-extrabold text-emerald-950 border-b border-stone-200 pb-2 mb-4">
+          2. PROFIL SOCIO-ÉCONOMIQUE, FLUX DE REVENUS & HABITAT
+        </h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 text-sm">
+          <div>
+            <label class="block text-xs font-bold text-slate-700 mb-1">Activité & Secteur</label>
+            <select id="activite" class="w-full p-2.5 rounded-xl border border-stone-300 bg-white">
+              <option value="Moto-taxi / Transport">Moto-taxi / Transport</option>
+              <option value="Commerce / Échoppe">Commerce / Échoppe</option>
+              <option value="Agriculture / Élevage">Agriculture / Élevage</option>
+              <option value="Artisanat / Métier">Artisanat / Métier</option>
+              <option value="Salarié / Autre">Salarié / Autre</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-slate-700 mb-1">Rythme des Revenus</label>
+            <select id="rythmeRevenus" class="w-full p-2.5 rounded-xl border border-stone-300 bg-white">
+              <option value="Journalier">Journalier</option>
+              <option value="Hebdomadaire">Hebdomadaire</option>
+              <option value="Mensuel">Mensuel</option>
+              <option value="Saisonnier">Saisonnier</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-slate-700 mb-1">Revenu Moyen Estimé</label>
+            <input type="text" id="revenuEstime" placeholder="Ex: 5 000 FCFA / jour" class="w-full p-2.5 rounded-xl border border-stone-300" />
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-slate-700 mb-1">Groupes d'Entraide</label>
+            <select id="groupeEntraide" class="w-full p-2.5 rounded-xl border border-stone-300 bg-white">
+              <option value="Tontine">Tontine</option>
+              <option value="Association / Syndicat">Association / Syndicat</option>
+              <option value="SILC / Edir / Coopérative">SILC / Edir / Coopérative</option>
+              <option value="Aucun">Aucun</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-slate-700 mb-1">Actifs à Protéger</label>
+            <input type="text" id="actifs" placeholder="Moto, Étal, Atelier, Cheptel..." class="w-full p-2.5 rounded-xl border border-stone-300" />
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-slate-700 mb-1">Habitat (Eau & Élec.)</label>
+            <select id="habitat" class="w-full p-2.5 rounded-xl border border-stone-300 bg-white">
+              <option value="Eau : Oui • Élec : Oui">Eau : Oui • Élec : Oui</option>
+              <option value="Eau : Non • Élec : Oui">Eau : Non • Élec : Oui</option>
+              <option value="Eau : Oui • Élec : Non">Eau : Oui • Élec : Non</option>
+              <option value="Eau : Non • Élec : Non">Eau : Non • Élec : Non</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-slate-700 mb-1">Gestion des Chocs</label>
+            <select id="gestionChocs" class="w-full p-2.5 rounded-xl border border-stone-300 bg-white">
+              <option value="Épargne / Solidarité">Épargne / Solidarité</option>
+              <option value="Emprunt">Emprunt</option>
+              <option value="Vente d'actifs">Vente d'actifs</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-slate-700 mb-1">Classification Sociale *</label>
+            <select id="classificationSociale" onchange="recalculerTarifFoyer()" class="w-full p-2.5 rounded-xl border-2 border-emerald-700 bg-emerald-50 font-semibold text-emerald-950">
+              <option value="CAT_2">Cat. 2 — Standard (Informel / Rural)</option>
+              <option value="CAT_3">Cat. 3 — Commerçant / Diaspora</option>
+              <option value="CAT_1">Cat. 1 — Indigent (Zakāh / Waqf : 0 F)</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-2xl shadow-sm border border-stone-200 p-6">
+        <div class="flex flex-wrap items-center justify-between gap-2 border-b border-stone-200 pb-3 mb-4">
+          <div>
+            <h2 class="text-base font-extrabold text-emerald-950">3. COMPOSITION FAMILIALE (-50 % DÈS LE 4ᵉ MEMBRE) & BÉNÉFICIAIRE AL-HIBAH</h2>
+            <p class="text-xs text-slate-600">Ajoutez conjoint(e), enfants et personnes à charge.</p>
+          </div>
+          <button type="button" onclick="ajouterMembreFoyer()" class="px-3.5 py-2 rounded-xl bg-emerald-800 hover:bg-emerald-700 text-white text-xs font-bold shadow">
+            + Ajouter un membre
+          </button>
+        </div>
+
+          <table class="w-full text-left border-collapse text-xs">
+            <thead>
+              <tr class="bg-emerald-950 text-amber-300">
+                <th class="p-2.5 rounded-tl-lg">Rang</th>
+                <th class="p-2.5">Nom & Prénoms</th>
+                <th class="p-2.5">Parenté</th>
+                <th class="p-2.5">Date Naiss.</th>
+                <th class="p-2.5">Santé</th>
+                <th class="p-2.5">Tarif</th>
+                <th class="p-2.5 rounded-tr-lg text-center">Action</th>
+              </tr>
+            </thead>
+            <tbody id="tableMembresBody" class="divide-y divide-stone-200"></tbody>
+          </table>
+        <div class="mt-5 p-4 rounded-xl bg-amber-50 border border-amber-300 grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">
+          <div>
+            <label class="block font-bold text-amber-950 mb-1">Bénéficiaire Décès (هِبَة — Al-Hibah) *</label>
+            <input type="text" id="hibahNom" required placeholder="Nom & Prénoms" class="w-full p-2 rounded-lg border border-amber-300 bg-white" />
+          </div>
+          <div>
+            <label class="block font-bold text-amber-950 mb-1">Lien de Parenté *</label>
+            <input type="text" id="hibahLien" required placeholder="Ex: Épouse, Fils..." class="w-full p-2 rounded-lg border border-amber-300 bg-white" />
+          </div>
+          <div>
+            <label class="block font-bold text-amber-950 mb-1">Téléphone Mobile Money *</label>
+            <input type="tel" id="hibahTel" required placeholder="+237 6XX XX XX XX" class="w-full p-2 rounded-lg border border-amber-300 bg-white" />
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-[#051d24] text-white rounded-2xl p-6 shadow-xl border border-amber-500/50 space-y-5">
+        <div class="flex flex-wrap justify-between items-center gap-4 border-b border-emerald-800 pb-4">
+          <div>
+            <span class="text-xs uppercase tracking-widest text-amber-400 font-bold">Récapitulatif Financier Foyer</span>
+            <h3 class="text-lg font-extrabold mt-0.5" id="resumeFormuleTitre">1. Pack Combiné « Falah Intégral » — 1 membre</h3>
+          </div>
+          <div class="text-right">
+            <div class="text-2xl sm:text-3xl font-extrabold text-amber-400" id="resumeTotalMensuel">2 500 FCFA / mois</div>
+            <div class="text-xs text-emerald-200" id="resumeTotalAnnuel">Soit 30 000 FCFA / an</div>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">
+          <div class="bg-emerald-950/90 p-3.5 rounded-xl border border-emerald-700">
+            <span class="text-emerald-300 block">Fonds Solidaire (80 % Tabarru‘)</span>
+            <strong class="text-base text-white" id="resumeTabarru">2 000 FCFA / mois</strong>
+          </div>
+          <div class="bg-emerald-950/90 p-3.5 rounded-xl border border-amber-500/40">
+            <span class="text-amber-300 block">Gestion Plafonnée (20 % Wakālah)</span>
+            <strong class="text-base text-white" id="resumeWakala">500 FCFA / mois</strong>
+          </div>
+          <div class="bg-emerald-950/90 p-3.5 rounded-xl border border-cyan-400/50">
+            <span class="text-cyan-300 block">Canal Principal & Relais</span>
+            <strong class="text-sm text-white">SuperApp UBUK • WhatsApp • Telegram</strong>
+          </div>
+        </div>
+
+        <div class="bg-emerald-950/70 border border-emerald-800 rounded-xl p-4 grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+          <div>
+            <label class="block font-bold text-amber-300 mb-1">Canal de Règlement utilisé :</label>
+            <select id="canalPaiement" class="w-full p-2.5 rounded-lg bg-[#051d24] border border-emerald-700 text-white">
+              <option value="SuperApp UBUK (Canal Principal)">SuperApp UBUK (Canal Principal)</option>
+              <option value="MTN Mobile Money (+237 679 70 50 38)">MTN Mobile Money (+237 679 70 50 38)</option>
+              <option value="Orange Money (+237 697 01 56 43)">Orange Money (+237 697 01 56 43)</option>
+              <option value="USSD #150*7711#">Code USSD #150*7711#</option>
+            </select>
+          </div>
+          <div>
+            <label class="block font-bold text-amber-300 mb-1">Référence Transaction Mobile Money (Optionnel) :</label>
+            <input type="text" id="refPaiement" placeholder="Ex: MP261123.1420.A8921" class="w-full p-2.5 rounded-lg bg-[#051d24] border border-emerald-700 text-white" />
+          </div>
+        </div>
+
+        <label class="flex items-start gap-3 text-xs text-emerald-100 bg-emerald-950/60 p-3.5 rounded-xl cursor-pointer">
+          <input type="checkbox" id="consentementCima" required class="mt-1 accent-amber-400 w-4 h-4" />
+          <span>
+            
