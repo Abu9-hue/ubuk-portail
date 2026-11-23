@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>UBUK • FALAH : Micro-Takaful Solidaire | takaful.ubuk.net</title>
+  <script src="https://tailwindcss.com"></script>
+  <style>
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    @media print {
+      .no-print { display: none !important; }
+      body { background: white !important; }
+    }
+  </style>
+</head>
+<body class="bg-stone-100 text-slate-900 font-sans pb-28">
+
+  <!-- 1. EN-TÊTE MOBILE STYLE FRANCEINFO + ABEILLE CYAN/OR + INTERRUPTEUR VOCAL -->
+  <header class="bg-[#051d24] text-white sticky top-0 z-40 shadow-lg border-b border-amber-400/40 no-print">
+    <div class="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between gap-2">
+      <!-- Gauche : Menu Tiroir ☰ + Logo Abeille Officiel + Titre -->
+      <div class="flex items-center gap-2.5">
+        <button onclick="ouvrirMenuTiroir()" aria-label="Menu" class="p-2 -ml-2 rounded-lg hover:bg-emerald-950 text-white text-xl leading-none">
+          ☰
+        </button>
+        <a href="https://ubuk.net" class="flex items-center gap-2.5">
+          <div class="w-10 h-10 rounded-xl bg-[#0a2536] border-2 border-cyan-400 flex items-center justify-center shadow-md shadow-cyan-500/20">
+            <svg viewBox="0 0 64 64" class="w-7 h-7">
+              <line x1="25" y1="16" x2="19" y2="10" stroke="#fbbf24" stroke-width="4" stroke-linecap="round" />
+              <line x1="39" y1="16" x2="45" y2="10" stroke="#fbbf24" stroke-width="4" stroke-linecap="round" />
+              <circle cx="32" cy="21" r="6.5" fill="#fbbf24" />
+              <ellipse cx="18" cy="31" rx="11" ry="6.5" transform="rotate(-18 18 31)" fill="#0284c7" stroke="#22d3ee" stroke-width="3" />
+              <ellipse cx="46" cy="31" rx="11" ry="6.5" transform="rotate(18 46 31)" fill="#0284c7" stroke="#22d3ee" stroke-width="3" />
+              <ellipse cx="32" cy="38" rx="8.5" ry="12" fill="#22d3ee" />
+              <line x1="24" y1="34" x2="40" y2="34" stroke="#051d24" stroke-width="3" stroke-linecap="round" />
+              <line x1="24" y1="40" x2="40" y2="40" stroke="#051d24" stroke-width="3" stroke-linecap="round" />
+              <line x1="26" y1="46" x2="38" y2="46" stroke="#051d24" stroke-width="3" stroke-linecap="round" />
+            </svg>
+          </div>
+          <div>
+            <span class="font-black text-xl tracking-tight text-white block leading-none">ubuk<span class="text-amber-400">falah</span><span class="text-amber-400">:</span></span>
+            <span class="text-[10px] text-cyan-300 font-semibold tracking-wider">فَلَاح • CIMA & CHARIA</span>
+          </div>
+        </a>
+      </div>
+
+      <!-- Droite : Interrupteur Vocal Doré + Recherche 🔍 + Compte Ruche 👤 -->
+      <div class="flex items-center gap-2">
+        <button onclick="basculerInterrupteurVocal()" id="switchVocalBtn" title="Activer / Couper le Guide Vocal"
+                class="flex items-center gap-1.5 px-2.5 py-1 rounded-full border border-amber-400/70 bg-amber-500/15 shadow-inner transition">
+          <span class="text-amber-300 text-xs font-bold">)))</span>
+          <span id="switchVocalPastille" class="w-4 h-4 rounded-full bg-amber-400 shadow shadow-amber-300 block"></span>
+        </button>
+
+        <button onclick="ouvrirModaleRecherche()" aria-label="Rechercher" class="p-2 rounded-full hover:bg-emerald-950 text-white text-sm">
+          🔍
+        </button>
+        <button onclick="ouvrirModaleCompte()" aria-label="Rejoindre la Ruche UBUK" class="p-2 rounded-full bg-emerald-950 text-amber-400 text-sm border border-amber-400/50">
+          👤
+        </button>
+      </div>
+    </div>
+
+    <!-- 2. BARRE DE RUBRIQUES HORIZONTALE DÉFILANTE (STYLE FRANCEINFO) -->
+    <nav class="bg-emerald-950 border-t border-emerald-900 px-4 overflow-x-auto no-scrollbar">
+      <div class="max-w-6xl mx-auto flex items-center gap-5 h-10 text-xs font-semibold whitespace-nowrap text-emerald-100">
+        <a href="#section-rural" class="text-cyan-300 py-2.5">🎙️ Mode Vocal Rural</a>
+        <a href="#section-carte" class="text-amber-300 border-b-2 border-amber-400 py-2.5">Carte Recto/Verso</a>
+        <a href="#section-formules" class="hover:text-amber-300 py-2.5">6 Formules Falah</a>
+        <a href="#section-adhesion" class="hover:text-amber-300 py-2.5">Adhésion en Ligne</a>
+        <a href="#section-statuts" class="hover:text-amber-300 py-2.5">Statuts CIMA & Charia</a>
+        <button onclick="telechargerContratVierge()" class="hover:text-amber-300 py-2.5">📥 Télécharger Contrat</button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- 3. LES 5 BOUTONS OFFICIELS ILLUSTRÉS (LOGO IMAGE EN HAUT + NOM EN BAS) -->
+  <section class="bg-white border-b border-stone-200 py-3 px-3 shadow-sm no-print">
+    <div class="grid grid-cols-5 gap-2 max-w-3xl mx-auto">
+      <!-- Bouton 1 : UBUK App (Logo Abeille en haut + nom en bas) -->
+      <a href="https://ubuk.net" target="_blank" class="flex flex-col items-center justify-center p-2.5 rounded-2xl bg-[#0a2536] border-2 border-cyan-400 text-white hover:bg-cyan-950 shadow transition">
+        <svg viewBox="0 0 64 64" class="w-8 h-8 mb-1">
+          <line x1="25" y1="16" x2="19" y2="10" stroke="#fbbf24" stroke-width="4" stroke-linecap="round" />
+          <line x1="39" y1="16" x2="45" y2="10" stroke="#fbbf24" stroke-width="4" stroke-linecap="round" />
+          <circle cx="32" cy="21" r="6.5" fill="#fbbf24" />
+          <ellipse cx="18" cy="31" rx="11" ry="6.5" transform="rotate(-18 18 31)" fill="#0284c7" stroke="#22d3ee" stroke-width="3" />
+          <ellipse cx="46" cy="31" rx="11" ry="6.5" transform="rotate(18 46 31)" fill="#0284c7" stroke="#22d3ee" stroke-width="3" />
+          <ellipse cx="32" cy="38" rx="8.5" ry="12" fill="#22d3ee" />
+          <line x1="24" y1="34" x2="40" y2="34" stroke="#051d24" stroke-width="3" stroke-linecap="round" />
+          <line x1="24" y1="40" x2="40" y2="40" stroke="#051d24" stroke-width="3" stroke-linecap="round" />
+        </svg>
+        <span class="text-[10px] sm:text-xs font-extrabold text-cyan-300 leading-tight text-center">UBUK App</span>
+      </a>
+
+      <!-- Bouton 2 : UBUK PAY -->
+      <a href="https://ubuk.net" class="flex flex-col items-center justify-center p-2.5 rounded-2xl bg-amber-500 text-emerald-950 hover:bg-amber-400 shadow transition">
+        <span class="text-2xl mb-1 leading-none">💳</span>
+        <span class="text-[10px] sm:text-xs font-extrabold leading-tight text-center">UBUK PAY</span>
+      </a>
+
+      <!-- Bouton 3 : Retour UBUK.net -->
+      <a href="https://ubuk.net" class="flex flex-col items-center justify-center p-2.5 rounded-2xl bg-emerald-950 border border-amber-400 text-amber-300 hover:bg-emerald-900 shadow transition">
+        <span class="text-2xl mb-1 leading-none">🏛️</span>
+        <span class="text-[10px] sm:text-xs font-extrabold leading-tight text-center">UBUK.net</span>
+      </a>
+
+      <!-- Bouton 4 : Suggestion (Écrite / Vocale) -->
+      <button onclick="ouvrirModaleSuggestion()" class="flex flex-col items-center justify-center p-2.5 rounded-2xl bg-stone-900 border border-amber-400/50 text-amber-300 hover:bg-stone-800 shadow transition">
+        <span class="text-2xl mb-1 leading-none">🎙️</span>
+        <span class="text-[10px] sm:text-xs font-extrabold leading-tight text-center">Suggestion</span>
+      </button>
+
+      <!-- Bouton 5 : WhatsApp & Canal -->
+      <button onclick="ouvrirModaleContact()" class="flex flex-col items-center justify-center p-2.5 rounded-2xl bg-green-600 text-white hover:bg-green-500 shadow transition">
+        <span class="text-2xl mb-1 leading-none">📞</span>
+        <span class="text-[10px] sm:text-xs font-extrabold leading-tight text-center">WhatsApp</span>
+      </button>
+    </div>
+  </section>
+
+  <!-- TIROIR MENU PLEIN ÉCRAN SOMBRE (STYLE FRANCEINFO MOBILE) -->
+  <div id="menuTiroir" class="hidden fixed inset-0 bg-[#051d24] text-white z-50 overflow-y-auto no-print">
+    <div class="max-w-lg mx-auto px-5 py-4 space-y-6">
+      <div class="flex items-center justify-between border-b border-emerald-900 pb-4">
+        <div class="flex items-center gap-3">
+          <button onclick="fermerMenuTiroir()" class="text-2xl text-stone-300 hover:text-white leading-none">✕</button>
+          <span class="font-black text-xl tracking-tight">ubuk<span class="text-amber-400">falah</span><span class="text-amber-400">:</span></span>
+        </div>
+        <button onclick="fermerMenuTiroir(); ouvrirModaleCompte();" class="px-3 py-1.5 rounded-full bg-emerald-900 border border-amber-400/50 text-amber-300 text-xs font-bold">
+          👤 Ruche UBUK (Phase 1)
+        </button>
+      </div>
+
+      <div class="space-y-2.5">
+        <div class="text-[11px] uppercase tracking-widest text-cyan-300 font-bold">Navigation & Canaux Officiels</div>
+        <a href="https://ubuk.net" target="_blank" class="flex items-center justify-between p-3.5 rounded-xl bg-cyan-400 text-emerald-950 font-extrabold text-sm">
+          <span>🐝 Télécharger SuperApp UBUK (Canal Principal)</span><span>→</span>
+        </a>
+        <a href="https://ubuk.net" class="flex items-center justify-between p-3.5 rounded-xl bg-amber-500 text-emerald-950 font-extrabold text-sm">
+          <span>💳 Carte & Compte UBUK PAY</span><span>→</span>
+        </a>
+        <a href="https://ubuk.net" class="flex items-center justify-between p-3.5 rounded-xl bg-emerald-950 border-2 border-amber-400/60 text-amber-300 font-extrabold text-sm">
+          <span>← PORTAIL UBUK.NET</span><span>→</span>
+        </a>
