@@ -774,4 +774,57 @@
       </div>
     </div>
   </div>
-  
+    <script>
+    const FORMULES = [
+      { id: 'FALAH_INTEGRAL', nom: '1. Pack Combiné « Falah Intégral »', mensuel: 2500, annuel: 30000, desc: 'Moto/Accident (100K/300K) + Santé (10K/j) + Décès (100K+500K) + Commerce (200K)', badge: 'Recommandé' },
+      { id: 'FALAH_MOBILITE', nom: '2. Falah Mobilité (Moto-taxis)', mensuel: 500, annuel: 6000, desc: 'Soins accident 75K + Hospit. 5K/j + Capital décès/invalidité 250 000 FCFA', badge: '0j Carence' },
+      { id: 'FALAH_SANTE', nom: '3. Falah Santé Urgence', mensuel: 1000, annuel: 12000, desc: 'Forfait hospitalisation 10 000 FCFA/jour (max 20 j/an) + Pharmacie 30K/an', badge: '24h-48h' },
+      { id: 'FALAH_FAMILLE', nom: '4. Falah Prévoyance Famille', mensuel: 1500, annuel: 18000, desc: 'Frais funéraires immédiats 100K + Capital décès soutien 500K (proche 150K)', badge: 'Foyer' },
+      { id: 'FALAH_COMMERCE', nom: '5. Falah Commerce & Échoppe', mensuel: 1000, annuel: 12000, desc: 'Incendie, dégâts eaux ou vol stock jusqu’à 200K + Perte exploitation 25K', badge: 'Pro' },
+      { id: 'FALAH_AGRO', nom: '6. Falah Agro & Élevage Indiciel', mensuel: 500, annuel: 6000, desc: 'Sécheresse/inondation 100 000 FCFA/ha + Mortalité bétail jusqu’à 150K (Art. 705 CIMA)', badge: 'Saisonnier' }
+    ];
+
+    let formuleSelectionnee = FORMULES[0];
+    let membresFoyer = [{ lien: 'Chef de Ménage', nom: '', naissance: '', sante: 'RAS' }];
+    let policeGeneree = '';
+    let vocalActif = true;
+    let mediaRecorder = null, audioChunks = [], audioBlobUrl = null;
+
+    function parlerGuide(texte) {
+      if (!vocalActif || !('speechSynthesis' in window)) return;
+      window.speechSynthesis.cancel();
+      const msg = new SpeechSynthesisUtterance(texte);
+      msg.lang = 'fr-FR';
+      window.speechSynthesis.speak(msg);
+    }
+
+    function basculerInterrupteurVocal() {
+      vocalActif = !vocalActif;
+      const pastille = document.getElementById('switchVocalPastille');
+      if (vocalActif) {
+        pastille.className = 'w-4 h-4 rounded-full bg-amber-400 shadow shadow-amber-300 block';
+        parlerGuide('Guide vocal UBUK Falah activé.');
+      } else {
+        pastille.className = 'w-4 h-4 rounded-full bg-stone-500 block';
+        if ('speechSynthesis' in window) window.speechSynthesis.cancel();
+      }
+    }
+
+    function afficherGrilleProduits() {
+      document.getElementById('grilleProduits').innerHTML = FORMULES.map(f => {
+        const actif = f.id === formuleSelectionnee.id;
+        return '<div onclick="choisirFormule(\'' + f.id + '\')" class="cursor-pointer rounded-xl p-3.5 border-2 transition ' + (actif ? 'border-emerald-800 bg-emerald-50 shadow-md' : 'border-stone-200 bg-stone-50 hover:border-emerald-400') + '">' +
+          '<div class="flex justify-between items-start gap-2"><span class="font-extrabold text-xs text-emerald-950">' + f.nom + '</span>' +
+          '<span class="px-2 py-0.5 rounded-full text-[10px] font-bold ' + (actif ? 'bg-emerald-800 text-amber-300' : 'bg-amber-100 text-amber-900') + '">' + f.badge + '</span></div>' +
+          '<div class="text-base font-extrabold text-emerald-800 mt-1">' + f.mensuel.toLocaleString('fr-FR') + ' FCFA <span class="text-xs font-normal text-slate-600">/ mois (' + f.annuel.toLocaleString('fr-FR') + ' F/an)</span></div>' +
+          '<p class="text-[11px] text-slate-600 mt-1.5 leading-snug">' + f.desc + '</p></div>';
+      }).join('');
+    }
+
+    function choisirFormule(id) {
+      formuleSelectionnee = FORMULES.find(f => f.id === id) || FORMULES[0];
+      afficherGrilleProduits();
+      recalculerTarifFoyer();
+      parlerGuide('Formule choisie : ' + formuleSelectionnee.nom);
+    }
+          
