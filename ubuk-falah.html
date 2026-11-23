@@ -741,4 +741,37 @@
             🎙️ Parler
           </button>
           <button type="button" id="btnStopRec" onclick="arreterEnregistrementVocal()" disabled class="flex-1 py-2 px-3 rounded-lg bg-stone-300 text-slate-600 font-bold text-xs">
-          
+                      ⏹️ Arrêter
+          </button>
+        </div>
+        <audio id="lecteurAudioSuggestion" controls class="hidden w-full h-9"></audio>
+        <button type="button" id="btnTelechargerAudio" onclick="telechargerNoteVocale()" class="hidden w-full py-2 rounded-lg bg-emerald-900 text-amber-300 font-bold text-xs">
+          📥 Télécharger le fichier audio (.webm)
+        </button>
+      </div>
+      <input type="text" id="sugNom" placeholder="Votre Nom & Quartier / Ville" class="w-full p-2.5 rounded-xl border border-stone-300 text-sm" />
+      <textarea id="sugTexte" rows="3" placeholder="Votre message ou transcription vocale..." class="w-full p-2.5 rounded-xl border border-stone-300 text-sm"></textarea>
+      <div class="grid grid-cols-3 gap-2 text-xs font-bold">
+        <button onclick="envoyerSuggestionWhatsApp('237679705038')" class="py-2.5 rounded-xl bg-green-600 text-white">WhatsApp 1</button>
+        <button onclick="envoyerSuggestionWhatsApp('237697015643')" class="py-2.5 rounded-xl bg-green-700 text-white">WhatsApp 2</button>
+        <button onclick="envoyerSuggestionTelegram()" class="py-2.5 rounded-xl bg-sky-600 text-white">Telegram</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="modaleContact" class="hidden fixed inset-0 bg-black/75 z-50 flex items-center justify-center p-4 no-print">
+    <div class="bg-white rounded-2xl max-w-md w-full p-6 space-y-4 shadow-2xl">
+      <div class="flex justify-between items-center border-b border-stone-200 pb-2">
+        <h3 class="font-extrabold text-emerald-950 text-base">📞 Canal Principal, Appels & Paiements</h3>
+        <button onclick="fermerModaleContact()" class="font-bold text-slate-500">✕</button>
+      </div>
+      <div class="space-y-2.5 text-xs font-bold">
+        <a href="https://ubuk.net" target="_blank" class="block w-full p-3 rounded-xl bg-cyan-400 text-emerald-950 text-center">🐝 SuperApp UBUK (Canal Principal)</a>
+        <a href="https://wa.me" target="_blank" class="block w-full p-3 rounded-xl bg-green-600 text-white text-center">📲 WhatsApp & Appel N° 1 : +237 679 70 50 38</a>
+        <a href="https://wa.me" target="_blank" class="block w-full p-3 rounded-xl bg-green-700 text-white text-center">📲 WhatsApp & Appel N° 2 : +237 697 01 56 43</a>
+        <a href="https://t.me" target="_blank" class="block w-full p-3 rounded-xl bg-sky-600 text-white text-center">✈️ Canal & Paiements Telegram : @ubuk_falah</a>
+        <a href="tel:+237679705038" class="block w-full p-3 rounded-xl bg-amber-500 text-emerald-950 text-center">☎️ Lancer un Appel Direct</a>
+      </div>
+    </div>
+  </div>
+  
