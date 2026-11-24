@@ -61,29 +61,60 @@
     .official-footer { background: #ffffff; border: 1.5px solid #064033; border-radius: 12px; padding: 12px; display: grid; grid-template-columns: 1.15fr 1fr 1.15fr; gap: 6px; align-items: center; font-size: 10.5px; color: #064033; line-height: 1.35; }
     .f-col-left { display: flex; align-items: center; gap: 5px; font-weight: 800; }
     .wa-dot { width: 20px; height: 20px; border-radius: 50%; background: #16a34a; color: #fff; display: flex; align-items: center; justify-content: center; font-size: 11px; flex-shrink: 0; }
-    .f-col-mid { text-align: center; font-weight: 800; border-left: 1px solid #d5e2dc; border-right: 1px solid #d5e2dc; padding: 0 4px; }
-    .f-col-right { text-align: right; font-weight: 700; }
-    .tabbar { position: fixed; bottom: 0; left: 50%; transform: translateX(-50%); width: 100%; max-width: 440px; height: 68px; background: #ffffff; border-top: 1px solid #d5e2dc; display: grid; grid-template-columns: repeat(5, 1fr); align-items: center; text-align: center; z-index: 50; }
-    .tab-item { text-decoration: none; color: #4a6b60; font-size: 10.5px; font-weight: 700; display: flex; flex-direction: column; align-items: center; gap: 3px; background: none; border: none; cursor: pointer; }
-    .tab-item.active { color: #064033; font-weight: 900; }
-    .tab-center { width: 48px; height: 48px; margin: -20px auto 0; border-radius: 15px; background: #064033; border: 2px solid #cfa64e; color: #f3d799; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 12px rgba(0,0,0,0.3); }
-    .tab-center.listening { background: #dc2626; border-color: #fff; }
-    #toast { position: fixed; top: 14px; left: 50%; transform: translateX(-50%); background: #064033; color: #f3d799; border: 1.5px solid #cfa64e; padding: 12px 16px; border-radius: 12px; font-size: 13px; font-weight: 700; width: 92%; max-width: 390px; text-align: center; z-index: 120; display: none; box-shadow: 0 10px 25px rgba(0,0,0,0.45); line-height: 1.4; }
-  </style>
-</head>
-<body>
-  <div class="shell">
-    <div id="toast"></div>
-    <header class="top-header">
+        <header class="top-header">
       <div class="nav-row">
-        <a href="index.html" class="btn-back">← UBUK.PAY</a>
+        <!-- BOUTON RETOUR PILULE EXACT (PORTAIL UBUK.NET) -->
+        <a href="index.html" style="display:inline-flex;align-items:center;gap:10px;padding:5px 14px 5px 5px;border-radius:999px;background:#032920;border:1.5px solid #10b981;text-decoration:none;box-shadow:0 4px 12px rgba(0,0,0,0.35);">
+          <span style="width:34px;height:34px;border-radius:50%;background:radial-gradient(circle,#34d399 0%,#059669 100%);border:2px dashed #fbbf24;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:900;font-size:15px;">←</span>
+          <span style="display:flex;flex-direction:column;text-align:left;line-height:1.15;">
+            <span style="font-size:9px;font-weight:800;color:#fcd34d;letter-spacing:1px;">PORTAIL</span>
+            <span style="font-size:13px;font-weight:900;color:#ffffff;letter-spacing:0.5px;">UBUK.NET</span>
+          </span>
+        </a>
         <span class="ussd-pill">USSD : *150*7711#</span>
       </div>
+
       <div class="brand-hero">
-        <svg class="emblem-wrap" viewBox="0 0 120 120" fill="none">
+        <!-- LOGO VECTORIEL MATHÉMATIQUE EXACT FALAH (PENTAGONE + MAILLAGE + ÉTOILE + ÉTINCELLE ÉMERAUDE) -->
+        <svg viewBox="0 0 200 200" style="width:86px;height:86px;margin:0 auto 8px;display:block;" fill="none" xmlns="http://w3.org">
           <defs>
-            <linearGradient id="fg" x1="0" y1="0" x2="120" y2="120" gradientUnits="userSpaceOnUse">
-              <stop offset="0%" stop-color="#f7e1a0"/><stop offset="50%" stop-color="#cfa64e"/><stop offset="100%" stop-color="#8c6723"/>
+            <linearGradient id="falahOrExact" x1="20" y1="15" x2="180" y2="185" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="#f7e2a4"/>
+              <stop offset="50%" stop-color="#c99b42"/>
+              <stop offset="100%" stop-color="#87611d"/>
+            </linearGradient>
+            <radialGradient id="etincelleEm" cx="50%" cy="54%" r="50%">
+              <stop offset="0%" stop-color="#ffffff"/>
+              <stop offset="35%" stop-color="#34d399"/>
+              <stop offset="100%" stop-color="#10b981" stop-opacity="0"/>
+            </radialGradient>
+          </defs>
+          <!-- Pentagone extérieur -->
+          <polygon points="100,14 186,76 153,178 47,178 14,76" stroke="url(#falahOrExact)" stroke-width="4.5" stroke-linejoin="round"/>
+          <!-- Les 10 rayons entrelacés issus des 5 sommets (maillage exact de votre logo) -->
+          <line x1="100" y1="14" x2="120" y2="178" stroke="url(#falahOrExact)" stroke-width="3.2"/>
+          <line x1="100" y1="14" x2="80" y2="178" stroke="url(#falahOrExact)" stroke-width="3.2"/>
+          <line x1="186" y1="76" x2="36" y2="144" stroke="url(#falahOrExact)" stroke-width="3.2"/>
+          <line x1="186" y1="76" x2="26" y2="112" stroke="url(#falahOrExact)" stroke-width="3.2"/>
+          <line x1="153" y1="178" x2="42" y2="56" stroke="url(#falahOrExact)" stroke-width="3.2"/>
+          <line x1="153" y1="178" x2="72" y2="34" stroke="url(#falahOrExact)" stroke-width="3.2"/>
+          <line x1="47" y1="178" x2="158" y2="56" stroke="url(#falahOrExact)" stroke-width="3.2"/>
+          <line x1="47" y1="178" x2="128" y2="34" stroke="url(#falahOrExact)" stroke-width="3.2"/>
+          <line x1="14" y1="76" x2="164" y2="144" stroke="url(#falahOrExact)" stroke-width="3.2"/>
+          <line x1="14" y1="76" x2="174" y2="112" stroke="url(#falahOrExact)" stroke-width="3.2"/>
+          <!-- Étoile centrale à 5 branches entrelacées -->
+          <polygon points="100,48 113,88 155,88 121,113 134,153 100,128 66,153 79,113 45,88 87,88" stroke="url(#falahOrExact)" stroke-width="4" stroke-linejoin="round" fill="#032119" fill-opacity="0.72"/>
+          <!-- Étincelle lumineuse vert émeraude au point focal -->
+          <circle cx="100" cy="107" r="16" fill="url(#etincelleEm)"/>
+          <path d="M100 94 L102.5 104.5 L113 107 L102.5 109.5 L100 120 L97.5 109.5 L87 107 L97.5 104.5 Z" fill="#a7f3d0"/>
+        </svg>
+
+        <div class="brand-title">— FALAH • فَلَاح —</div>
+        <div class="brand-sub">Par UBUK • Propulsé par FEFEO GROUP SARL</div>
+        <div class="brand-tag">La protection solidaire et universelle, instantanée sur votre mobile</div>
+      </div>
+    </header>
+   
             </linearGradient>
           </defs>
           <polygon points="60,6 114,45 93,109 27,109 6,45" stroke="url(#fg)" stroke-width="3.5"/>
