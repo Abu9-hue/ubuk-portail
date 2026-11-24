@@ -5,9 +5,30 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>UBUK.FALAH (فَلَاح) • Micro-Takaful Solidaire & Protection Universelle</title>
   <script src="https://tailwindcss.com"></script>
-  <style>
-    body { background-color: #022c22; color: #ffffff; font-family: system-ui, -apple-system, sans-serif; }
-  </style>
+    <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background-color: #022c22; color: #ffffff; font-family: system-ui, -apple-system, sans-serif; display: flex; justify-content: center; }
+    body > div { width: 100%; max-width: 440px; min-height: 100vh; background: #022c22; border-left: 1px solid #065f46; border-right: 1px solid #065f46; padding-bottom: 90px; }
+    header, section, footer { padding: 16px; }
+    header { background: linear-gradient(180deg, #064e3b 0%, #022c22 100%); border-bottom: 1px solid #065f46; text-align: center; }
+    h1 { color: #fcd34d; font-size: 18px; font-weight: 900; letter-spacing: 2px; margin-top: 8px; }
+    h2, h3 { color: #fcd34d; font-size: 14px; font-weight: 800; margin-bottom: 10px; }
+    p, section div { font-size: 12px; line-height: 1.5; color: #d1fae5; }
+    section { background: rgba(6, 78, 59, 0.45); border: 1px solid #065f46; border-radius: 16px; margin: 14px; }
+    button { cursor: pointer; font-family: inherit; transition: 0.2s; }
+    .f-btn { width: 100%; padding: 12px; margin-bottom: 8px; border-radius: 12px; background: #022c22; color: #ffffff; border: 1px solid #065f46; display: flex; justify-content: space-between; align-items: center; text-align: left; }
+    .f-btn:first-child, #btn-cotiser { background: #fbbf24; color: #022c22; font-weight: 900; border-color: #fbbf24; }
+    #btn-cotiser { width: 100%; padding: 14px; border-radius: 12px; border: none; font-size: 12px; text-transform: uppercase; letter-spacing: 1px; margin-top: 6px; }
+    section button:not(.f-btn):not(#btn-cotiser) { padding: 10px 12px; border-radius: 10px; background: #064e3b; color: #fcd34d; border: 1px solid #fbbf24; font-weight: 700; font-size: 12px; }
+    header button { width: 44px; height: 44px; border-radius: 12px; background: #fbbf24; color: #022c22; border: none; font-size: 18px; }
+    a { color: #fcd34d !important; text-decoration: none; font-weight: 700; font-size: 11px; }
+    nav { position: fixed; bottom: 0; left: 50%; transform: translateX(-50%); width: 100%; max-width: 440px; background: #022c22; border-top: 1px solid #065f46; padding: 12px 24px; display: flex; justify-content: space-between; align-items: center; }
+    nav button { width: 48px; height: 48px; margin-top: -24px; border-radius: 50%; background: #fbbf24; color: #022c22; border: 4px solid #022c22; font-size: 18px; }
+    footer { text-align: center; font-size: 10px; color: #6ee7b7; }
+    #toast { position: fixed; top: 48px; left: 50%; transform: translateX(-50%); background: #fbbf24; color: #022c22; padding: 12px 16px; border-radius: 14px; font-weight: 800; font-size: 12px; z-index: 99; max-width: 340px; text-align: center; box-shadow: 0 10px 25px rgba(0,0,0,0.4); }
+    .hidden { display: none !important; }
+            </style>
+  
 </head>
 <body class="min-h-screen flex flex-col items-center">
 
