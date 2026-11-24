@@ -141,4 +141,42 @@
   <script>
     let formuleNom = 'Mobilité Moto';
     let formulePrix = 500;
-              
+        let formulePlafond = '150 000 FCFA';
+
+    function parlerFalah(msg) {
+      const t = document.getElementById('toast');
+      t.textContent = msg;
+      t.classList.remove('hidden');
+      setTimeout(() => t.classList.add('hidden'), 5000);
+      if ('speechSynthesis' in window) {
+        window.speechSynthesis.cancel();
+        const u = new SpeechSynthesisUtterance(msg);
+        u.lang = 'fr-FR';
+        window.speechSynthesis.speak(u);
+      }
+    }
+
+    function choisirFormule(btn, nom, prix, plafond) {
+      formuleNom = nom;
+      formulePrix = prix;
+      formulePlafond = plafond;
+
+      document.querySelectorAll('.f-btn').forEach(b => {
+        b.className = 'f-btn w-full p-3 rounded-xl bg-emerald-950 text-white border border-emerald-800 flex items-center justify-between text-left';
+      });
+      btn.className = 'f-btn w-full p-3 rounded-xl bg-amber-400 text-emerald-950 border border-amber-400 flex items-center justify-between text-left';
+
+      document.getElementById('plafond-affiche').textContent = plafond;
+      document.getElementById('formule-active').textContent = nom + ' • ' + prix.toLocaleString('fr-FR') + ' FCFA / mois';
+      document.getElementById('btn-cotiser').textContent = 'Cotiser ' + prix.toLocaleString('fr-FR') + ' FCFA (' + nom + ')';
+    }
+
+    function cotiserFalah() {
+      const tabarru = Math.round(formulePrix * 0.8);
+      const wakala = formulePrix - tabarru;
+      parlerFalah('Cotisation ' + formuleNom + ' de ' + formulePrix + ' Francs CFA enregistrée : ' + tabarru + ' Francs versés au fonds solidaire Tabarru et ' + wakala + ' Francs en gestion Wakala.');
+    }
+  </script>
+</body>
+</html>
+
