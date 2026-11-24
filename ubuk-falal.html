@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
@@ -378,3 +378,63 @@
         return;
       }
     
+      const policeId = 'KOONE-FALAH-2026-' + Math.floor(100000 + Math.random() * 900000);
+      document.getElementById('badge-police').textContent = 'Police Active';
+      document.getElementById('pack-garantie').textContent = 'Titulaire : ' + nom + ' • Police N° ' + policeId;
+      fermerModal('modal-souscrire');
+      parler('Adhésion validée pour ' + nom + '. Numéro de police ' + policeId + '. Paiement initié via ' + canal + '.');
+    }
+
+    function dicterSinistre() {
+      const SpeechRec = window.SpeechRecognition || window.webkitSpeechRecognition;
+      if (!SpeechRec) {
+        parler('Votre navigateur ne supporte pas la dictée directe. Saisissez le texte ci-dessus.');
+        return;
+      }
+      const rec = new SpeechRec();
+      rec.lang = 'fr-FR';
+      parler('Parlez maintenant pour décrire votre sinistre.');
+      rec.onresult = (e) => {
+        document.getElementById('sin-desc').value = e.results[0][0].transcript;
+        parler('Témoignage enregistré.');
+      };
+      rec.start();
+    }
+
+    function envoyerSinistre() {
+      const type = document.getElementById('sin-type').value;
+      const refSin = 'SIN-' + Date.now().toString().slice(-6);
+      fermerModal('modal-sinistre');
+      parler('Dossier sinistre ' + refSin + ' enregistré pour ' + type + '. Traitement sous 24 à 48 heures.');
+    }
+
+    function ecouterCommande() {
+      const SpeechRec = window.SpeechRecognition || window.webkitSpeechRecognition;
+      if (!SpeechRec) {
+        parler('Assistance Micro-Takaful Falah : appuyez sur Souscrire pour adhérer ou sur Sinistre pour déclarer une urgence.');
+        return;
+      }
+      const btn = document.getElementById('mic-btn');
+      btn.classList.add('listening');
+      const rec = new SpeechRec();
+      rec.lang = 'fr-FR';
+      rec.onend = () => btn.classList.remove('listening');
+      rec.onresult = (e) => {
+        const dit = e.results[0][0].transcript.toLowerCase();
+        if (dit.includes('sinistre') || dit.includes('accident') || dit.includes('malade')) {
+          ouvrirModal('modal-sinistre');
+          parler('Ouverture du formulaire de déclaration de sinistre.');
+        } else if (dit.includes('payer') || dit.includes('souscrire') || dit.includes('inscrire')) {
+          ouvrirModal('modal-souscrire');
+          parler('Ouverture du formulaire d’adhésion familiale Falah.');
+        } else {
+          parler('Vous avez dit : ' + dit + '. Choisissez une formule ci-dessus ou appuyez sur Souscrire.');
+        }
+      };
+      rec.start();
+    }
+
+    recalculerFoyer();
+  </script>
+</body>
+</html>
