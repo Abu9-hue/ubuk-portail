@@ -168,4 +168,57 @@
       <ul class="rules">
         <li>• <strong>Séparation stricte :</strong> 80 % fonds <strong>C1-TABARRU</strong> / 20 % gestion <strong>C2-WAKALA</strong>.</li>
         <li>• <strong>Ristourne annuelle :</strong> Surplus redistribué à 70 % aux adhérents et 30 % au fonds Waqf.</li>
-        
+               <li>• <strong>Portage agréé :</strong> Assureur partenaire <strong>Code CIMA</strong> & compte séquestre bancaire.</li>
+      </ul>
+    </section>
+
+    <div class="footer">
+      <strong>FEFEO GROUP SARL</strong> • RCCM : RC/DLA/2022/B/3075 • NIU : M052217354278H<br>
+      Orange Marchand : <strong>519982</strong> • MTN Marchand : <strong>670 80 59 43</strong>
+    </div>
+
+    <nav class="bottom-nav">
+      <a href="index.html">🏠 Accueil UBUK</a>
+      <button class="mic-fab" onclick="parler('Assistance vocale Micro-Takaful Falah activée.')">🔊</button>
+      <a href="tel:*150*7711%23">*150*7711#</a>
+    </nav>
+  </div>
+
+  <script>
+    let nomActif = 'Falah Mobilité Moto';
+    let prixActif = 500;
+    let plafondActif = '150 000 FCFA';
+
+    function parler(txt) {
+      const t = document.getElementById('toast');
+      t.textContent = txt;
+      t.style.display = 'block';
+      setTimeout(() => { t.style.display = 'none'; }, 4500);
+      if ('speechSynthesis' in window) {
+        window.speechSynthesis.cancel();
+        const u = new SpeechSynthesisUtterance(txt);
+        u.lang = 'fr-FR';
+        window.speechSynthesis.speak(u);
+      }
+    }
+
+    function selectFormule(btn, nom, prix, plafond) {
+      nomActif = nom;
+      prixActif = prix;
+      plafondActif = plafond;
+      document.querySelectorAll('.f-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById('plafond').textContent = plafond;
+      document.getElementById('formule').textContent = nom + ' • ' + prix.toLocaleString('fr-FR') + ' FCFA';
+      document.getElementById('btn-pay').textContent = 'Cotiser ' + prix.toLocaleString('fr-FR') + ' FCFA (' + nom + ')';
+    }
+
+    function cotiser() {
+      const tab = Math.round(prixActif * 0.8);
+      const wak = prixActif - tab;
+      parler('Cotisation ' + nomActif + ' de ' + prixActif + ' Francs CFA enregistrée : ' + tab + ' Francs Tabarru et ' + wak + ' Francs Wakala.');
+    }
+  </script>
+</body>
+</html>
+
