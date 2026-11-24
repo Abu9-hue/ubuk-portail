@@ -150,4 +150,114 @@
       <button class="f-btn" onclick="selectFormule(this, 'Falah Agro & Élevage', 2000, '350 000 FCFA')">
         <div>
           <div class="f-name">5. Falah Agro & Élevage</div>
-                                                           
+               <button class="f-btn" onclick="selectFormule(this, 'Falah Agro & Élevage', 2000, '350 000 FCFA')">
+        <div>
+          <div class="f-name">5. Falah Agro & Élevage</div>
+          <div class="f-desc">Protection récoltes, semences & cheptel</div>
+        </div>
+        <div class="f-price">2 000 F/saison</div>
+      </button>
+
+      <button class="f-btn" onclick="selectFormule(this, 'Pack Falah Intégral', 2500, '1 000 000 FCFA')">
+        <div>
+          <div class="f-name">6. Pack Falah Intégral</div>
+          <div class="f-desc">Couverture complète Santé + Mobilité + Famille</div>
+        </div>
+        <div class="f-price">2 500 F/mois</div>
+      </button>
+
+      <div class="famille-note">
+        <strong>Tarif Famille Dégressif :</strong> -50 % dès le 4ᵉ membre • Prise en charge Zakāh/Waqf pour les indigents.
+      </div>
+
+      <button class="btn-main" id="btn-pay" onclick="cotiser()">Cotiser 500 FCFA (Mobilité Moto)</button>
+    </section>
+
+    <section class="card">
+      <div class="card-title">
+        <h2>Déclarer un Sinistre</h2>
+        <span class="badge">24h – 48h</span>
+      </div>
+      <p class="sinistre-txt">
+        Envoyez une photo ou un message vocal. Règlement sous <strong>24h</strong> (≤ 50 000 FCFA) ou <strong>48h</strong> après double validation Multi-Sig (> 50 000 FCFA).
+      </p>
+      <div class="grid-2">
+        <button class="btn-sec" onclick="parler('Appareil photo prêt pour la preuve du sinistre.')">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>
+          Photo Preuve
+        </button>
+        <button class="btn-sec gold" onclick="parler('Micro activé. Décrivez votre sinistre à haute voix.')">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path><path d="M19 10v2a7 7 0 0 1-14 0v-2"></path><line x1="12" y1="19" x2="12" y2="23"></line><line x1="8" y1="23" x2="16" y2="23"></line></svg>
+          Message Vocal
+        </button>
+      </div>
+    </section>
+
+    <section class="card">
+      <div class="card-title">
+        <h2>Engagements Mutualistes</h2>
+      </div>
+      <ul class="rules">
+        <li>• <strong>Séparation stricte :</strong> 80 % fonds <strong>C1-TABARRU</strong> / 20 % gestion <strong>C2-WAKALA</strong>.</li>
+        <li>• <strong>Ristourne annuelle :</strong> Surplus redistribué à 70 % aux adhérents et 30 % au fonds Waqf.</li>
+        <li>• <strong>Portage agréé :</strong> Assureur partenaire <strong>Code CIMA</strong> & compte séquestre bancaire.</li>
+      </ul>
+    </section>
+
+    <div class="footer">
+      <strong>FEFEO GROUP SARL</strong> • RCCM : RC/DLA/2022/B/3075 • NIU : M052217354278H<br>
+      Orange Marchand : <strong>519982</strong> • MTN Marchand : <strong>670 80 59 43</strong>
+    </div>
+
+    <nav class="bottom-nav">
+      <a href="index.html">Accueil UBUK</a>
+      <button class="mic-fab" aria-label="Assistance vocale" onclick="parler('Assistance vocale Micro-Takaful Falah activée. Appuyez sur Message Vocal pour déclarer un sinistre.')">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#022c22" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path>
+          <path d="M19 10v2a7 7 0 0 1-14 0v-2"></path>
+          <line x1="12" y1="19" x2="12" y2="23"></line>
+          <line x1="8" y1="23" x2="16" y2="23"></line>
+        </svg>
+      </button>
+      <a href="tel:*150*7711%23">*150*7711#</a>
+    </nav>
+  </div>
+
+  <script>
+    let nomActif = 'Falah Mobilité Moto';
+    let prixActif = 500;
+    let plafondActif = '150 000 FCFA';
+
+    function parler(txt) {
+      const t = document.getElementById('toast');
+      t.textContent = txt;
+      t.style.display = 'block';
+      setTimeout(() => { t.style.display = 'none'; }, 4500);
+      if ('speechSynthesis' in window) {
+        window.speechSynthesis.cancel();
+        const u = new SpeechSynthesisUtterance(txt);
+        u.lang = 'fr-FR';
+        window.speechSynthesis.speak(u);
+      }
+    }
+
+    function selectFormule(btn, nom, prix, plafond) {
+      nomActif = nom;
+      prixActif = prix;
+      plafondActif = plafond;
+      document.querySelectorAll('.f-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById('plafond').textContent = plafond;
+      document.getElementById('formule').textContent = nom + ' • ' + prix.toLocaleString('fr-FR') + ' FCFA';
+      document.getElementById('btn-pay').textContent = 'Cotiser ' + prix.toLocaleString('fr-FR') + ' FCFA (' + nom + ')';
+    }
+
+    function cotiser() {
+      const tab = Math.round(prixActif * 0.8);
+      const wak = prixActif - tab;
+      parler('Cotisation ' + nomActif + ' de ' + prixActif + ' Francs CFA enregistrée : ' + tab + ' Francs Tabarru et ' + wak + ' Francs Wakala.');
+    }
+  </script>
+</body>
+      </html>
+        
