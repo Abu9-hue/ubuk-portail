@@ -193,4 +193,188 @@
         </div>
       </footer>
       </div>
+        <div class="modal-bg" id="modal-souscrire">
+      <div class="modal-box">
+        <div class="modal-head">
+          <h4>Adhésion Familiale & Paiement</h4>
+          <button class="btn-close" onclick="fermerModal('modal-souscrire')">✕</button>
+        </div>
+        <div class="field">
+          <label>Chef de Ménage (Nom & Prénoms)</label>
+          <input type="text" id="in-nom" placeholder="Ex. Moussa Abdoulaye" />
+        </div>
+        <div class="field">
+          <label>Téléphone Mobile Money (MTN / Orange)</label>
+          <input type="tel" id="in-tel" placeholder="Ex. 699 00 00 00" />
+        </div>
+        <div class="field">
+          <label>Bénéficiaire en cas de décès (Al-Hibah)</label>
+          <input type="text" id="in-hibah" placeholder="Nom complet + Lien de parenté + Tél." />
+        </div>
+        <div class="field">
+          <label>Nombre de membres du foyer (Adhésion familiale)</label>
+          <select id="in-membres" onchange="recalculerFoyer()">
+            <option value="1">1 membre (Tarif plein 100%)</option>
+            <option value="2">2 membres (Tarif plein 100%)</option>
+            <option value="3">3 membres (Tarif plein 100%)</option>
+            <option value="4">4 membres (-50% sur le 4ᵉ membre)</option>
+            <option value="5">5 membres (-50% dès le 4ᵉ membre)</option>
+            <option value="6">6 membres (-50% dès le 4ᵉ membre)</option>
+            <option value="0">Ménage Indigent Cat. 1 (Prise en charge Zakāh/Waqf : 0 F)</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Canal de règlement</label>
+          <select id="in-canal">
+            <option value="MTN MoMo (Marchand 670 80 59 43)">MTN Mobile Money (670 80 59 43)</option>
+            <option value="Orange Money (Marchand 519982)">Orange Money (Code Marchand 519982)</option>
+            <option value="USSD Hors-Ligne (*150*7711#)">USSD Sans Internet (*150*7711#)</option>
+          </select>
+        </div>
+        <div class="calc-box" id="resume-calcul"></div>
+        <button class="btn-cotiser-main" onclick="validerSouscription()">
+          <strong>Valider le Contrat & Déclencher le Paiement</strong>
+          <span>Génération immédiate de votre N° Police SHA-256</span>
+        </button>
+      </div>
+    </div>
+
+    <div class="modal-bg" id="modal-sinistre">
+      <div class="modal-box">
+        <div class="modal-head">
+          <h4>Déclarer un Sinistre (24h – 48h)</h4>
+          <button class="btn-close" onclick="fermerModal('modal-sinistre')">✕</button>
+        </div>
+        <div class="field">
+          <label>Nature du sinistre</label>
+          <select id="sin-type">
+            <option>Accident Moto / Route (0 jour de carence)</option>
+            <option>Hospitalisation / Urgence Santé</option>
+            <option>Frais Funéraires / Décès (Règlement 24h)</option>
+            <option>Incendie / Sinistre Boutique & Stock</option>
+            <option>Sinistre Agro-Pastoral (Récoltes / Bétail)</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Photo du justificatif (Ordonnance, Constat, Bulletin)</label>
+          <input type="file" accept="image/*" capture="environment" id="sin-photo" />
+        </div>
+        <div class="field">
+          <label>Description ou Dictée Vocale</label>
+          <textarea id="sin-desc" rows="3" placeholder="Expliquez l'incident ou appuyez sur Dicter..."></textarea>
+        </div>
+        <div style="display:flex;gap:8px;margin-bottom:12px;">
+          <button type="button" onclick="dicterSinistre()" style="flex:1;padding:11px;border-radius:10px;border:1.5px solid #064033;background:#f0f6f3;color:#064033;font-weight:800;cursor:pointer;">🎙️ Dicter à voix haute</button>
+        </div>
+        <button class="btn-cotiser-main" onclick="envoyerSinistre()">
+          <strong>Transmettre le Dossier Horodaté</strong>
+          <span>Empreinte anti-doublon SHA-256 • Paiement Mobile Money</span>
+        </button>
+      </div>
+    </div>
+
+    <div class="modal-bg" id="modal-statuts">
+      <div class="modal-box">
+        <div class="modal-head">
+          <h4>Contrat & Statuts UBUK.KOONE — FALAH</h4>
+          <button class="btn-close" onclick="fermerModal('modal-statuts')">✕</button>
+        </div>
+        <div style="font-size:12.5px;color:#1b3b30;line-height:1.6;">
+          <p style="margin-bottom:8px;"><strong>• Cadre Légal :</strong> Livre VII du Code CIMA (Art. 700, 701, 705-707) et normes Charia AAOIFI FAS 12-13 / IFSB-8 & 11.</p>
+          <p style="margin-bottom:8px;"><strong>• Séparation Étanche (80/20) :</strong> 80 % alimentent le Fonds Mutuel insaisissable des Participants (<em>Ṣundūq at-Tabarru‘</em>) sur compte séquestre bancaire ; 20 % couvrent la gestion technologique et les agents PSP (<em>Al-Wakālah</em>).</p>
+          <p style="margin-bottom:8px;"><strong>• Délais de Carence (Art. 4.1) :</strong> 0 jour pour tout accident de la route ou accident grave ; 15 jours pour la maladie courante et le commerce ; 30 jours pour le décès naturel.</p>
+          <p style="margin-bottom:8px;"><strong>• Partage des Excédents (Art. 4.4) :</strong> Au 31 décembre, 70 % du surplus technique sont restitués aux adhérents sans sinistre et 30 % renforcent la réserve ou le fonds Zakāh/Waqf.</p>
+          <p><strong>• Opérateur Technologique :</strong> FEFEO GROUP SARL (RCCM RC/DLA/2022/B/3075 • NIU M052217354278H • Douala).</p>
+        </div>
+      </div>
+    </div>
+
+    <nav class="tabbar">
+      <a href="index.html" class="tab-item">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+        <span>UBUK.PAY</span>
+      </a>
+      <button class="tab-item active" onclick="ouvrirModal('modal-souscrire')">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        <span>Souscrire</span>
+      </button>
+      <button class="tab-item" onclick="ecouterCommande()">
+        <div class="tab-center" id="mic-btn">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/></svg>
+        </div>
+      </button>
+      <button class="tab-item" onclick="ouvrirModal('modal-sinistre')">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+        <span>Sinistre</span>
+      </button>
+      <button class="tab-item" onclick="ouvrirModal('modal-statuts')">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+        <span>Contrat</span>
+      </button>
+    </nav>
+  </div>
+
+  <script>
+    let nomActif = '1. Pack Falah Intégral';
+    let prixActif = 2500;
+    let garantieActif = 'Accident 100K • Santé 10K/j • Décès 500K • Commerce 200K';
+
+    function parler(msg) {
+      const t = document.getElementById('toast');
+      t.textContent = msg;
+      t.style.display = 'block';
+      setTimeout(() => { t.style.display = 'none'; }, 5500);
+      if ('speechSynthesis' in window) {
+        window.speechSynthesis.cancel();
+        const u = new SpeechSynthesisUtterance(msg);
+        u.lang = 'fr-FR';
+        u.rate = 0.96;
+        window.speechSynthesis.speak(u);
+      }
+    }
+
+    function choisir(btn, nom, prix, garantie) {
+      nomActif = nom;
+      prixActif = prix;
+      garantieActif = garantie;
+      document.querySelectorAll('.formule-item').forEach(b => b.classList.remove('selected'));
+      btn.classList.add('selected');
+      document.getElementById('pack-titre').textContent = nom + ' • ' + prix.toLocaleString('fr-FR') + ' F';
+      document.getElementById('pack-garantie').textContent = garantie;
+      document.getElementById('btn-cotis-txt').textContent = 'Souscrire & Payer • ' + prix.toLocaleString('fr-FR') + ' FCFA';
+      recalculerFoyer();
+    }
+
+    function recalculerFoyer() {
+      const nb = parseInt(document.getElementById('in-membres').value, 10);
+      let total = 0;
+      if (nb === 0) total = 0;
+      else if (nb <= 3) total = nb * prixActif;
+      else total = (3 * prixActif) + ((nb - 3) * Math.round(prixActif * 0.5));
+      const tabarru = Math.round(total * 0.8);
+      const wakala = total - tabarru;
+      document.getElementById('resume-calcul').innerHTML =
+        '<strong>Formule :</strong> ' + nomActif + '<br>' +
+        '<strong>Total Foyer (' + (nb === 0 ? 'Indigent Zakāh' : nb + ' pers.') + ') :</strong> <span style="font-size:14px;font-weight:900;">' + total.toLocaleString('fr-FR') + ' FCFA</span><br>' +
+        '• Fonds Solidaire Tabarru‘ (80 %) : <strong>' + tabarru.toLocaleString('fr-FR') + ' FCFA</strong><br>' +
+        '• Gestion Opérateur Wakālah (20 %) : <strong>' + wakala.toLocaleString('fr-FR') + ' FCFA</strong>';
+    }
+
+    function ouvrirModal(id) {
+      if (id === 'modal-souscrire') recalculerFoyer();
+      document.getElementById(id).classList.add('open');
+    }
+
+    function fermerModal(id) {
+      document.getElementById(id).classList.remove('open');
+    }
+
+    function validerSouscription() {
+      const nom = document.getElementById('in-nom').value.trim();
+      const tel = document.getElementById('in-tel').value.trim();
+      const canal = document.getElementById('in-canal').value;
+      if (!nom || !tel) {
+        parler('Veuillez renseigner le nom du chef de ménage et son numéro Mobile Money.');
+        return;
+      }
     
