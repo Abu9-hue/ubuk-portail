@@ -65,3 +65,237 @@
 <body>
   <div class="app">
     <div id="toast"></div>
+    <!-- EN-TÊTE HÉRITÉ DU NOYAU UBUK.PAY (SANS SECOND LOGO) -->
+    <header class="topbar">
+      <a href="https://vercel.app" class="btn-back-pill">
+        <span class="back-circle">←</span>
+        <span style="display:flex;flex-direction:column;text-align:left;line-height:1.1;">
+          <span style="font-size:9px;font-weight:800;color:#fcd34d;">RETOUR</span>
+          <span style="font-size:12.5px;font-weight:900;color:#ffffff;">UBUK.PAY</span>
+        </span>
+      </a>
+      <a href="tel:*150*7711%23" class="ussd-badge">*150*7711#</a>
+    </header>
+
+    <section class="hero">
+      <div class="app-name">— OBSERVATOIRE —</div>
+      <div class="app-ar">مَرْصَد • 54 ÉTATS &amp; 300 OUVRAGES</div>
+      <div class="hero-desc">Notation des 54 Ministères • Vérité Terrain (5 Abeilles) • Points Opposés</div>
+    </section>
+
+    <!-- NAVIGATION DES 3 VUES -->
+    <div class="tab-row">
+      <button type="button" class="v-btn active" onclick="changerVue(this, 'vue-radar')">🏛 54 États</button>
+      <button type="button" class="v-btn" onclick="changerVue(this, 'vue-terrain')">📡 Terrain</button>
+      <button type="button" class="v-btn" onclick="changerVue(this, 'vue-livres')">📚 300 Livres</button>
+    </div>
+
+    <!-- VUE 1 : RADAR DES 54 ÉTATS & FICHE PAYS 6 AXES -->
+    <section class="panel" id="vue-radar">
+      <div class="panel-top">
+        <h2>Audit Souverain (54 Ministères)</h2>
+        <span class="tag-free">Score / 100</span>
+      </div>
+
+      <div class="pays-pills">
+        <button type="button" class="p-pill active" onclick="choisirPays(this, 'CMR')">🇨🇲 Cameroun (68)</button>
+        <button type="button" class="p-pill" onclick="choisirPays(this, 'RDC')">🇨🇩 RDC (76)</button>
+        <button type="button" class="p-pill" onclick="choisirPays(this, 'EGY')">🇪🇬 Égypte (64)</button>
+      </div>
+
+      <div class="score-hero">
+        <div>
+          <div style="font-size:12px;font-weight:800;color:#6ee7b7;" id="pays-region">AFRIQUE CENTRALE</div>
+          <div style="font-size:21px;font-weight:900;color:#f7e1a0;" id="pays-nom">Cameroun</div>
+          <div style="font-size:13px;color:#d1fae5;margin-top:2px;" id="pays-mp">Cacao 28 % • Pétrole/GNL 34 %</div>
+        </div>
+        <div style="text-align:right;">
+          <div style="font-size:28px;font-weight:900;color:#ffffff;" id="pays-score">68/100</div>
+          <div style="font-size:12px;font-weight:800;color:#6ee7b7;" id="pays-impact">Impact Mondial : 74 %</div>
+        </div>
+      </div>
+
+      <div id="axes-container"></div>
+    </section>
+        <!-- VUE 2 : VÉRITÉ TERRAIN & FIL TRILINGUE FR / EN / AR (5 ABEILLES) -->
+    <section class="panel" id="vue-terrain" style="display:none;">
+      <div class="panel-top">
+        <h2>📡 Vérité Terrain (5 Abeilles PSP)</h2>
+        <span class="tag-free">FR • EN • عربي</span>
+      </div>
+
+      <div style="background:#021c15;border:1.5px solid #d4af61;border-radius:14px;padding:13px;margin-bottom:11px;">
+        <div style="font-size:11.5px;font-weight:900;color:#6ee7b7;margin-bottom:4px;">[FR] CAMEROUN • DOUALA &amp; BAFOUSSAM • 08:15</div>
+        <div style="font-size:14.5px;font-weight:900;color:#f7e1a0;margin-bottom:4px;">Relevé Marchés Locaux (Cellules 5 Abeilles)</div>
+        <div style="font-size:13px;color:#e2f5ee;line-height:1.45;">Stabilisation du prix du sac de riz local grâce aux caisses villageoises d'intrants (+18 % stocks vérifiés sur le terrain).</div>
+      </div>
+
+      <div style="background:#021c15;border:1.5px solid #10b981;border-radius:14px;padding:13px;margin-bottom:11px;">
+        <div style="font-size:11.5px;font-weight:900;color:#6ee7b7;margin-bottom:4px;">[EN] RDC • KOLWEZI CORRIDOR • 07:45</div>
+        <div style="font-size:14.5px;font-weight:900;color:#f7e1a0;margin-bottom:4px;">Strategic Cobalt &amp; Copper Supply Chain Audit</div>
+        <div style="font-size:13px;color:#e2f5ee;line-height:1.45;">Local transformation tracking and anti-conflict SHA-256 timestamping active on export corridors.</div>
+      </div>
+
+      <div style="background:#021c15;border:1.5px solid #d4af61;border-radius:14px;padding:13px;">
+        <div style="font-size:11.5px;font-weight:900;color:#6ee7b7;margin-bottom:4px;">[عربي] مِصْر • قَنَاةُ السُّوَيْس • 07:10</div>
+        <div style="font-size:14.5px;font-weight:900;color:#f7e1a0;margin-bottom:4px;">تقرير حركة الملاحة ومخزون الحبوب الاستراتيجي</div>
+        <div style="font-size:13px;color:#e2f5ee;line-height:1.45;">استقرار احتياطي القمح الاستراتيجي عند 5.4 أشهر مع تفعيل برامج الوقف الاجتماعي.</div>
+      </div>
+    </section>
+
+    <!-- VUE 3 : BIBLIOTHÈQUE DES 300 OUVRAGES (POINTS OPPOSÉS) -->
+    <section class="panel" id="vue-livres" style="display:none;">
+      <div class="panel-top">
+        <h2>📚 300 Ouvrages (150 Paires)</h2>
+        <span class="tag-free">15 Pôles</span>
+      </div>
+
+      <div class="pair-card">
+        <span class="pair-pop">⚖️</span>
+        <div class="endo-box">
+          <div style="font-size:11.5px;font-weight:900;color:#6ee7b7;">OUVRAGE #001 • PENSÉE ENDOGÈNE (TH-01)</div>
+          <div style="font-size:14.5px;font-weight:900;color:#f7e1a0;">Nations Nègres et Culture — Cheikh Anta Diop</div>
+        </div>
+        <div class="ext-box">
+          <div style="font-size:11.5px;font-weight:900;color:#fcd34d;">EN REGARD • OUVRAGE #002</div>
+          <div style="font-size:13.5px;font-weight:700;color:#e2f5ee;">Leçons sur la Philosophie de l'Histoire — G.W.F. Hegel</div>
+        </div>
+        <button type="button" class="btn-listen" onclick="parler('Paire numéro 1 : Nations Nègres et Culture de Cheikh Anta Diop confronté aux Leçons sur la Philosophie de l’Histoire de Hegel.')">🔊 Écouter la confrontation</button>
+      </div>
+
+      <div class="pair-card">
+        <span class="pair-pop">🤲</span>
+        <div class="endo-box">
+          <div style="font-size:11.5px;font-weight:900;color:#6ee7b7;">OUVRAGE #221 • FINANCE SOCIALE (TH-12)</div>
+          <div style="font-size:14.5px;font-weight:900;color:#f7e1a0;">Zakat Management Handbook — Dr M. Obaidullah</div>
+        </div>
+        <div class="ext-box">
+          <div style="font-size:11.5px;font-weight:900;color:#fcd34d;">EN REGARD • OUVRAGE #222</div>
+          <div style="font-size:13.5px;font-weight:700;color:#e2f5ee;">Théorie Générale de l'Intérêt — J.M. Keynes</div>
+        </div>
+        <button type="button" class="btn-listen" onclick="parler('Paire numéro 111 : Zakat Management Handbook du Docteur Mohammed Obaidullah confronté à la Théorie Générale de l’Intérêt de Keynes.')">🔊 Écouter la confrontation</button>
+      </div>
+    </section>
+
+    <!-- PIED DE PAGE LÉGAL OFFICIEL UNIQUE -->
+    <footer class="legal-box">
+      <strong>FEFEO Group SARL</strong> • Capital Social : 2 000 000 FCFA • RCCM : RC/DLA/2022/B/3075 du 24/05/2022 (TPI Douala-Bonanjo) • NIU : M052217354278H • CDI Douala 2 • Régime Fiscal : RSI • Siège Social : Douala 2 (Derrière Boulangerie COAF), Cameroun • Contacts Officiels : <strong style="color:#fff;">+237 679 70 50 38 / +237 697 01 56 43</strong> • <span style="color:#34d399;">contact@ubuk.net</span>
+    </footer>
+        <!-- BARRE VOCALE INFÉRIEURE FIXE HÉRITÉE DE UBUK.PAY -->
+    <nav class="voice-dock">
+      <a href="https://vercel.app" class="avatar-pill">🏠<br>UBUK.PAY</a>
+
+      <button type="button" class="mic-center" id="mic-dock" onclick="ecouterObservatoire()" aria-label="Écouter l'audit pays">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/>
+          <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
+          <line x1="12" y1="19" x2="12" y2="23"/>
+          <line x1="8" y1="23" x2="16" y2="23"/>
+        </svg>
+      </button>
+
+      <a href="ubuk-zakat.html" class="btn-valid-dock">ZAKĀT →</a>
+    </nav>
+  </div>
+
+  <script>
+    const PAYS_DATA = {
+      CMR: {
+        region: 'AFRIQUE CENTRALE',
+        nom: 'Cameroun',
+        mp: 'Cacao 28 % • Pétrole/GNL 34 %',
+        score: '68/100',
+        impact: 'Impact Mondial : 74 %',
+        axes: [
+          ['Matières Premières', 74],
+          ['Sécurité & Stabilité', 62],
+          ['Corridors Logistiques', 68],
+          ['Climat & Agronomie', 65],
+          ['Inclusion Financière', 71],
+          ['Gouvernance & Institutions', 66]
+        ]
+      },
+      RDC: {
+        region: 'AFRIQUE CENTRALE',
+        nom: 'Rép. Dém. du Congo',
+        mp: 'Cobalt 70 % Mondial • Cuivre 18 %',
+        score: '76/100',
+        impact: 'Impact Mondial : 81 %',
+        axes: [
+          ['Matières Premières', 92],
+          ['Sécurité & Stabilité', 48],
+          ['Corridors Logistiques', 55],
+          ['Climat & Agronomie', 70],
+          ['Inclusion Financière', 64],
+          ['Gouvernance & Institutions', 61]
+        ]
+      },
+      EGY: {
+        region: 'AFRIQUE DU NORD',
+        nom: 'Égypte',
+        mp: 'Canal de Suez 12 % • Gaz Zohr',
+        score: '64/100',
+        impact: 'Impact Mondial : 73 %',
+        axes: [
+          ['Matières Premières', 66],
+          ['Sécurité & Stabilité', 72],
+          ['Corridors Logistiques', 84],
+          ['Climat & Agronomie', 58],
+          ['Inclusion Financière', 62],
+          ['Gouvernance & Institutions', 75]
+        ]
+      }
+    };
+
+    let paysActuel = 'CMR';
+
+    function parler(msg) {
+      const t = document.getElementById('toast');
+      t.textContent = msg;
+      t.style.display = 'block';
+      setTimeout(() => { t.style.display = 'none'; }, 5500);
+      if ('speechSynthesis' in window) {
+        window.speechSynthesis.cancel();
+        const u = new SpeechSynthesisUtterance(msg);
+        u.lang = 'fr-FR';
+        u.rate = 0.96;
+        window.speechSynthesis.speak(u);
+      }
+    }
+
+    function changerVue(btn, idVue) {
+      document.querySelectorAll('.v-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      ['vue-radar', 'vue-terrain', 'vue-livres'].forEach(v => {
+        document.getElementById(v).style.display = v === idVue ? 'block' : 'none';
+      });
+    }
+
+    function choisirPays(btn, code) {
+      paysActuel = code;
+      document.querySelectorAll('.p-pill').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const d = PAYS_DATA[code];
+      document.getElementById('pays-region').textContent = d.region;
+      document.getElementById('pays-nom').textContent = d.nom;
+      document.getElementById('pays-mp').textContent = d.mp;
+      document.getElementById('pays-score').textContent = d.score;
+      document.getElementById('pays-impact').textContent = d.impact;
+
+      document.getElementById('axes-container').innerHTML = d.axes.map(([label, val]) =>
+        '<div class="axe-row">' +
+        '<div class="axe-head"><span>' + label + '</span><span style="color:#f7e1a0;">' + val + ' / 100</span></div>' +
+        '<div class="bar-bg"><div class="bar-fill" style="width:' + val + '%"></div></div>' +
+        '</div>'
+      ).join('');
+    }
+
+    function ecouterObservatoire() {
+      const d = PAYS_DATA[paysActuel];
+      parler('Observatoire Panafricain UBUK : ' + d.nom + ', score souverain ' + d.score + ', ' + d.impact + '. Ressources : ' + d.mp + '.');
+    }
+
+    choisirPays(document.querySelector('.p-pill.active'), 'CMR');
+  </script>
+</body>
+</html>
