@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>UBUK • FALAH (فَلَاح) — Micro-Takaful Solidaire & Universel</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: #01140f; color: #ffffff; font-family: system-ui, -apple-system, sans-serif; display: flex; justify-content: center; }
+    .shell {
+      width: 100%; max-width: 440px; min-height: 100vh; padding-bottom: 105px;
+      background-color: #021f17;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://w3.org' width='84' height='144' viewBox='0 0 84 144'%3E%3Cg fill='none' stroke='%23d4af61' stroke-opacity='0.16' stroke-width='1.4'%3E%3Cpath d='M42 0L84 24V72L42 96L0 72V24Z'/%3E%3Cpath d='M42 48L84 72V120L42 144L0 120V72Z'/%3E%3C/g%3E%3C/svg%3E");
+      border-left: 1.5px solid #d4af61; border-right: 1.5px solid #d4af61;
+    }
+
+    /* EN-TÊTE COMPACT : BOUTON RETOUR + LOGO CENTRÉ ENTRE LES DEUX + USSD PROTUBÉRANT */
+    .top-header { background: linear-gradient(180deg, rgba(6, 64, 51, 0.94) 0%, rgba(2, 31, 23, 0.85) 100%); padding: 12px 14px 16px; border-bottom: 2px solid #d4af61; }
+    .top-bar-3 { display: flex; justify-content: space-between; align-items: center; gap: 6px; margin-bottom: 10px; }
+    .btn-back-pill { display: inline-flex; align-items: center; gap: 7px; padding: 4px 11px 4px 4px; border-radius: 999px; background: #021a13; border: 1.5px solid #10b981; text-decoration: none; box-shadow: 0 4px 10px rgba(0,0,0,0.4); flex-shrink: 0; }
+    .back-circle { width: 28px; height: 28px; border-radius: 50%; background: radial-gradient(circle, #34d399 0%, #059669 100%); border: 2px dashed #fbbf24; display: flex; align-items: center; justify-content: center; color: #fff; font-weight: 900; font-size: 14px; }
+    .falah-center-logo { width: 66px; height: 66px; flex-shrink: 0; filter: drop-shadow(0 0 12px rgba(212, 175, 97, 0.45)); }
+    .ussd-pop { font-family: monospace; font-size: 14.5px; font-weight: 900; color: #021c15; background: linear-gradient(180deg, #f7e1a0 0%, #cfa64e 100%); padding: 8px 11px; border-radius: 12px; border: 2px solid #ffffff; text-decoration: none; box-shadow: 0 5px 15px rgba(212, 175, 97, 0.55); transform: scale(1.06); white-space: nowrap; flex-shrink: 0; }
+
+    .hero-titles { text-align: center; }
+    .falah-main-title { font-size: 22px; font-weight: 900; color: #f7e1a0; letter-spacing: 1px; }
+    .falah-ar-big { font-size: 28px; font-weight: 900; color: #6ee7b7; vertical-align: middle; margin-left: 4px; }
+    .falah-slogan-white { font-size: 15px; font-weight: 700; color: #ffffff; margin-top: 6px; line-height: 1.4; }
+
+    .content { padding: 14px; }
+
+    /* CARTE POLICE ACTIVE */
+    .active-pack { background: linear-gradient(135deg, #064033 0%, #0a5443 100%); border: 1.5px solid #d4af61; border-radius: 16px; padding: 15px; margin-bottom: 12px; }
+    .pack-top { display: flex; justify-content: space-between; align-items: center; gap: 8px; }
+    .pack-name { font-size: 16px; font-weight: 900; color: #f7e1a0; }
+    .badge-actif { background: #16a34a; color: #fff; font-size: 12px; font-weight: 800; padding: 4px 10px; border-radius: 20px; }
+    .pack-valid { font-size: 13.5px; color: #e2f5ee; margin-top: 6px; line-height: 1.45; }
+
+    .btn-cotiser-main { width: 100%; background: linear-gradient(180deg, #ecd08c 0%, #cfa64e 100%); color: #021c15; border: 1.5px solid #fff; border-radius: 14px; padding: 15px; text-align: center; cursor: pointer; margin-bottom: 14px; box-shadow: 0 5px 15px rgba(212, 175, 97, 0.35); }
+    .btn-cotiser-main strong { display: block; font-size: 16px; font-weight: 900; }
+    .btn-cotiser-main span { font-size: 12.5px; font-weight: 800; }
+
+    .grid-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 14px; }
+    .mini-box { background: rgba(4, 51, 39, 0.94); border: 1.5px solid #10b981; border-radius: 14px; padding: 15px 10px; text-align: center; cursor: pointer; color: #fff; }
+    .mini-box span { font-size: 13.5px; font-weight: 800; color: #f7e1a0; display: block; margin-top: 6px; line-height: 1.3; }
+
+    .btn-sinistre-big { width: 100%; background: rgba(4, 51, 39, 0.96); border: 2px solid #d4af61; border-radius: 16px; padding: 15px; text-align: center; cursor: pointer; margin-bottom: 16px; color: #fff; }
+    .btn-sinistre-big strong { display: block; font-size: 16px; font-weight: 900; color: #f7e1a0; margin-top: 4px; }
+    .btn-sinistre-big span { font-size: 13px; color: #a7f3d0; font-weight: 600; display: block; margin-top: 3px; }
+
+    .info-panel { background: rgba(4, 51, 39, 0.94); border: 1.5px solid #0f765d; border-radius: 16px; padding: 16px 14px; margin-bottom: 16px; }
+    .panel-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; }
+    .panel-head h3 { font-size: 16px; font-weight: 900; color: #f7e1a0; }
+    .pill-sain { background: #065f46; color: #6ee7b7; font-size: 12px; font-weight: 800; padding: 4px 10px; border-radius: 8px; }
+    .bar-split { height: 11px; border-radius: 6px; overflow: hidden; display: flex; margin-bottom: 8px; background: #021c15; }
+    .bar-tab { width: 80%; background: #10b981; }
+    .bar-wak { width: 20%; background: #d4af61; }
+    .split-legend { display: flex; justify-content: space-between; font-size: 13px; font-weight: 800; color: #d1fae5; }
+
+    /* CARTES DES 6 PACKS AVEC ICÔNES QUI DÉBORDENT */
+    .formule-item { position: relative; width: 100%; background: #021c15; border: 1.5px solid #0f765d; border-radius: 14px; padding: 14px 12px 14px 52px; margin-bottom: 12px; display: flex; justify-content: space-between; align-items: center; text-align: left; cursor: pointer; color: #fff; }
+    .formule-item.selected { background: linear-gradient(135deg, #064033 0%, #0b5c48 100%); border: 2px solid #d4af61; }
+    .pack-pop-icon { position: absolute; left: -8px; width: 46px; height: 46px; border-radius: 14px; background: #03261d; border: 2px solid #d4af61; display: flex; align-items: center; justify-content: center; font-size: 22px; box-shadow: 0 4px 12px rgba(0,0,0,0.55); }
+    .f-t { font-size: 15px; font-weight: 900; color: #f7e1a0; }
+    .f-s { font-size: 13px; color: #d1fae5; margin-top: 3px; line-height: 1.35; }
+    .f-p { font-size: 14.5px; font-weight: 900; color: #6ee7b7; white-space: nowrap; margin-left: 8px; }
+
+    .avantage-banner { background: linear-gradient(90deg, #cfa64e 0%, #ecd08c 100%); color: #021c15; border-radius: 12px; padding: 12px; font-size: 13px; font-weight: 900; text-align: center; margin-top: 6px; line-height: 1.4; }
+    .legal-box { background: rgba(2, 24, 18, 0.96); border: 1px solid #0b5c48; border-radius: 14px; padding: 14px 12px; font-size: 11.5px; color: #cbd5e1; line-height: 1.55; text-align: center; }
+    .legal-box strong { color: #f7e1a0; }
+
+    /* MODALS & BARRE INFÉRIEURE 5 BOUTONS 100% RÉACTIFS */
+    .modal-bg { position: fixed; inset: 0; background: rgba(1, 20, 15, 0.88); z-index: 110; display: none; align-items: flex-end; justify-content: center; }
+    .modal-bg.open { display: flex; }
+    .modal-box { width: 100%; max-width: 440px; max-height: 90vh; overflow-y: auto; background: #03261d; color: #fff; border-top-left-radius: 22px; border-top-right-radius: 22px; padding: 18px 16px 32px; border-top: 3px solid #d4af61; }
+    .modal-head { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #0f765d; padding-bottom: 10px; margin-bottom: 14px; }
+    .modal-head h4 { font-size: 17px; font-weight: 900; color: #f7e1a0; }
+    .btn-close { background: #064033; border: 1px solid #d4af61; width: 34px; height: 34px; border-radius: 50%; font-size: 16px; font-weight: 900; color: #fff; cursor: pointer; }
+    .field { margin-bottom: 12px; }
+    .field label { display: block; font-size: 13px; font-weight: 800; color: #f7e1a0; margin-bottom: 4px; }
+    .field input, .field select, .field textarea { width: 100%; padding: 12px; border: 1.5px solid #10b981; border-radius: 10px; font-size: 14.5px; background: #011812; color: #fff; }
+    .calc-box { background: #021a13; border: 1.5px solid #d4af61; border-radius: 12px; padding: 12px; margin-bottom: 12px; font-size: 13.5px; color: #e2f5ee; line-height: 1.5; }
+
+    .tabbar { position: fixed; bottom: 0; left: 50%; transform: translateX(-50%); width: 100%; max-width: 440px; height: 76px; background: #021c15; border-top: 2px solid #d4af61; display: grid; grid-template-columns: repeat(5, 1fr); align-items: center; text-align: center; z-index: 95; }
+    .tab-item { text-decoration: none; color: #a7f3d0; font-size: 11.5px; font-weight: 800; display: flex; flex-direction: column; align-items: center; gap: 3px; background: none; border: none; cursor: pointer; padding: 4px 0; }
+    .tab-item.active { color: #f7e1a0; }
+    .tab-center { width: 54px; height: 54px; margin: -24px auto 0; border-radius: 50%; background: linear-gradient(180deg, #f7e1a0 0%, #cfa64e 100%); border: 3px solid #021c15; color: #021c15; display: flex; align-items: center; justify-content: center; box-shadow: 0 0 18px rgba(212, 175, 97, 0.6); }
+    .tab-center.listening { background: #ef4444; color: #fff; }
+    #toast { position: fixed; top: 14px; left: 50%; transform: translateX(-50%); background: #064033; color: #f7e1a0; border: 2px solid #d4af61; padding: 14px 16px; border-radius: 14px; font-size: 14px; font-weight: 800; width: 92%; max-width: 390px; text-align: center; z-index: 130; display: none; box-shadow: 0 10px 25px rgba(0,0,0,0.65); }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <div id="toast"></div>
+        <!-- EN-TÊTE COMPACT : BOUTON RETOUR + LOGO CENTRÉ + USSD PROTUBÉRANT -->
+    <header class="top-header">
+      <div class="top-bar-3">
+        <a href="https://vercel.app" class="btn-back-pill">
+          <span class="back-circle">←</span>
+          <span style="display:flex;flex-direction:column;text-align:left;line-height:1.1;">
+            <span style="font-size:9px;font-weight:800;color:#fcd34d;">RETOUR</span>
+            <span style="font-size:12.5px;font-weight:900;color:#ffffff;">UBUK.PAY</span>
+          </span>
+        </a>
+
+        <!-- LOGO OFFICIEL FALAH CENTRÉ ENTRE LES DEUX -->
+        <svg class="falah-center-logo" viewBox="0 0 200 200" fill="none" xmlns="http://w3.org">
+          <defs>
+            <linearGradient id="orFalah" x1="15" y1="15" x2="185" y2="185" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="#f9e5a8"/><stop offset="50%" stop-color="#c6963e"/><stop offset="100%" stop-color="#7d5818"/>
+            </linearGradient>
+            <radialGradient id="lueurVerte" cx="50%" cy="55%" r="50%">
+              <stop offset="0%" stop-color="#ffffff"/><stop offset="30%" stop-color="#34d399"/><stop offset="100%" stop-color="#059669" stop-opacity="0"/>
+            </radialGradient>
+          </defs>
+          <polygon points="100,14 186,76 153,178 47,178 14,76" stroke="url(#orFalah)" stroke-width="5.5" stroke-linejoin="round"/>
+          <polygon points="100,14 153,178 14,76 186,76 47,178" stroke="url(#orFalah)" stroke-width="4.2" stroke-linejoin="round"/>
+          <polygon points="100,48 112,86 152,86 120,109 132,147 100,124 68,147 80,109 48,86 88,86" fill="#032119" fill-opacity="0.7" stroke="url(#orFalah)" stroke-width="4.5" stroke-linejoin="round"/>
+          <circle cx="100" cy="105" r="20" fill="url(#lueurVerte)"/>
+          <path d="M100 91 L103 102 L114 105 L103 108 L100 119 L97 108 L86 105 L97 102 Z" fill="#ecfdf5"/>
+        </svg>
+
+        <a href="tel:*150*7711%23" class="ussd-pop">*150*7711#</a>
+      </div>
+
+      <div class="hero-titles">
+        <div class="falah-main-title">— FALAH • <span class="falah-ar-big">فَلَاح</span> —</div>
+        <div class="falah-slogan-white">La protection solidaire et universelle, instantanée sur votre mobile</div>
+      </div>
+    </header>
+
+    <div class="content">
+      <div class="active-pack">
+        <div class="pack-top">
+          <span class="pack-name" id="pack-titre">1. Pack Falah Intégral • 2 500 F/mois</span>
+          <span class="badge-actif" id="badge-police">Prêt à souscrire</span>
+        </div>
+        <div class="pack-valid" id="pack-garantie">Accident 100K • Santé 10K/j • Décès 500K • Commerce 200K</div>
+      </div>
+
+      <button class="btn-cotiser-main" onclick="ouvrirModal('modal-souscrire')">
+        <strong id="btn-cotis-txt">Souscrire & Payer • 2 500 FCFA</strong>
+        <span>MTN MoMo (670 80 59 43) • Orange Money (519982) • USSD *150*7711#</span>
+      </button>
+
+      <div class="grid-cards">
+        <div class="mini-box" onclick="ouvrirModal('modal-statuts')">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#d4af61" stroke-width="2.3" style="margin:0 auto;"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          <span>Contrat & Statuts CIMA / Charia</span>
+        </div>
+        <div class="mini-box" onclick="parler('Bouclier anti-exclusion Qard Hasan : en cas de maladie grave ou perte d’activité, la caisse avance votre cotisation sans intérêt ni pénalité.')">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="2.3" style="margin:0 auto;"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          <span>Bouclier Qarḍ Ḥasan (0% Intérêt)</span>
+        </div>
+      </div>
+
+      <button class="btn-sinistre-big" onclick="ouvrirModal('modal-sinistre')">
+        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#d4af61" stroke-width="2.3" style="margin:0 auto;"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+        <strong>Déclarer un Sinistre (Photo / Vocal 24h)</strong>
+        <span>Urgences & Funéraires (< 100K) sous 24h • Capitaux majeurs sous 48h–72h</span>
+        </button>
+              <div class="info-panel">
+        <div class="panel-head">
+          <h3>Ventilation Étanche (AAOIFI FAS 12-13)</h3>
+          <span class="pill-sain">SAIN & CONFORME</span>
+        </div>
+        <div class="bar-split"><div class="bar-tab"></div><div class="bar-wak"></div></div>
+        <div class="split-legend">
+          <span>Ṣundūq at-Tabarru‘ (80 %)</span>
+          <span>Gestion Al-Wakālah (20 %)</span>
+        </div>
+      </div>
+
+      <div class="info-panel">
+        <div class="panel-head">
+          <h3>Grille Tarifaire Officielle Falah</h3>
+          <span style="font-size:12px;font-weight:800;color:#6ee7b7;">6 Formules</span>
+        </div>
+
+        <button class="formule-item selected" onclick="choisir(this, '1. Pack Falah Intégral', 2500, 'Accident 100K • Santé 10K/j • Décès 500K • Commerce 200K')">
+          <span class="pack-pop-icon">🛡️</span>
+          <div><div class="f-t">1. Pack Falah Intégral (4-en-1)</div><div class="f-s">Accident, Santé, Décès & Commerce • 24h–48h</div></div>
+          <div class="f-p">2 500 F/mois</div>
+        </button>
+
+        <button class="formule-item" onclick="choisir(this, '2. Falah Mobilité Moto', 500, 'Soins accident 75K • Hospit 5K/j • Décès/Inval. 250K (0j carence)')">
+          <span class="pack-pop-icon">🏍️</span>
+          <div><div class="f-t">2. Falah Mobilité Moto</div><div class="f-s">Soins urgence 75 000 F + Capital 250 000 F</div></div>
+          <div class="f-p">500 F/mois</div>
+        </button>
+
+        <button class="formule-item" onclick="choisir(this, '3. Falah Santé Urgence', 1000, 'Hospitalisation 10 000 F/jour (max 20j) + Pharmacie 30 000 F/an')">
+          <span class="pack-pop-icon">🏥</span>
+          <div><div class="f-t">3. Falah Santé Urgence</div><div class="f-s">Hospit. 10 000 F/jour + Pharmacie 30 000 F/an</div></div>
+          <div class="f-p">1 000 F/mois</div>
+        </button>
+
+        <button class="formule-item" onclick="choisir(this, '4. Falah Prévoyance Famille', 1500, 'Frais funéraires 100K (24h) + Capital soutien famille 500K')">
+          <span class="pack-pop-icon">👪</span>
+          <div><div class="f-t">4. Falah Prévoyance Famille</div><div class="f-s">Funéraires 100 000 F (24h) + Capital 500 000 F</div></div>
+          <div class="f-p">1 500 F/mois</div>
+        </button>
+
+        <button class="formule-item" onclick="choisir(this, '5. Falah Commerce & Échoppe', 1000, 'Incendie, dégât eaux, vol stock jusqu’à 200 000 F + Perte exploit. 25K')">
+          <span class="pack-pop-icon">🏪</span>
+          <div><div class="f-t">5. Falah Commerce & Échoppe</div><div class="f-s">Stock & étal jusqu'à 200 000 F + Perte 25 000 F</div></div>
+          <div class="f-p">1 000 F/mois</div>
+        </button>
+
+        <button class="formule-item" onclick="choisir(this, '6. Falah Agro & Élevage', 2000, 'Indiciel Art. 705 CIMA : Sécheresse/Inond. 100K/ha • Bétail 150K')">
+          <span class="pack-pop-icon">🌾</span>
+          <div><div class="f-t">6. Falah Agro & Élevage</div><div class="f-s">Récoltes 100 000 F/ha • Bétail 150 000 F</div></div>
+          <div class="f-p">2 000 F/saison</div>
+        </button>
+
+        <div class="avantage-banner">
+          Tarif Famille Dégressif : -50 % dès le 4ᵉ membre • Prise en charge Zakāh / Waqf (0 FCFA) pour les indigents (Cat. 1)
+        </div>
+      </div>
+
+      <footer class="legal-box">
+        <strong>FEFEO Group SARL</strong> • Capital Social : 2 000 000 FCFA • RCCM : RC/DLA/2022/B/3075 du 24/05/2022 (TPI Douala-Bonanjo) • NIU : M052217354278H • CDI Douala 2 • Régime Fiscal : RSI • Siège Social : Douala 2 (Derrière Boulangerie COAF), Cameroun • Contacts Officiels : <strong style="color:#fff;">+237 679 70 50 38 / +237 697 01 56 43</strong> • <span style="color:#34d399;">contact@ubuk.net</span>
+      </footer>
+    </div>
+        <!-- MODAL 1 : SOUSCRIPTION FAMILIALE & PAIEMENT -->
+    <div class="modal-bg" id="modal-souscrire">
+      <div class="modal-box">
+        <div class="modal-head">
+          <h4>Adhésion Familiale & Paiement</h4>
+          <button class="btn-close" onclick="fermerModal('modal-souscrire')">✕</button>
+        </div>
+        <div class="field">
+          <label>Chef de Ménage (Nom & Prénoms)</label>
+          <input type="text" id="in-nom" placeholder="Ex. Moussa Abdoulaye" />
+        </div>
+        <div class="field">
+          <label>Téléphone Mobile Money (MTN / Orange)</label>
+          <input type="tel" id="in-tel" placeholder="Ex. 699 00 00 00" />
+        </div>
+        <div class="field">
+          <label>Bénéficiaire en cas de décès (Al-Hibah)</label>
+          <input type="text" id="in-hibah" placeholder="Nom complet + Lien de parenté + Tél." />
+        </div>
+        <div class="field">
+          <label>Nombre de membres du foyer</label>
+          <select id="in-membres" onchange="recalculerFoyer()">
+            <option value="1">1 membre (Tarif plein 100%)</option>
+            <option value="2">2 membres (Tarif plein 100%)</option>
+            <option value="3">3 membres (Tarif plein 100%)</option>
+            <option value="4">4 membres (-50% sur le 4ᵉ membre)</option>
+            <option value="5">5 membres (-50% dès le 4ᵉ membre)</option>
+            <option value="6">6 membres (-50% dès le 4ᵉ membre)</option>
+            <option value="0">Ménage Indigent Cat. 1 (Zakāh/Waqf : 0 F)</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Canal de règlement</label>
+          <select id="in-canal">
+            <option value="MTN MoMo (Marchand 670 80 59 43)">MTN Mobile Money (670 80 59 43)</option>
+            <option value="Orange Money (Marchand 519982)">Orange Money (Marchand 519982)</option>
+            <option value="USSD Hors-Ligne (*150*7711#)">USSD Sans Internet (*150*7711#)</option>
+          </select>
+        </div>
+        <div class="calc-box" id="resume-calcul"></div>
+        <button class="btn-cotiser-main" onclick="validerSouscription()">
+          <strong>Valider & Déclencher le Paiement</strong>
+          <span>Génération immédiate de votre N° Police SHA-256</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- MODAL 2 : DÉCLARATION DE SINISTRE PHOTO & VOCAL -->
+    <div class="modal-bg" id="modal-sinistre">
+      <div class="modal-box">
+        <div class="modal-head">
+          <h4>Déclarer un Sinistre (24h – 48h)</h4>
+          <button class="btn-close" onclick="fermerModal('modal-sinistre')">✕</button>
+        </div>
+        <div class="field">
+          <label>Nature du sinistre</label>
+          <select id="sin-type">
+            <option>Accident Moto / Route (0 jour de carence)</option>
+            <option>Hospitalisation / Urgence Santé</option>
+            <option>Frais Funéraires / Décès (Règlement 24h)</option>
+            <option>Incendie / Sinistre Boutique & Stock</option>
+            <option>Sinistre Agro-Pastoral (Récoltes / Bétail)</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Photo du justificatif (Ordonnance, Constat)</label>
+          <input type="file" accept="image/*" capture="environment" id="sin-photo" />
+        </div>
+        <div class="field">
+          <label>Description ou Dictée Vocale</label>
+          <textarea id="sin-desc" rows="3" placeholder="Expliquez l'incident ou appuyez sur Dicter..."></textarea>
+        </div>
+        <button type="button" onclick="dicterSinistre()" style="width:100%;padding:12px;margin-bottom:12px;border-radius:10px;border:1.5px solid #d4af61;background:#064033;color:#f7e1a0;font-size:14px;font-weight:800;cursor:pointer;">🎙️ Dicter à voix haute</button>
+        <button class="btn-cotiser-main" onclick="envoyerSinistre()">
+          <strong>Transmettre le Dossier Horodaté</strong>
+          <span>Empreinte SHA-256 • Paiement Mobile Money</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- MODAL 3 : STATUTS & GARANTIES -->
+    <div class="modal-bg" id="modal-statuts">
+      <div class="modal-box">
+        <div class="modal-head">
+          <h4>Contrat & Statuts UBUK.KOONE — FALAH</h4>
+          <button class="btn-close" onclick="fermerModal('modal-statuts')">✕</button>
+        </div>
+        <div style="font-size:13.5px;color:#e2f5ee;line-height:1.6;">
+          <p style="margin-bottom:8px;"><strong>• Cadre Légal :</strong> Livre VII du Code CIMA (Art. 700, 701, 705-707) et normes Charia AAOIFI FAS 12-13 / IFSB-8 & 11.</p>
+          <p style="margin-bottom:8px;"><strong>• Séparation Étanche (80/20) :</strong> 80 % alimentent le Fonds Mutuel insaisissable (<em>Ṣundūq at-Tabarru‘</em>) ; 20 % couvrent la gestion technologique (<em>Al-Wakālah</em>).</p>
+          <p style="margin-bottom:8px;"><strong>• Délais de Carence :</strong> 0 jour pour tout accident de la route ; 15 jours maladie courante & commerce ; 30 jours décès naturel.</p>
+          <p><strong>• Ristourne Annuelle :</strong> 70 % de l'excédent restitués aux adhérents sans sinistre et 30 % affectés à la réserve ou au fonds Zakāh/Waqf.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- BARRE INFÉRIEURE FIXE À 5 BOUTONS 100% RÉACTIFS -->
+    <nav class="tabbar">
+      <a href="https://vercel.app" class="tab-item">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+        <span>UBUK.PAY</span>
+      </a>
+      <button type="button" class="tab-item active" onclick="ouvrirModal('modal-souscrire')">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        <span>Souscrire</span>
+      </button>
+      <button type="button" class="tab-item" onclick="ecouterCommande()">
+        <div class="tab-center" id="mic-btn">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/></svg>
+        </div>
+      </button>
+      <button type="button" class="tab-item" onclick="ouvrirModal('modal-sinistre')">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+        <span>Sinistre</span>
+      </button>
+      <button type="button" class="tab-item" onclick="ouvrirModal('modal-statuts')">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+        <span>Contrat</span>
+      </button>
+    </nav>
+  </div>
+
+  <script>
+    let nomActif = '1. Pack Falah Intégral';
+    let prixActif = 2500;
+
+    function parler(msg) {
+      const t = document.getElementById('toast');
+      t.textContent = msg;
+      t.style.display = 'block';
+      setTimeout(() => { t.style.display = 'none'; }, 5500);
+      if ('speechSynthesis' in window) {
+        window.speechSynthesis.cancel();
+        const u = new SpeechSynthesisUtterance(msg);
+        u.lang = 'fr-FR';
+        u.rate = 0.96;
+        window.speechSynthesis.speak(u);
+      }
+    }
+
+    function choisir(btn, nom, prix, garantie) {
+      nomActif = nom;
+      prixActif = prix;
+      document.querySelectorAll('.formule-item').forEach(b => b.classList.remove('selected'));
+      btn.classList.add('selected');
+      document.getElementById('pack-titre').textContent = nom + ' • ' + prix.toLocaleString('fr-FR') + ' F';
+      document.getElementById('pack-garantie').textContent = garantie;
+      document.getElementById('btn-cotis-txt').textContent = 'Souscrire & Payer • ' + prix.toLocaleString('fr-FR') + ' FCFA';
+      recalculerFoyer();
+    }
+
+    function recalculerFoyer() {
+      const nb = parseInt(document.getElementById('in-membres').value, 10);
+      let total = 0;
+      if (nb === 0) total = 0;
+      else if (nb <= 3) total = nb * prixActif;
+      else total = (3 * prixActif) + ((nb - 3) * Math.round(prixActif * 0.5));
+      const tabarru = Math.round(total * 0.8);
+      const wakala = total - tabarru;
+      document.getElementById('resume-calcul').innerHTML =
+        '<strong>Formule :</strong> ' + nomActif + '<br>' +
+        '<strong>Total Foyer (' + (nb === 0 ? 'Indigent Zakāh' : nb + ' pers.') + ') :</strong> <span style="font-size:15px;font-weight:900;color:#f7e1a0;">' + total.toLocaleString('fr-FR') + ' FCFA</span><br>' +
+        '• Fonds Solidaire Tabarru‘ (80 %) : <strong>' + tabarru.toLocaleString('fr-FR') + ' FCFA</strong><br>' +
+        '• Gestion Opérateur Wakālah (20 %) : <strong>' + wakala.toLocaleString('fr-FR') + ' FCFA</strong>';
+    }
+
+    function ouvrirModal(id) {
+      if (id === 'modal-souscrire') recalculerFoyer();
+      document.getElementById(id).classList.add('open');
+    }
+
+    function fermerModal(id) {
+      document.getElementById(id).classList.remove('open');
+    }
+
+    function validerSouscription() {
+      const nom = document.getElementById('in-nom').value.trim();
+      const tel = document.getElementById('in-tel').value.trim();
+      const canal = document.getElementById('in-canal').value;
+      if (!nom || !tel) {
+        parler('Veuillez renseigner le nom du chef de ménage et son numéro Mobile Money.');
+        return;
+      }
+      const policeId = 'KOONE-FALAH-2026-' + Math.floor(100000 + Math.random() * 900000);
+      document.getElementById('badge-police').textContent = 'Police Active';
+      document.getElementById('pack-garantie').textContent = 'Titulaire : ' + nom + ' • Police N° ' + policeId;
+    
