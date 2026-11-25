@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>UBUK • OBSERVATOIRE PANAFRICAIN (مَرْصَد) — 54 États & 300 Ouvrages</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: #01140f; color: #ffffff; font-family: system-ui, -apple-system, sans-serif; display: flex; justify-content: center; }
+    .app {
+      width: 100%; max-width: 440px; min-height: 100vh; padding-bottom: 108px;
+      background-color: #021f17;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://w3.org' width='84' height='144' viewBox='0 0 84 144'%3E%3Cg fill='none' stroke='%23d4af61' stroke-opacity='0.16' stroke-width='1.4'%3E%3Cpath d='M42 0L84 24V72L42 96L0 72V24Z'/%3E%3Cpath d='M42 48L84 72V120L42 144L0 120V72Z'/%3E%3C/g%3E%3C/svg%3E");
+      border-left: 1.5px solid #d4af61; border-right: 1.5px solid #d4af61;
+    }
+
+    /* EN-TÊTE HÉRITÉ DU NOYAU UBUK.PAY (SANS SECOND LOGO) */
+    .topbar { display: flex; justify-content: space-between; align-items: center; padding: 12px 16px; background: rgba(1, 20, 15, 0.94); border-bottom: 1.5px solid #0f765d; }
+    .btn-back-pill { display: inline-flex; align-items: center; gap: 8px; padding: 4px 12px 4px 4px; border-radius: 999px; background: #021a13; border: 1.5px solid #10b981; text-decoration: none; box-shadow: 0 4px 12px rgba(0,0,0,0.4); }
+    .back-circle { width: 30px; height: 30px; border-radius: 50%; background: radial-gradient(circle, #34d399 0%, #059669 100%); border: 2px dashed #fbbf24; display: flex; align-items: center; justify-content: center; color: #fff; font-weight: 900; font-size: 15px; }
+    .ussd-badge { font-family: monospace; font-size: 15px; font-weight: 900; color: #021c15; background: linear-gradient(180deg, #f7e1a0 0%, #cfa64e 100%); padding: 8px 12px; border-radius: 12px; border: 2px solid #ffffff; text-decoration: none; box-shadow: 0 5px 15px rgba(212, 175, 97, 0.5); transform: scale(1.05); }
+
+    .hero { text-align: center; padding: 18px 16px 16px; background: linear-gradient(180deg, rgba(6, 64, 51, 0.90) 0%, rgba(2, 31, 23, 0.75) 100%); border-bottom: 1.5px solid #d4af61; }
+    .app-name { font-size: 24px; font-weight: 900; color: #f7e1a0; letter-spacing: 1.2px; }
+    .app-ar { font-size: 22px; font-weight: 800; color: #6ee7b7; margin-top: 2px; }
+    .hero-desc { font-size: 14px; font-weight: 700; color: #ffffff; margin-top: 8px; line-height: 1.4; }
+
+    /* ONGLETS & PANNEAUX HÉRITÉS */
+    .tab-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 7px; padding: 14px 14px 4px; }
+    .v-btn { padding: 11px 6px; border-radius: 12px; background: #021c15; color: #a7f3d0; border: 1.5px solid #0f765d; font-size: 13px; font-weight: 900; cursor: pointer; }
+    .v-btn.active { background: #d4af61; color: #021c15; border-color: #ffffff; }
+
+    .panel { margin: 14px; background: rgba(4, 51, 39, 0.94); border: 1.5px solid #0f765d; border-radius: 18px; padding: 16px; }
+    .panel-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; gap: 8px; }
+    .panel-top h2 { font-size: 16px; font-weight: 900; color: #f7e1a0; }
+    .tag-free { background: #065f46; color: #6ee7b7; font-size: 12px; font-weight: 800; padding: 4px 10px; border-radius: 20px; white-space: nowrap; }
+
+    .pays-pills { display: flex; gap: 8px; margin-bottom: 12px; overflow-x: auto; padding-bottom: 4px; }
+    .p-pill { padding: 9px 13px; border-radius: 12px; background: #021c15; border: 1.5px solid #10b981; color: #fff; font-size: 13.5px; font-weight: 900; cursor: pointer; white-space: nowrap; }
+    .p-pill.active { background: #d4af61; color: #021c15; border-color: #fff; }
+
+    .score-hero { background: linear-gradient(145deg, #064033 0%, #021a13 100%); border: 2px solid #d4af61; border-radius: 16px; padding: 14px; margin-bottom: 12px; display: flex; justify-content: space-between; align-items: center; }
+    .axe-row { margin-bottom: 9px; }
+    .axe-head { display: flex; justify-content: space-between; font-size: 13px; font-weight: 800; color: #d1fae5; margin-bottom: 4px; }
+    .bar-bg { height: 9px; background: #021c15; border-radius: 6px; overflow: hidden; }
+    .bar-fill { height: 100%; background: linear-gradient(90deg, #34d399, #d4af61); }
+
+    /* PAIRES DIALECTIQUES (300 OUVRAGES) AVEC ICÔNE QUI DÉBORDE */
+    .pair-card { position: relative; background: #021c15; border: 1.5px solid #d4af61; border-radius: 16px; padding: 14px 14px 14px 50px; margin-bottom: 14px; }
+    .pair-pop { position: absolute; left: -8px; top: 18px; width: 44px; height: 44px; border-radius: 14px; background: #03261d; border: 2px solid #d4af61; display: flex; align-items: center; justify-content: center; font-size: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.55); }
+    .endo-box { border-left: 3px solid #34d399; padding-left: 10px; margin-bottom: 10px; }
+    .ext-box { border-left: 3px solid #d4af61; padding-left: 10px; margin-bottom: 8px; }
+    .btn-listen { width: 100%; padding: 10px; border-radius: 10px; background: #065f46; border: 1.5px solid #34d399; color: #fff; font-size: 13px; font-weight: 900; cursor: pointer; }
+
+    .legal-box { margin: 14px; background: rgba(2, 24, 18, 0.96); border: 1px solid #0b5c48; border-radius: 14px; padding: 14px 12px; font-size: 11.5px; color: #cbd5e1; line-height: 1.55; text-align: center; }
+    .legal-box strong { color: #f7e1a0; }
+
+    .voice-dock { position: fixed; bottom: 0; left: 50%; transform: translateX(-50%); width: 100%; max-width: 440px; height: 82px; background: #021c15; border-top: 2px solid #d4af61; padding: 8px 14px; display: flex; align-items: center; justify-content: space-between; z-index: 90; }
+    .avatar-pill { background: #064033; border: 1.5px solid #34d399; border-radius: 12px; padding: 6px 10px; text-align: center; font-size: 11.5px; font-weight: 800; color: #a7f3d0; text-decoration: none; }
+    .mic-center { width: 62px; height: 62px; margin-top: -26px; border-radius: 50%; background: linear-gradient(180deg, #f7e1a0 0%, #cfa64e 100%); border: 4px solid #021c15; color: #021c15; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 0 22px rgba(212, 175, 97, 0.65); }
+    .btn-valid-dock { background: #065f46; border: 1.5px solid #34d399; color: #fff; padding: 11px 14px; border-radius: 12px; font-size: 13.5px; font-weight: 900; text-decoration: none; }
+    #toast { position: fixed; top: 14px; left: 50%; transform: translateX(-50%); background: #064033; color: #f7e1a0; border: 2px solid #d4af61; padding: 14px 16px; border-radius: 14px; font-size: 14px; font-weight: 800; width: 92%; max-width: 390px; text-align: center; z-index: 120; display: none; box-shadow: 0 10px 25px rgba(0,0,0,0.65); }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <div id="toast"></div>
