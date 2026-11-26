@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+  <title>UBUK.ONE • Messagerie Souveraine & Office Latif Connect</title>
+  <meta name="description" content="UBUK.ONE — Messagerie souveraine, 7 Satellites (Mizan, Falah, Buraq, Float & Security, Zakāt & Talents, Kalam, Observatoire) et Contrat Float & Shield PDF." />
+  <style>
+    :root {
+      --bg-app: #021711;
+      --bg-header: #03241b;
+      --bg-panel: #042e22;
+      --bg-bubble-in: #063b2c;
+      --bg-bubble-out: #0b533e;
+      --emerald: #10b981;
+      --emerald-soft: rgba(16, 185, 129, 0.16);
+      --gold: #d4af37;
+      --gold-light: #f7e1a0;
+      --gold-border: rgba(212, 175, 55, 0.34);
+      --text-main: #f8fafc;
+      --text-muted: #cbd5e1;
+      --text-mint: #a7f3d0;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: #01100c;
+      color: var(--text-main);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+    }
+
+    .app-shell {
+      width: 100%;
+      max-width: 680px;
+      min-height: 100vh;
+      background: var(--bg-app);
+      border-left: 1px solid rgba(212, 175, 55, 0.22);
+      border-right: 1px solid rgba(212, 175, 55, 0.22);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .msg-header {
+      position: sticky;
+      top: 0;
+      z-index: 30;
+      background: var(--bg-header);
+      border-bottom: 1px solid var(--gold-border);
+      padding: 10px 12px 0;
+      direction: ltr;
+    }
+
+    .header-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      padding-bottom: 8px;
+    }
+
+    .brand-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      min-width: 0;
+    }
+
+    .bee-avatar {
+      width: 42px;
+      height: 42px;
+      flex-shrink: 0;
+      border-radius: 50%;
+      background: linear-gradient(145deg, rgba(212, 175, 55, 0.22), rgba(16, 185, 129, 0.16));
+      border: 1.5px solid var(--gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .brand-info { display: flex; flex-direction: column; min-width: 0; }
+
+    .brand-title {
+      font-size: 16px;
+      font-weight: 800;
+      color: var(--gold-light);
+      letter-spacing: 0.4px;
+      line-height: 1.2;
+    }
+
+    .brand-sub {
+      font-size: 11px;
+      color: var(--text-mint);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .lang-bar { display: flex; gap: 4px; flex-shrink: 0; direction: ltr; }
+
+    .lang-btn {
+      background: rgba(255, 255, 255, 0.06);
+      color: var(--text-muted);
+      border: 1px solid rgba(212, 175, 55, 0.25);
+      border-radius: 8px;
+      padding: 4px 8px;
+      font-size: 11px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .lang-btn.active {
+      background: var(--emerald);
+      color: #021711;
+      border-color: var(--emerald);
+    }
+
+    .guardian-strip {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      background: rgba(16, 185, 129, 0.12);
+      border: 1px solid rgba(212, 175, 55, 0.28);
+      border-radius: 10px;
+      padding: 6px 10px;
+      margin-bottom: 8px;
+      font-size: 11px;
+      color: var(--gold-light);
+      direction: ltr;
+    }
+
+    .guardian-strip a {
+      color: #021711;
+      background: var(--emerald);
+      text-decoration: none;
+      font-weight: 800;
+      padding: 3px 8px;
+      border-radius: 6px;
+      font-size: 10.5px;
+      flex-shrink: 0;
+    }
+
+    .search-row { margin-bottom: 8px; }
+
+    .search-input {
+      width: 100%;
+      background: rgba(2, 20, 15, 0.92);
+      border: 1px solid rgba(212, 175, 55, 0.28);
+      border-radius: 999px;
+      padding: 8px 14px;
+      color: var(--text-main);
+      font-size: 12.5px;
+      outline: none;
+    }
+
+    .search-input::placeholder { color: #94a3b8; }
+
+    .tabs-bar {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2px;
+      direction: ltr;
+    }
+
+    .tab-btn {
+      background: transparent;
+      border: none;
+      border-bottom: 3px solid transparent;
+      color: var(--text-muted);
+      padding: 8px 3px;
+      font-size: 11px;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 3px;
+    }
+
+    .tab-btn.active {
+      color: var(--gold-light);
+      border-bottom-color: var(--emerald);
+    }
+
+    .main-feed { flex: 1; padding: 12px; }
+    .rtl-text { direction: rtl; text-align: right; }
+
+    .quad-pair {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 8px;
+    }
+
+    .qa-btn {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      background: var(--bg-panel);
+      border: 1px solid var(--gold-border);
+      border-radius: 12px;
+      padding: 10px 11px;
+      color: var(--text-main);
+      text-align: left;
+      cursor: pointer;
+      text-decoration: none;
+      transition: border-color 0.2s ease, transform 0.15s ease;
+    }
+
+    .qa-btn:hover { border-color: var(--emerald); transform: translateY(-1px); }
+
+    .qa-icon {
+      width: 34px;
+      height: 34px;
+      border-radius: 10px;
+      background: var(--emerald-soft);
+      border: 1px solid rgba(16, 185, 129, 0.35);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      flex-shrink: 0;
+    }
+
+    .qa-text strong {
+      display: block;
+      font-size: 12px;
+      color: var(--gold-light);
+      line-height: 1.25;
+    }
+
+    .qa-text span {
+      display: block;
+      font-size: 10.5px;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+
+    .inter-quad-banner {
+      margin: 10px 0;
+      padding: 11px 13px;
+      background: linear-gradient(135deg, rgba(6, 59, 44, 0.94), rgba(2, 26, 19, 0.96));
+      border-top: 1.5px solid var(--gold);
+      border-bottom: 1.5px solid var(--gold);
+      border-left: 1px solid var(--gold-border);
+      border-right: 1px solid var(--gold-border);
+      border-radius: 12px;
+      font-size: 11.8px;
+      line-height: 1.55;
+      color: #f1f5f9;
+    }
+
+    .inter-quad-banner strong { color: var(--gold-light); }
+
+    .panel-card {
+      background: var(--bg-panel);
+      border: 1px solid var(--gold-border);
+      border-radius: 15px;
+      padding: 13px;
+      margin: 14px 0;
+    }
+
+    .panel-title-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+
+    .panel-title {
+      font-size: 13.5px;
+      font-weight: 800;
+      color: var(--gold-light);
+    }
+
+    .pill-mini {
+      font-size: 10px;
+      font-weight: 700;
+      color: var(--text-mint);
+      background: var(--emerald-soft);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      padding: 2px 8px;
+      border-radius: 999px;
+    }
+
+    .contact-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      padding: 8px 0;
+      border-bottom: 1px solid rgba(212, 175, 55, 0.14);
+      direction: ltr;
+    }
+
+    .contact-row:last-child { border-bottom: none; padding-bottom: 0; }
+
+    .contact-info strong { display: block; font-size: 12.5px; color: #fff; }
+    .contact-info span { font-size: 11px; color: var(--text-mint); }
+
+    .call-actions { display: flex; gap: 6px; }
+
+    .icon-call-btn {
+      background: rgba(2, 23, 17, 0.9);
+      border: 1px solid var(--gold-border);
+      color: var(--gold-light);
+      border-radius: 9px;
+      padding: 6px 9px;
+      font-size: 12px;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    .icon-call-btn.green {
+      background: var(--emerald);
+      color: #021711;
+      border-color: var(--emerald);
+      font-weight: 800;
+    }
+
+    .sat-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-top: 8px;
+    }
+
+    .sat-row-link {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      text-decoration: none;
+      background: rgba(2, 23, 17, 0.9);
+      border: 1px solid rgba(212, 175, 55, 0.32);
+      border-radius: 12px;
+      padding: 10px 12px;
+      transition: border-color 0.2s ease, transform 0.15s ease;
+      direction: ltr;
+    }
+
+    .sat-row-link:hover { border-color: var(--emerald); transform: translateX(2px); }
+
+    .sat-row-text strong {
+      display: block;
+      font-size: 12.5px;
+      font-weight: 800;
+      color: var(--gold-light);
+      letter-spacing: 0.3px;
+    }
+
+    .sat-row-text span {
+      display: block;
+      font-size: 11px;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+
+    .sat-arrow {
+      color: var(--gold-light);
+      font-weight: 800;
+      font-size: 14px;
+    }
+
+    .contract-box {
+      margin-top: 12px;
+      padding: 13px;
+      background: linear-gradient(145deg, rgba(6, 59, 44, 0.94), rgba(2, 23, 17, 0.98));
+      border: 1px solid var(--gold);
+      border-radius: 13px;
+    }
+
+    .contract-box h3 {
+      font-size: 13px;
+      font-weight: 800;
+      color: var(--gold-light);
+      margin-bottom: 5px;
+    }
+
+    .contract-box p {
+      font-size: 11.8px;
+      color: var(--text-main);
+      line-height: 1.55;
+      margin-bottom: 10px;
+    }
+
+    .contract-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      direction: ltr;
+    }
+
+    .pdf-download-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      background: var(--emerald);
+      color: #021711;
+      border: none;
+      border-radius: 10px;
+      padding: 8px 13px;
+      font-size: 12px;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    .live-room {
+      background: var(--bg-panel);
