@@ -1250,7 +1250,10 @@
         "6 0 obj << /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >> endobj"
       ];
       let pdf = "%PDF-1.4\n";
-      const offs =;
+            const offs = new Array(1);
+      offs.fill(0);
+      
+      
       objs.forEach(o => { offs.push(pdf.length); pdf += o + "\n"; });
       const xref = pdf.length;
       pdf += `xref\n0 ${objs.length + 1}\n0000000000 65535 f \n`;
