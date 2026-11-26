@@ -352,47 +352,11 @@
 
          <!-- BARRE INFÉRIEURE FIXE -->
   <nav class="tabbar">
-    <!-- Premier bouton conservé (ex. Sinistre ou Garanties) -->
-    <button class="tab-item" onclick="...">
-      
-            
-      
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
-        <span>UBUK.PAY</span>
-      </a>
-      <button type="button" class="tab-item active" onclick="ouvrirModal('modal-souscrire')">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-        <span>Souscrire</span>
-      </button>
-      <button type="button" class="tab-item" onclick="ecouterCommande()">
-        <div class="tab-center" id="mic-btn">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/></svg>
-        </div>
-      </button>
-      <button type="button" class="tab-item" onclick="ouvrirModal('modal-sinistre')">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
-        <span>Sinistre</span>
-      </button>
-      <button type="button" class="tab-item" onclick="ouvrirModal('modal-statuts')">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-        <span>Contrat</span>
-      </button>
-    </nav>
-  </div>
-
-  <script>
-    let nomActif = '1. Pack Falah Intégral';
-    let prixActif = 2500;
-
-    function parler(msg) {
-      const t = document.getElementById('toast');
-      t.textContent = msg;
-      t.style.display = 'block';
-      setTimeout(() => { t.style.display = 'none'; }, 5500);
-      if ('speechSynthesis' in window) {
-        window.speechSynthesis.cancel();
-        const u = new SpeechSynthesisUtterance(msg);
-        u.lang = 'fr-FR';
+    <button class="tab-item" onclick="ouvrirModal('modal-sinistre')">
+    
+    </button>
+    
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 
         u.rate = 0.96;
         window.speechSynthesis.speak(u);
       }
