@@ -350,17 +350,38 @@
       </div>
     </div>
 
-         <!-- BARRE INFÉRIEURE FIXE -->
+      <!-- BARRE INFÉRIEURE FIXE -->
   <nav class="tabbar">
-    <button class="tab-item" onclick="ouvrirModal('modal-sinistre')">
-    
+    <button type="button" class="tab-item" onclick="ouvrirModal('modal-sinistre')">
+      <span>📷</span>
+      <span>Sinistre</span>
     </button>
-    
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 
-        u.rate = 0.96;
-        window.speechSynthesis.speak(u);
-      }
+
+    <button type="button" class="tab-item" onclick="ouvrirModal('modal-contrat')">
+      <span>📄</span>
+      <span>Contrat</span>
+    </button>
+
+    <button type="button" class="tab-center" onclick="parlerFalah()" aria-label="Assistance vocale">
+      🎙️
+    </button>
+
+    <a href="tel:*150*7711%23" class="tab-item">
+      <span>📞</span>
+      <span>*150*7711#</span>
+    </a>
+  </nav>
+
+  <script>
+    function parlerFalah() {
+      if (!('speechSynthesis' in window)) return;
+      window.speechSynthesis.cancel();
+      const u = new SpeechSynthesisUtterance("Bienvenue sur Falah Micro-Takaful. Choisissez votre formule de protection ou déclarez un sinistre.");
+      u.lang = "fr-FR";
+      u.rate = 0.96;
+      window.speechSynthesis.speak(u);
     }
+    
 
     function choisir(btn, nom, prix, garantie) {
       nomActif = nom;
