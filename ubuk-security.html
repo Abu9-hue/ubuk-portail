@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>UBUK • FLOAT & SHIELD (حَافِظ) — Contrôle de Caisse Mobile & Pools CICO</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: #01140f; color: #ffffff; font-family: system-ui, -apple-system, sans-serif; display: flex; justify-content: center; }
+    .app {
+      width: 100%; max-width: 440px; min-height: 100vh; padding-bottom: 108px;
+      background-color: #021f17;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://w3.org' width='84' height='144' viewBox='0 0 84 144'%3E%3Cg fill='none' stroke='%23d4af61' stroke-opacity='0.16' stroke-width='1.4'%3E%3Cpath d='M42 0L84 24V72L42 96L0 72V24Z'/%3E%3Cpath d='M42 48L84 72V120L42 144L0 120V72Z'/%3E%3C/g%3E%3C/svg%3E");
+      border-left: 1.5px solid #d4af61; border-right: 1.5px solid #d4af61;
+    }
+
+    /* EN-TÊTE HÉRITÉ DU NOYAU UBUK.PAY (SANS SECOND LOGO) */
+    .topbar { display: flex; justify-content: space-between; align-items: center; padding: 12px 16px; background: rgba(1, 20, 15, 0.94); border-bottom: 1.5px solid #0f765d; }
+    .btn-back-pill { display: inline-flex; align-items: center; gap: 8px; padding: 4px 12px 4px 4px; border-radius: 999px; background: #021a13; border: 1.5px solid #10b981; text-decoration: none; box-shadow: 0 4px 12px rgba(0,0,0,0.4); }
+    .back-circle { width: 30px; height: 30px; border-radius: 50%; background: radial-gradient(circle, #34d399 0%, #059669 100%); border: 2px dashed #fbbf24; display: flex; align-items: center; justify-content: center; color: #fff; font-weight: 900; font-size: 15px; }
+    .ussd-badge { font-family: monospace; font-size: 15px; font-weight: 900; color: #021c15; background: linear-gradient(180deg, #f7e1a0 0%, #cfa64e 100%); padding: 8px 12px; border-radius: 12px; border: 2px solid #ffffff; text-decoration: none; box-shadow: 0 5px 15px rgba(212, 175, 97, 0.5); transform: scale(1.05); }
+
+    .hero { text-align: center; padding: 18px 16px 16px; background: linear-gradient(180deg, rgba(6, 64, 51, 0.90) 0%, rgba(2, 31, 23, 0.75) 100%); border-bottom: 1.5px solid #d4af61; }
+    .app-name { font-size: 23px; font-weight: 900; color: #f7e1a0; letter-spacing: 1px; }
+    .app-ar { font-size: 20px; font-weight: 800; color: #6ee7b7; margin-top: 2px; }
+    .hero-desc { font-size: 13.5px; font-weight: 700; color: #ffffff; margin-top: 8px; line-height: 1.4; }
+
+    .panel { margin: 14px; background: rgba(4, 51, 39, 0.94); border: 1.5px solid #0f765d; border-radius: 18px; padding: 16px; }
+    .panel-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; gap: 8px; }
+    .panel-top h2 { font-size: 16px; font-weight: 900; color: #f7e1a0; }
+    .tag-free { background: #065f46; color: #6ee7b7; font-size: 12px; font-weight: 800; padding: 4px 10px; border-radius: 20px; white-space: nowrap; }
+
+    .field { margin-bottom: 11px; }
+    .field label { display: block; font-size: 13.5px; font-weight: 800; color: #f7e1a0; margin-bottom: 4px; }
+    .field input, .field select { width: 100%; padding: 12px; border-radius: 12px; border: 1.5px solid #10b981; background: #011812; color: #ffffff; font-size: 14.5px; font-weight: 800; }
+
+    .btn-gold { width: 100%; padding: 15px; border-radius: 14px; background: linear-gradient(180deg, #ecd08c 0%, #cfa64e 100%); color: #021c15; border: 1.5px solid #ffffff; font-size: 15px; font-weight: 900; text-transform: uppercase; cursor: pointer; margin-top: 8px; }
+    .btn-alert { width: 100%; padding: 13px; border-radius: 12px; background: #7f1d1d; color: #fef2f2; border: 1.5px solid #f87171; font-size: 14px; font-weight: 900; cursor: pointer; margin-top: 8px; }
+
+    .legal-box { margin: 14px; background: rgba(2, 24, 18, 0.96); border: 1px solid #0b5c48; border-radius: 14px; padding: 14px 12px; font-size: 11.5px; color: #cbd5e1; line-height: 1.55; text-align: center; }
+    .legal-box strong { color: #f7e1a0; }
+
+    .voice-dock { position: fixed; bottom: 0; left: 50%; transform: translateX(-50%); width: 100%; max-width: 440px; height: 82px; background: #021c15; border-top: 2px solid #d4af61; padding: 8px 14px; display: flex; align-items: center; justify-content: space-between; z-index: 90; }
+    .avatar-pill { background: #064033; border: 1.5px solid #34d399; border-radius: 12px; padding: 6px 10px; text-align: center; font-size: 11.5px; font-weight: 800; color: #a7f3d0; text-decoration: none; }
+    .mic-center { width: 62px; height: 62px; margin-top: -26px; border-radius: 50%; background: linear-gradient(180deg, #f7e1a0 0%, #cfa64e 100%); border: 4px solid #021c15; color: #021c15; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 0 22px rgba(212, 175, 97, 0.65); }
+    .btn-valid-dock { background: #065f46; border: 1.5px solid #34d399; color: #fff; padding: 11px 14px; border-radius: 12px; font-size: 13.5px; font-weight: 900; text-decoration: none; }
+    #toast { position: fixed; top: 14px; left: 50%; transform: translateX(-50%); background: #064033; color: #f7e1a0; border: 2px solid #d4af61; padding: 14px 16px; border-radius: 14px; font-size: 14px; font-weight: 800; width: 92%; max-width: 390px; text-align: center; z-index: 120; display: none; box-shadow: 0 10px 25px rgba(0,0,0,0.65); }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <div id="toast"></div>
+    <!-- EN-TÊTE HÉRITÉ DU NOYAU UBUK.PAY (SANS SECOND LOGO) -->
+    <header class="topbar">
+      <a href="https://vercel.app" class="btn-back-pill">
+        <span class="back-circle">←</span>
+        <span style="display:flex;flex-direction:column;text-align:left;line-height:1.1;">
+          <span style="font-size:9px;font-weight:800;color:#fcd34d;">RETOUR</span>
+          <span style="font-size:12.5px;font-weight:900;color:#ffffff;">UBUK.PAY</span>
+        </span>
+      </a>
+      <a href="tel:*150*7711%23" class="ussd-badge">*150*7711#</a>
+    </header>
+
+    <section class="hero">
+      <div class="app-name">— FLOAT &amp; SHIELD —</div>
+      <div class="app-ar">حَافِظ • CONTRÔLE DE CAISSE MOBILE &amp; POOLS CICO</div>
+      <div class="hero-desc">Zéro Cahier Manuel • Contrôle Encaisse Cabine 80 % • Pools CICO (10 000 F/part) • Sûreté STN-01</div>
+    </section>
+
+    <!-- 1. CONTRÔLE DE CAISSE MOBILE & TÉLÉMÉTRIE KIOSQUES DOUALA -->
+    <section class="panel">
+      <div class="panel-top">
+        <h2>🛡️ Contrôle d'Encaisse Cabine</h2>
+        <span class="tag-free" id="statut-caisse-badge">Seuil : 80 %</span>
+      </div>
+
+      <div class="field">
+        <label>Kiosque / Point d'Ancrage Douala</label>
+        <select id="in-kiosque">
+          <option value="KSQ-DLA-K01|18|88">KSQ-DLA-K01 • Douala 2 COAF (Audit 88/100 • ETA 18s)</option>
+          <option value="KSQ-DLA-K02|42|85">KSQ-DLA-K02 • Marché Central / Congo (Audit 85/100 • ETA 42s)</option>
+          <option value="KSQ-DLA-K03|48|74">KSQ-DLA-K03 • New-Bell Babylone (Audit 74/100 • Plafond -50%)</option>
+          <option value="KSQ-DLA-K04|65|82">KSQ-DLA-K04 • Carrefour Ndokotti (Audit 82/100 • ETA 65s)</option>
+          <option value="KSQ-DLA-K05|54|90">KSQ-DLA-K05 • Akwa Nord / Bonakouamouang (Audit 90/100 • ETA 54s)</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label>Encaisse Physique Déclarée (FCFA)</label>
+        <input type="number" id="in-encaisse" value="840000" step="10000" />
+      </div>
+
+      <button type="button" class="btn-gold" onclick="verifierCaisseMobile()">
+        Contrôler le Plafond &amp; Cash-in-Transit
+      </button>
+
+      <button type="button" class="btn-alert" onclick="declencherAlerteStn01()">
+        🚨 Alerte Silencieuse &amp; Levée de Doute (STN-01 • Max 50m)
+      </button>
+    </section>
+    <!-- 2. POOLS DE LIQUIDITÉ CICO (10 000 FCFA / PART • AAOIFI / OHADA) -->
+    <section class="panel">
+      <div class="panel-top">
+        <h2>🤝 Souscription Pool CICO</h2>
+        <span class="tag-free">10 000 F / Part</span>
+      </div>
+
+      <div class="field">
+        <label>Régime Financier (Article 3 AAOIFI)</label>
+        <select id="in-regime-cico">
+          <option value="OPTION_A">Option A : Infra Seule (0 % bénéfice FEFEO • 100 % Pool)</option>
+          <option value="OPTION_B" selected>Option B : Co-Investissement Mushārakah (Prorata exact)</option>
+          <option value="OPTION_C">Option C : Historique Muḍārabah 50 / 50</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label>Qualité du Participant</label>
+        <select id="in-qualite-cico">
+          <option value="PASSIF">Participant Passif (Sharīk Mumawwil — Audit SHA-256)</option>
+          <option value="ACTIF">Participant Actif (Sharīk ‘Āmil — Exploitation Cabine)</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label>Nombre de Parts (1 Part = 10 000 FCFA)</label>
+        <input type="number" id="in-parts-cico" value="5" min="1" max="500" />
+      </div>
+
+      <button type="button" class="btn-gold" onclick="souscrirePoolCico()">
+        Générer Contrat Nominatif SHA-256
+      </button>
+    </section>
+
+    <!-- PIED DE PAGE LÉGAL OFFICIEL UNIQUE -->
+    <footer class="legal-box">
+      <strong>FEFEO Group SARL</strong> • Capital Social : 2 000 000 FCFA • RCCM : RC/DLA/2022/B/3075 du 24/05/2022 (TPI Douala-Bonanjo) • NIU : M052217354278H • CDI Douala 2 • Régime Fiscal : RSI • Siège Social : Douala 2 (Derrière Boulangerie COAF), Cameroun • Contacts Officiels : <strong style="color:#fff;">+237 679 70 50 38 / +237 697 01 56 43</strong> • <span style="color:#34d399;">contact@ubuk.net</span>
+    </footer>
+    <!-- BARRE VOCALE INFÉRIEURE FIXE HÉRITÉE DE UBUK.PAY -->
+    <nav class="voice-dock">
+      <a href="https://vercel.app" class="avatar-pill">🏠<br>UBUK.PAY</a>
+
+      <button type="button" class="mic-center" id="mic-dock" onclick="ecouterSecurity()" aria-label="Écouter l'aide FLOAT & SHIELD">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/>
+          <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
+          <line x1="12" y1="19" x2="12" y2="23"/>
+          <line x1="8" y1="23" x2="16" y2="23"/>
+        </svg>
+      </button>
+
+      <a href="ubuk-mizan.html" class="btn-valid-dock">MĪZĀN →</a>
+    </nav>
+  </div>
+
+  <script>
+    function parler(msg) {
+      const t = document.getElementById('toast');
+      t.textContent = msg;
+      t.style.display = 'block';
+      setTimeout(() => { t.style.display = 'none'; }, 5500);
+      if ('speechSynthesis' in window) {
+        window.speechSynthesis.cancel();
+        const u = new SpeechSynthesisUtterance(msg);
+        u.lang = 'fr-FR';
+        u.rate = 0.96;
+        window.speechSynthesis.speak(u);
+      }
+    }
+
+    function verifierCaisseMobile() {
+      const infos = (document.getElementById('in-kiosque').value || 'KSQ-DLA-K01|18|88').split('|');
+      const code = infos[0];
+      const audit = Number(infos[2]);
+      const encaisse = Number(document.getElementById('in-encaisse').value) || 0;
+      const plafondBase = 1000000;
+      const plafondEffectif = audit >= 80 ? plafondBase : Math.round(plafondBase * 0.5);
+      const ratioPct = Math.round((encaisse / plafondEffectif) * 100);
+      const badge = document.getElementById('statut-caisse-badge');
+
+      if (ratioPct >= 80) {
+        badge.textContent = '⚠️ Alerte ' + ratioPct + '%';
+        badge.style.background = '#7f1d1d';
+        badge.style.color = '#fecaca';
+        parler(
+          'Alerte Float ' + ratioPct + ' pour cent sur ' + code +
+          '. Plafond effectif ' + plafondEffectif.toLocaleString('fr-FR') +
+          ' Francs CFA. Évacuation Cash-in-Transit vers Advans Cameroun requise.'
+        );
+      } else {
+        badge.textContent = '✅ OK (' + ratioPct + '%)';
+        badge.style.background = '#065f46';
+        badge.style.color = '#6ee7b7';
+        parler(
+          'Caisse ' + code + ' conforme à ' + ratioPct + ' pour cent du plafond effectif (' +
+          plafondEffectif.toLocaleString('fr-FR') + ' Francs CFA). Audit ' + audit + ' sur 100.'
+        );
+      }
+    }
+
+    function declencherAlerteStn01() {
+      const infos = (document.getElementById('in-kiosque').value || 'KSQ-DLA-K01|18|88').split('|');
+      const code = infos[0];
+      const eta = infos[1];
+      const badge = document.getElementById('statut-caisse-badge');
+      badge.textContent = '🚨 STN-01 (' + eta + 's)';
+      badge.style.background = '#7f1d1d';
+      badge.style.color = '#ffffff';
+      parler(
+        'Alerte silencieuse transmise à la station S T N 01 Douala 2 COAF pour ' + code +
+        '. Levée de doute aérienne autorisée sous plafond 50 mètres, délai ' + eta + ' secondes, vidéo SHA-256 activée.'
+      );
+    }
+
+    function souscrirePoolCico() {
+      const regime = document.getElementById('in-regime-cico').value;
+      const parts = Math.max(1, Number(document.getElementById('in-parts-cico').value) || 1);
+      const capital = parts * 10000;
+      const libelleRegime =
+        regime === 'OPTION_A' ? 'Option A Infra Seule' :
+        regime === 'OPTION_B' ? 'Option B Mushārakah' : 'Option C Muḍārabah 50/50';
+      parler(
+        'Contrat nominatif SHA-256 généré : ' + parts + ' parts soit ' +
+        capital.toLocaleString('fr-FR') + ' Francs CFA sous ' + libelleRegime + ' à zéro intérêt.'
+      );
+    }
+
+    function ecouterSecurity() {
+      parler(
+        'UBUK Float et Shield : contrôle numérique des caisses mobiles en cabine, alerte évacuation à 80 pour cent et souscription aux pools de liquidité dès 10 000 Francs CFA la part.'
+      );
+    }
+  </script>
+</body>
+</html>
