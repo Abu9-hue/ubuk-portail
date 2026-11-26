@@ -692,4 +692,192 @@
         <button type="button" class="tab-btn" onclick="focusSection('sec-ruche', this)" data-i18n="tab_ruche">🐝 La Ruche</button>
       </nav>
     </header>
-            
+       <main class="main-feed">
+
+      <section id="sec-comm" class="searchable-block" aria-label="4 Cadrans et Bandeau Office Latif Connect">
+        <div class="quad-pair">
+          <button type="button" class="qa-btn" onclick="triggerAction('call')">
+            <div class="qa-icon">📞</div>
+            <div class="qa-text">
+              <strong data-i18n="qa1_t">Appeler proches & amis</strong>
+              <span data-i18n="qa1_s">Audio / Vidéo HD & recherche contacts</span>
+            </div>
+          </button>
+
+          <button type="button" class="qa-btn" onclick="triggerAction('savings')">
+            <div class="qa-icon">🏘️</div>
+            <div class="qa-text">
+              <strong data-i18n="qa2_t">Groupe Épargne & Crédit</strong>
+              <span data-i18n="qa2_s">Rejoindre une caisse locale (0 % Ribā)</span>
+            </div>
+          </button>
+        </div>
+
+        <div class="inter-quad-banner" data-i18n-html="office_bandeau">
+          <strong>🏛️ L'Office Complet Latif Connect :</strong> Communication instantanée (1-à-1, groupes 200k, canaux ∞), Épargne collective & <strong>UBUK.FALAH</strong>, Académie <strong>Kalam</strong> (Formation & Téléchargements PDF/Audio/Vidéo), Investissement participatif <strong>Qarḍ Ḥasan (0 % Ribā)</strong> et <strong>Float & Shield</strong> — sous le sceau étanche <strong>Zakāt, Ṣadaqah et Waqf</strong>.
+        </div>
+
+        <div class="quad-pair">
+          <a href="ubuk-falah.html" class="qa-btn">
+            <div class="qa-icon">🌿</div>
+            <div class="qa-text">
+              <strong data-i18n="qa3_t">Adhérer à UBUK.FALAH</strong>
+              <span data-i18n="qa3_s">Micro-Takaful, Zakāt, Ṣadaqah et Waqf</span>
+            </div>
+          </a>
+
+          <a href="ubuk-kalam.html" class="qa-btn">
+            <div class="qa-icon">🎓</div>
+            <div class="qa-text">
+              <strong data-i18n="qa4_t">Formation & Téléchargement</strong>
+              <span data-i18n="qa4_s">Académie Kalam : Vidéo, Audio & PDF</span>
+            </div>
+          </a>
+        </div>
+      </section>
+
+      <section class="panel-card searchable-block" aria-label="Contacts et Appels rapides">
+        <div class="panel-title-row">
+          <h2 class="panel-title" data-i18n="contacts_title">📇 Contacts & Cercles Actifs (1-à-1 • Groupes 200k • Canaux ∞)</h2>
+          <span class="pill-mini" data-i18n="contacts_pill">En ligne</span>
+        </div>
+
+        <div class="contact-row">
+          <div class="contact-info">
+            <strong data-i18n="c1_name">Proches & Famille • Espace Privé</strong>
+            <span data-i18n="c1_sub">Discussions chiffrées, notes vocales & appels directs</span>
+          </div>
+          <div class="call-actions">
+            <button type="button" class="icon-call-btn" onclick="startCall('Proches & Famille', 'Audio')" title="Appel Audio">📞</button>
+            <button type="button" class="icon-call-btn green" onclick="startCall('Proches & Famille', 'Vidéo')" title="Appel Vidéo">📹</button>
+          </div>
+        </div>
+
+        <div class="contact-row">
+          <div class="contact-info">
+            <strong data-i18n="c2_name">Caisse Locale Épargne & Crédit (Canton)</strong>
+            <span data-i18n="c2_sub">Tontine souveraine, cotisations traçables & Qarḍ Ḥasan</span>
+          </div>
+          <div class="call-actions">
+            <button type="button" class="icon-call-btn green" onclick="joinGroup('Caisse Locale Épargne & Crédit')" data-i18n="btn_join">Rejoindre</button>
+          </div>
+        </div>
+
+        <div class="contact-row">
+          <div class="contact-info">
+            <strong data-i18n="c3_name">Cellule Adhérents UBUK.FALAH</strong>
+            <span data-i18n="c3_sub">Protection mutuelle Micro-Takaful & solidarité locale</span>
+          </div>
+          <div class="call-actions">
+            <a href="ubuk-falah.html" class="icon-call-btn green" data-i18n="btn_adhere">Adhérer</a>
+          </div>
+        </div>
+      </section>
+
+      <section id="sec-sats" class="panel-card searchable-block" aria-label="Les 7 Satellites UBUK">
+        <div class="panel-title-row">
+          <h2 class="panel-title" data-i18n="sat_title">🛰️ LES 7 SATELLITES UBUK</h2>
+          <span class="pill-mini" data-i18n="sat_pill">Architecture Complète</span>
+        </div>
+
+        <div class="sat-list">
+          <a href="ubuk-mizan.html" class="sat-row-link">
+            <div class="sat-row-text">
+              <strong>1. MIZAN</strong>
+              <span data-i18n="s1_d">Alvéoles & Épargne Collective</span>
+            </div>
+            <span class="sat-arrow">→</span>
+          </a>
+
+          <a href="ubuk-falah.html" class="sat-row-link">
+            <div class="sat-row-text">
+              <strong>2. FALAH</strong>
+              <span data-i18n="s2_d">Micro-Takaful & Protection 24h</span>
+            </div>
+            <span class="sat-arrow">→</span>
+          </a>
+
+          <a href="ubuk-buraq.html" class="sat-row-link">
+            <div class="sat-row-text">
+              <strong>3. BURAQ</strong>
+              <span data-i18n="s3_d">Séquestre & Transferts Rapides</span>
+            </div>
+            <span class="sat-arrow">→</span>
+          </a>
+
+          <a href="ubuk-security.html" class="sat-row-link">
+            <div class="sat-row-text">
+              <strong>4. FLOAT & SECURITY</strong>
+              <span data-i18n="s4_d">Liquidité, Contrôle Réserves & Garde-Fou</span>
+            </div>
+            <span class="sat-arrow">→</span>
+          </a>
+
+          <a href="ubuk-zakat.html" class="sat-row-link">
+            <div class="sat-row-text">
+              <strong>5. ZAKĀT & TALENTS</strong>
+              <span data-i18n="s5_d">Simulateur, Zakāt, Ṣadaqah et Waqf & Fonds Qarḍ Ḥasan</span>
+            </div>
+            <span class="sat-arrow">→</span>
+          </a>
+
+          <a href="ubuk-kalam.html" class="sat-row-link">
+            <div class="sat-row-text">
+              <strong>6. KALAM / CLASSROOM</strong>
+              <span data-i18n="s6_d">Académie Vidéo, Audio & PDF</span>
+            </div>
+            <span class="sat-arrow">→</span>
+          </a>
+
+          <a href="ubuk-observatoire.html" class="sat-row-link">
+            <div class="sat-row-text">
+              <strong>7. OBSERVATOIRE</strong>
+              <span data-i18n="s7_d">Radar & Transparence Sociale</span>
+            </div>
+            <span class="sat-arrow">→</span>
+          </a>
+        </div>
+
+        <div id="sec-contrat" class="contract-box">
+          <h3 data-i18n="ct_title">✨ Satellites Complémentaires & Contrat Float & Shield (0 % Ribā)</h3>
+          <p style="margin-bottom: 8px;" data-i18n="ct_intro">
+            En complément de la messagerie et de la solidarité (Mizan, Falah, Zakāt, Ṣadaqah et Waqf), l'architecture déploie quatre piliers opérationnels dédiés :
+          </p>
+          <ul style="padding-left: 16px; margin-bottom: 10px; font-size: 11.5px; color: #cbd5e1; line-height: 1.55;" data-i18n-html="ct_list">
+            <li><strong>BURAQ :</strong> Séquestre sécurisé des échanges commerciaux et transferts rapides sans friction.</li>
+            <li><strong>FLOAT & SECURITY :</strong> Gestion du pool de liquidité communautaire, contrôle des réserves et audits cryptographiques SHA-256 sous vigilance du Garde-Fou Technologique en Chef.</li>
+            <li><strong>KALAM / CLASSROOM :</strong> Académie souveraine de formation et téléchargement (vidéo, audio et PDF hors-ligne).</li>
+            <li><strong>OBSERVATOIRE :</strong> Radar territorial de transparence sociale et suivi en temps réel de l'impact communautaire.</li>
+          </ul>
+          <p data-i18n="ct_desc">
+            Contrat Participatif Float & Shield (0 % Ribā) : Participez au financement de la liquidité opérationnelle sous régime participatif sans intérêt usuraire, avec partage transparent des commissions réelles et prélèvement solidaire Zakāt, Ṣadaqah et Waqf :
+          </p>
+          <div class="contract-actions">
+            <button type="button" class="pdf-download-btn" onclick="downloadFloatShieldPDF()">
+              ⬇️ <span data-i18n="ct_btn_pdf">Télécharger le Contrat Float & Shield (PDF)</span>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <section class="live-room searchable-block" aria-label="Fil de discussion en direct">
+        <div class="room-header">
+          <span class="room-title" id="activeRoomTitle" data-i18n="room_title">💬 Fil Direct • Office Latif Connect</span>
+          <span class="room-status" data-i18n="room_status">🟢 Sans friction • Hors-ligne prêt</span>
+        </div>
+        <div class="messages-area" id="messagesArea">
+          <div class="bubble in">
+            <span class="bubble-sender">Latif Connect • Noyau</span>
+            <span data-i18n="msg_1">Bienvenue sur UBUK.ONE. Recherchez vos contacts, appelez vos proches, rejoignez un groupe local d'épargne et de crédit ou téléchargez le contrat participatif Float & Shield.</span>
+          </div>
+        </div>
+        <form class="composer-bar" onsubmit="sendTestMessage(event)">
+          <input type="text" id="msgInput" class="composer-input" placeholder="Écrire un message instantané dans la Ruche..." />
+          <button type="submit" class="send-btn" data-i18n="btn_send">Envoyer ➤</button>
+        </form>
+      </section>
+
+      <section id="sec-ruche" class="channel-showcase searchable-block" aria-label="Canal Fondateur de l'Abeille">
+        <div class="video-box">
+          <video autoplay loop muted playsinline preload="metadata" poster="data:image/svg+xml,%3Csvg xmlns='http://w3.org' viewBox='0 0 800 400'%3E%3Crect width='800' height='400' fill='%2303241b'/%3E%3Ctext x='400' y='205' fill='%23f7e1a0' font-family='sans-serif' font-size='22' text-anchor='middle'%3EUBUK.ONE • L'Ouvrière de la Ruche%3C/text%3E%3C/svg%3E">
+          
