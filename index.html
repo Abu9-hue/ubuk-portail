@@ -1238,4 +1238,90 @@
       function esc(s) { return s.replace(/\\/g, "\\\\").replace(/\(/g, "\\(").replace(/\)/g, "\\)"); }
       let stream = "BT\n/F1 11 Tf\n45 785 Td\n15 TL\n";
       lines.forEach((l, i) => {
-    
+            stream += i === 0 ? `/F2 13 Tf\n(${esc(l)}) Tj\n/F1 10.5 Tf\nT*\n` : `(${esc(l)}) Tj\nT*\n`;
+      });
+      stream += "ET";
+      const objs = [
+        "1 0 obj << /Type /Catalog /Pages 2 0 R >> endobj",
+        "2 0 obj << /Type /Pages /Kids [3 0 R] /Count 1 >> endobj",
+        "3 0 obj << /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Contents 4 0 R /Resources << /Font << /F1 5 0 R /F2 6 0 R >> >> >> endobj",
+        `4 0 obj << /Length ${stream.length} >> stream\n${stream}\nendstream endobj`,
+        "5 0 obj << /Type /Font /Subtype /Type1 /BaseFont /Helvetica >> endobj",
+        "6 0 obj << /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >> endobj"
+      ];
+      let pdf = "%PDF-1.4\n";
+      const offs =;
+      objs.forEach(o => { offs.push(pdf.length); pdf += o + "\n"; });
+      const xref = pdf.length;
+      pdf += `xref\n0 ${objs.length + 1}\n0000000000 65535 f \n`;
+      for (let i = 1; i < offs.length; i++) pdf += String(offs[i]).padStart(10, "0") + " 00000 n \n";
+      pdf += `trailer << /Size ${objs.length + 1} /Root 1 0 R >>\nstartxref\n${xref}\n%%EOF`;
+      const blob = new Blob([pdf], { type: "application/pdf" });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = "Contrat_Investissement_Float_Shield_UBUK.pdf";
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      setTimeout(() => URL.revokeObjectURL(url), 1500);
+      appendSystemBubble("📄 Contrat Float & Shield (PDF)", "Téléchargement du contrat officiel lancé : Contrat_Investissement_Float_Shield_UBUK.pdf");
+    }
+
+    function toggleScroll(drawerId, btn) {
+      const drawer = document.getElementById(drawerId);
+      if (!drawer) return;
+      const isOpen = drawer.classList.toggle('open');
+      const span = btn.querySelector('span[data-i18n]');
+      const dict = I18N[currentLang];
+      if (span) span.textContent = isOpen ? dict.reduce_text : dict[span.getAttribute('data-i18n')];
+    }
+
+    function pickNaturalFemaleVoice(langCode) {
+      const voices = window.speechSynthesis ? window.speechSynthesis.getVoices() : [];
+      if (!voices.length) return null;
+      const prefix = langCode.slice(0, 2).toLowerCase();
+      const candidates = voices.filter(v => v.lang && v.lang.toLowerCase().startsWith(prefix));
+      const femaleHint = candidates.find(v => /female|femme|amélie|aurelie|google|natural|samantha|zira|salma|layla|mariam/i.test(v.name));
+      return femaleHint || candidates[0] || null;
+    }
+
+    function stopBeeStory() {
+      if (window.speechSynthesis) window.speechSynthesis.cancel();
+      isSpeaking = false;
+      const btn = document.getElementById('btnBeeStory');
+      if (btn) {
+        const span = btn.querySelector('span[data-i18n]');
+        if (span) span.textContent = I18N[currentLang].btn_listen;
+      }
+    }
+
+    function toggleBeeStory() {
+      if (!('speechSynthesis' in window)) return;
+      if (isSpeaking) { stopBeeStory(); return; }
+      window.speechSynthesis.cancel();
+      const dict = I18N[currentLang];
+      const utter = new SpeechSynthesisUtterance(dict.bee_voice);
+      const langMap = { fr: 'fr-FR', en: 'en-GB', ar: 'ar-SA' };
+      utter.lang = langMap[currentLang] || 'fr-FR';
+      const voice = pickNaturalFemaleVoice(utter.lang);
+      if (voice) utter.voice = voice;
+      utter.rate = 0.94;
+      utter.pitch = 1.03;
+      utter.onend = () => stopBeeStory();
+      utter.onerror = () => stopBeeStory();
+      isSpeaking = true;
+      const btn = document.getElementById('btnBeeStory');
+      if (btn) {
+        const span = btn.querySelector('span[data-i18n]');
+        if (span) span.textContent = dict.btn_stop;
+      }
+      window.speechSynthesis.speak(utter);
+    }
+
+    if ('speechSynthesis' in window) window.speechSynthesis.onvoiceschanged = () => {};
+    document.addEventListener('DOMContentLoaded', () => setLang(currentLang));
+  </script>
+</body>
+</html>
+
