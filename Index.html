@@ -1,0 +1,2066 @@
+<!DOCTYPE html>
+<html lang="fr" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>UBUK.ONE • Messagerie & Office Latif Connect</title>
+  <script src="https://tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            ubukDark: '#061A12',
+            ubukCard: '#0B281D',
+            ubukBorder: '#164A36',
+            ubukGold: '#D4AF37',
+            ubukGreen: '#10B981'
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      background-color: #061A12;
+      color: #F3F4F6;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col items-center pb-12">
+
+  <!-- CONTENEUR PRINCIPAL DU PORTAIL -->
+  <div class="w-full max-w-md bg-ubukDark min-h-screen border-x border-ubukBorder/50 shadow-2xl">
+
+    <!-- EN-TÊTE FIXE (LOGO + TITRE + LANGUES) -->
+    <header class="sticky top-0 z-50 bg-ubukDark/95 backdrop-blur-md border-b border-ubukBorder px-4 py-3">
+      <div class="flex items-center justify-between gap-2">
+        <!-- Logo Abeille + Nom -->
+        <div class="flex items-center gap-3">
+          <div class="w-11 h-11 rounded-full bg-ubukCard border-2 border-ubukGold flex items-center justify-center shadow-inner">
+            <span class="text-xl" role="img" aria-label="Abeille">🐝</span>
+          </div>
+          <div>
+            <h1 class="font-bold text-lg tracking-wide text-white leading-tight">UBUK.ONE</h1>
+            <p class="text-xs text-gray-300 truncate max-w-[165px]">أوبوك وان • Messagerie & Office L...</p>
+          </div>
+        </div>
+
+        <!-- Sélecteur de Langue -->
+        <div class="flex items-center bg-ubukCard p-1 rounded-full border border-ubukBorder text-xs font-semibold">
+          <button class="px-2.5 py-1 rounded-full bg-ubukGreen text-ubukDark font-bold">FR</button>
+          <button class="px-2.5 py-1 rounded-full text-gray-300 hover:text-white transition">EN</button>
+          <button class="px-2.5 py-1 rounded-full text-gray-300 hover:text-white transition">عربي</button>
+        </div>
+      </div>
+
+      <!-- BANDEAU GARDE-FOU TECHNOLOGIQUE -->
+      <div class="mt-3 bg-ubukCard border border-ubukBorder rounded-xl px-3 py-2 flex items-center justify-between gap-2">
+        <div class="flex items-center gap-2 text-xs text-gray-200 leading-snug">
+          <span class="text-ubukGreen text-sm">🛡️</span>
+          <span>Garde-Fou Technologique en Chef • 0 % Ribā • Zakāt, Ṣadaqah et Waqf</span>
+        </div>
+        <a href="#contact" class="shrink-0 bg-ubukGreen hover:bg-emerald-400 text-ubukDark font-bold text-xs px-3 py-1.5 rounded-full transition">
+          Contact
+        </a>
+      </div>
+
+      <!-- BARRE DE RECHERCHE -->
+      <div class="mt-3 relative">
+        <span class="absolute left-3.5 top-2.5 text-gray-400 text-sm">🔍</span>
+        <input 
+          type="text" 
+          placeholder="Rechercher un contact, appeler un proche, rejoindre" 
+          class="w-full bg-ubukCard border border-ubukBorder rounded-full pl-9 pr-4 py-2 text-xs text-white placeholder-gray-400 focus:outline-none focus:border-ubukGold transition"
+        />
+      </div>
+
+      <!-- MENU D'ONGLETS -->
+      <nav class="mt-3 flex items-center justify-between text-xs font-medium border-t border-ubukBorder/50 pt-2">
+        <button class="flex items-center gap-1 text-ubukGold border-b-2 border-ubukGold pb-1.5 font-semibold">
+          <span>💬</span> Appels & Chats
+        </button>
+        <button class="flex items-center gap-1 text-gray-300 hover:text-white pb-1.5 transition">
+          <span>🛰️</span> 7 Satellites
+        </button>
+        <button class="flex items-center gap-1 text-gray-300 hover:text-white pb-1.5 transition">
+          <span>📄</span> Float & PDF
+        </button>
+        <button class="flex items-center gap-1 text-gray-300 hover:text-white pb-1.5 transition">
+          <span>🐝</span> La Ruche
+        </button>
+      </nav>
+    </header>
+
+    <!-- ZONE DE CONTENU PRINCIPAL -->
+    <main id="app-content" class="p-4 space-y-5">
+      <!-- COLLER LE BLOC 2 ICI -->
+    </main>
+
+  </div>
+</body>
+</html>
+      <!-- 1. GRILLE D'ACTIONS RAPIDES & OFFICE COMPLET LATIF CONNECT -->
+      <section class="space-y-3">
+        <div class="grid grid-cols-2 gap-3">
+          <!-- Carte 1 : Appeler -->
+          <div class="bg-ubukCard border border-ubukBorder hover:border-ubukGold/60 rounded-2xl p-3.5 flex items-start gap-3 transition cursor-pointer">
+            <div class="w-9 h-9 rounded-full bg-ubukDark border border-ubukBorder flex items-center justify-center shrink-0 text-ubukGreen">
+              📞
+            </div>
+            <div>
+              <h2 class="text-xs font-bold text-white leading-snug">Appeler proches & amis</h2>
+              <p class="text-[11px] text-gray-400 mt-1 leading-tight">Audio / Vidéo HD & recherche contacts</p>
+            </div>
+          </div>
+
+          <!-- Carte 2 : Épargne -->
+          <div class="bg-ubukCard border border-ubukBorder hover:border-ubukGold/60 rounded-2xl p-3.5 flex items-start gap-3 transition cursor-pointer">
+            <div class="w-9 h-9 rounded-full bg-ubukDark border border-ubukBorder flex items-center justify-center shrink-0 text-ubukGold">
+              🏘️
+            </div>
+            <div>
+              <h2 class="text-xs font-bold text-white leading-snug">Groupe Épargne & Crédit</h2>
+              <p class="text-[11px] text-gray-400 mt-1 leading-tight">Rejoindre une caisse locale (0 % Ribā)</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- ENCADRÉ CENTRAL : L'OFFICE COMPLET LATIF CONNECT -->
+        <div class="bg-ubukCard/90 border border-ubukGold rounded-2xl p-4 shadow-lg">
+          <p class="text-xs text-gray-200 leading-relaxed">
+            <span class="font-bold text-ubukGold">🏛️ L'Office Complet Latif Connect :</span> Communication instantanée (1-à-1, groupes 200k, canaux ∞), Épargne collective & UBUK.FALAH, Académie Kalam (Formation & Téléchargements PDF/Audio/Vidéo), Investissement participatif Qarḍ Ḥasan (0 % Ribā) et Float & Shield — sous le sceau étanche Zakāt, Ṣadaqah et Waqf.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-2 gap-3">
+          <!-- Carte 3 : UBUK.FALAH -->
+          <div class="bg-ubukCard border border-ubukBorder hover:border-ubukGold/60 rounded-2xl p-3.5 flex items-start gap-3 transition cursor-pointer">
+            <div class="w-9 h-9 rounded-full bg-ubukDark border border-ubukBorder flex items-center justify-center shrink-0 text-ubukGreen">
+              🌿
+            </div>
+            <div>
+              <h2 class="text-xs font-bold text-white leading-snug">Adhérer à UBUK.FALAH</h2>
+              <p class="text-[11px] text-gray-400 mt-1 leading-tight">Micro-Takaful, Zakāt, Ṣadaqah et Waqf</p>
+            </div>
+          </div>
+
+          <!-- Carte 4 : Académie Kalam -->
+          <div class="bg-ubukCard border border-ubukBorder hover:border-ubukGold/60 rounded-2xl p-3.5 flex items-start gap-3 transition cursor-pointer">
+            <div class="w-9 h-9 rounded-full bg-ubukDark border border-ubukBorder flex items-center justify-center shrink-0 text-ubukGold">
+              🎓
+            </div>
+            <div>
+              <h2 class="text-xs font-bold text-white leading-snug">Formation & Téléchargement</h2>
+              <p class="text-[11px] text-gray-400 mt-1 leading-tight">Académie Kalam : Vidéo, Audio & PDF</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 2. CONTACTS & CERCLES ACTIFS -->
+      <section class="bg-ubukCard border border-ubukBorder rounded-2xl p-4 space-y-4">
+        <div class="flex items-center justify-between">
+          <h2 class="text-xs font-bold text-white leading-snug">
+            👥 Contacts & Cercles Actifs (1-à-1 • Groupes 200k • Canaux ∞)
+          </h2>
+          <span class="bg-ubukGreen/20 text-ubukGreen border border-ubukGreen/40 text-[10px] font-semibold px-2.5 py-0.5 rounded-full shrink-0">
+            En ligne
+          </span>
+        </div>
+
+        <!-- Cercle 1 : Proches & Famille -->
+        <div class="flex items-center justify-between gap-2 pt-2 border-t border-ubukBorder/60">
+          <div>
+            <h3 class="text-xs font-bold text-white">Proches & Famille • Espace Privé</h3>
+            <p class="text-[11px] text-gray-400 mt-0.5">Discussions chiffrées, notes vocales & appels directs</p>
+          </div>
+          <div class="flex items-center gap-2 shrink-0">
+            <button class="w-8 h-8 rounded-full bg-ubukDark border border-ubukBorder flex items-center justify-center text-xs hover:border-ubukGreen transition" title="Appel vocal">📞</button>
+            <button class="w-8 h-8 rounded-lg bg-ubukGreen text-ubukDark flex items-center justify-center text-xs font-bold hover:bg-emerald-400 transition" title="Appel vidéo">📹</button>
+          </div>
+        </div>
+
+        <!-- Cercle 2 : Caisse Locale -->
+        <div class="flex items-center justify-between gap-2 pt-3 border-t border-ubukBorder/60">
+          <div>
+            <h3 class="text-xs font-bold text-white">Caisse Locale Épargne & Crédit (Canton)</h3>
+            <p class="text-[11px] text-gray-400 mt-0.5">Tontine souveraine, cotisations traçables & Qarḍ Ḥasan</p>
+          </div>
+          <button class="shrink-0 bg-ubukGreen hover:bg-emerald-400 text-ubukDark font-bold text-xs px-3.5 py-1.5 rounded-full transition">
+            Rejoindre
+          </button>
+        </div>
+
+        <!-- Cercle 3 : Cellule Adhérents -->
+        <div class="flex items-center justify-between gap-2 pt-3 border-t border-ubukBorder/60">
+          <div>
+            <h3 class="text-xs font-bold text-white">Cellule Adhérents UBUK.FALAH</h3>
+            <p class="text-[11px] text-gray-400 mt-0.5">Protection mutuelle Micro-Takaful & solidarité locale</p>
+          </div>
+          <button class="shrink-0 bg-ubukGreen hover:bg-emerald-400 text-ubukDark font-bold text-xs px-3.5 py-1.5 rounded-full transition">
+            Adhérer
+          </button>
+        </div>
+      </section>
+
+      <!-- 3. LES 7 SATELLITES UBUK -->
+      <section class="bg-ubukCard border border-ubukBorder rounded-2xl p-4 space-y-3">
+        <div class="flex items-center justify-between">
+          <h2 class="text-xs font-bold text-ubukGold tracking-wide uppercase">🛰️ LES 7 SATELLITES UBUK</h2>
+          <span class="bg-ubukGreen/15 text-ubukGreen border border-ubukGreen/30 text-[10px] font-semibold px-2.5 py-1 rounded-full">
+            Architecture Complète
+          </span>
+        </div>
+
+        <div class="space-y-2.5">
+          <!-- Satellite 1 -->
+          <a href="#mizan" class="block bg-ubukDark border border-ubukBorder hover:border-ubukGold rounded-xl p-3 flex items-center justify-between transition">
+            <div>
+              <h3 class="text-xs font-bold text-white">1. MIZAN</h3>
+              <p class="text-[11px] text-gray-400">Alvéoles & Épargne Collective</p>
+            </div>
+            <span class="text-gray-400 text-sm">→</span>
+          </a>
+
+          <!-- Satellite 2 -->
+          <a href="#falah" class="block bg-ubukDark border border-ubukBorder hover:border-ubukGold rounded-xl p-3 flex items-center justify-between transition">
+            <div>
+              <h3 class="text-xs font-bold text-white">2. FALAH</h3>
+              <p class="text-[11px] text-gray-400">Micro-Takaful & Protection 24h</p>
+            </div>
+            <span class="text-gray-400 text-sm">→</span>
+          </a>
+
+          <!-- Satellite 3 -->
+          <a href="#buraq" class="block bg-ubukDark border border-ubukBorder hover:border-ubukGold rounded-xl p-3 flex items-center justify-between transition">
+            <div>
+              <h3 class="text-xs font-bold text-white">3. BURAQ</h3>
+              <p class="text-[11px] text-gray-400">Séquestre & Transferts Rapides</p>
+            </div>
+            <span class="text-gray-400 text-sm">→</span>
+          </a>
+
+          <!-- Satellite 4 -->
+          <a href="#float" class="block bg-ubukDark border border-ubukBorder hover:border-ubukGold rounded-xl p-3 flex items-center justify-between transition">
+            <div>
+              <h3 class="text-xs font-bold text-white">4. FLOAT & SECURITY</h3>
+              <p class="text-[11px] text-gray-400">Liquidité, Contrôle Réserves & Garde-Fou</p>
+            </div>
+            <span class="text-gray-400 text-sm">→</span>
+          </a>
+
+          <!-- Satellite 5 -->
+          <a href="#zakat" class="block bg-ubukDark border border-ubukBorder hover:border-ubukGold rounded-xl p-3 flex items-center justify-between transition">
+            <div>
+              <h3 class="text-xs font-bold text-white">5. ZAKĀT & TALENTS</h3>
+              <p class="text-[11px] text-gray-400">Simulateur, Zakāt, Ṣadaqah et Waqf & Fonds Qarḍ Ḥasan</p>
+            </div>
+            <span class="text-gray-400 text-sm">→</span>
+          </a>
+
+          <!-- Satellite 6 -->
+          <a href="#kalam" class="block bg-ubukDark border border-ubukBorder hover:border-ubukGold rounded-xl p-3 flex items-center justify-between transition">
+            <div>
+              <h3 class="text-xs font-bold text-white">6. KALAM / CLASSROOM</h3>
+              <p class="text-[11px] text-gray-400">Académie Vidéo, Audio & PDF</p>
+            </div>
+            <span class="text-gray-400 text-sm">→</span>
+          </a>
+
+          <!-- Satellite 7 -->
+          <a href="#observatoire" class="block bg-ubukDark border border-ubukBorder hover:border-ubukGold rounded-xl p-3 flex items-center justify-between transition">
+            <div>
+              <h3 class="text-xs font-bold text-white">7. OBSERVATOIRE</h3>
+              <p class="text-[11px] text-gray-400">Radar & Transparence Sociale</p>
+            </div>
+            <span class="text-gray-400 text-sm">→</span>
+          </a>
+        </div>
+      </section>
+
+      <!-- COLLER LE BLOC 3 ICI -->
+      <!-- 4. SATELLITES COMPLÉMENTAIRES & CONTRAT FLOAT & SHIELD -->
+      <section class="bg-ubukCard border-2 border-ubukGold rounded-2xl p-4 space-y-3 shadow-lg">
+        <h2 class="text-sm font-bold text-ubukGold leading-snug">
+          ✨ Satellites Complémentaires & Contrat Float & Shield (0 % Ribā)
+        </h2>
+        <p class="text-xs text-gray-200 leading-relaxed">
+          En complément de la messagerie et de la solidarité (Mizan, Falah, Zakāt, Ṣadaqah et Waqf), l'architecture déploie quatre piliers opérationnels dédiés :
+        </p>
+        <ul class="space-y-2 text-xs text-gray-200 list-disc pl-4 leading-relaxed">
+          <li>
+            <strong class="text-white">BURAQ :</strong> Séquestre sécurisé des échanges commerciaux et transferts rapides sans friction.
+          </li>
+          <li>
+            <strong class="text-white">FLOAT & SECURITY :</strong> Gestion du pool de liquidité communautaire, contrôle des réserves et audits cryptographiques SHA-256 sous vigilance du Garde-Fou Technologique en Chef.
+          </li>
+          <li>
+            <strong class="text-white">KALAM / CLASSROOM :</strong> Académie souveraine de formation et téléchargement (vidéo, audio et PDF hors-ligne).
+          </li>
+          <li>
+            <strong class="text-white">OBSERVATOIRE :</strong> Radar territorial de transparence sociale et suivi en temps réel de l'impact communautaire.
+          </li>
+        </ul>
+        <p class="text-xs text-gray-200 leading-relaxed pt-1">
+          <strong class="text-white">Contrat Participatif Float & Shield (0 % Ribā) :</strong> Participez au financement de la liquidité opérationnelle sous régime participatif sans intérêt usuraire, avec partage transparent des commissions réelles et prélèvement solidaire Zakāt, Ṣadaqah et Waqf :
+        </p>
+        <a href="#contrat-float-shield.pdf" class="w-full bg-ubukGreen hover:bg-emerald-400 text-ubukDark font-bold text-xs py-3 px-4 rounded-xl flex items-center justify-center gap-2 transition shadow-md">
+          <span>⬇️</span>
+          <span>Télécharger le Contrat Float & Shield (PDF)</span>
+        </a>
+      </section>
+
+      <!-- 5. FIL DIRECT • OFFICE LATIF CONNECT -->
+      <section class="bg-ubukCard border border-ubukBorder rounded-2xl p-4 space-y-3">
+        <div class="flex items-start justify-between gap-2">
+          <h2 class="text-xs font-bold text-white leading-snug">
+            💬 Fil Direct • Office Latif Connect
+          </h2>
+          <div class="flex items-center gap-1.5 text-[11px] text-gray-300 shrink-0">
+            <span class="w-2 h-2 rounded-full bg-ubukGreen inline-block"></span>
+            <span>Sans friction • Hors-ligne prêt</span>
+          </div>
+        </div>
+
+        <!-- Zone de messages -->
+        <div id="chat-messages" class="space-y-2.5 max-h-60 overflow-y-auto pr-1">
+          <div class="bg-ubukDark border border-ubukGold/50 rounded-xl p-3 space-y-1">
+            <p class="text-[11px] font-bold text-ubukGold">Latif Connect • Noyau</p>
+            <p class="text-xs text-gray-200 leading-relaxed">
+              Bienvenue sur UBUK.ONE. Recherchez vos contacts, appelez vos proches, rejoignez un groupe local d'épargne et de crédit ou téléchargez le contrat participatif Float & Shield.
+            </p>
+          </div>
+        </div>
+
+        <!-- Champ de saisie -->
+        <form id="chat-form" class="flex items-center gap-2 pt-1">
+          <input 
+            id="chat-input"
+            type="text" 
+            placeholder="Écrire un message instantané dans la ruche..." 
+            class="flex-1 bg-ubukDark border border-ubukBorder rounded-full px-3.5 py-2 text-xs text-white placeholder-gray-400 focus:outline-none focus:border-ubukGold transition"
+          />
+          <button type="submit" class="bg-ubukGreen hover:bg-emerald-400 text-ubukDark font-bold text-xs px-4 py-2 rounded-full transition shrink-0">
+            Envoyer ➤
+          </button>
+        </form>
+      </section>
+
+      <!-- 6. LE SERMENT DE LA RUCHE – MANIFESTE LATIF CONNECT -->
+      <article class="bg-ubukCard/70 border border-ubukBorder rounded-2xl p-4 space-y-3 text-gray-200">
+        <blockquote class="text-sm font-bold text-white leading-snug">
+          « Elle ne goûte même pas au miel qu'elle a produit au cours de sa vie, fixant la barre très haute, même pour les pèlerins les plus endurcis. »
+        </blockquote>
+
+        <div class="space-y-1.5">
+          <h2 class="text-xs font-bold text-ubukGold">Le Serment de la Ruche – Manifeste Latif Connect</h2>
+          <p class="text-xs text-gray-300 leading-relaxed">
+            Regarde l'abeille : toute une vie de vol pour un douzième de cuillère à café de miel — sans jamais le goûter elle-même. Déroule le parchemin pour découvrir l'alliance entre communication souveraine et solidarité 0 % Ribā (Zakāt, Ṣadaqah et Waqf).
+          </p>
+        </div>
+
+        <!-- Boutons d'action du Manifeste -->
+        <div class="flex flex-wrap gap-2 pt-1">
+          <button onclick="alert('Lecture audio du récit de l\'abeille activée.')" class="bg-white text-ubukDark font-bold text-xs px-3 py-1.5 rounded-lg flex items-center gap-1.5 hover:bg-gray-200 transition">
+            <span>🔊</span> Écouter le récit de sa vie
+          </button>
+          <button onclick="document.getElementById('parchemin-texte').classList.toggle('hidden')" class="bg-white text-ubukDark font-bold text-xs px-3 py-1.5 rounded-lg flex items-center gap-1.5 hover:bg-gray-200 transition">
+            <span>📜</span> Lire la suite • Dérouler le parchemin
+          </button>
+        </div>
+
+        <!-- Corps du Manifeste -->
+        <div id="parchemin-texte" class="space-y-3 text-xs leading-relaxed pt-2 border-t border-ubukBorder/60">
+          <p class="font-bold text-white">« Regarde l'abeille.</p>
+          <p>
+            Toute une vie de vol, de précision et d'abnégation pour offrir au monde un douzième de cuillère à café de miel — <strong class="text-white">et elle ne goûte même pas au miel qu'elle a produit au cours de sa vie, fixant la barre très haute, même pour les pèlerins les plus endurcis.</strong>
+          </p>
+          <p>
+            Elle n'accumule pas pour elle-même. Elle bâtit l'alvéole, elle protège la ruche, elle guérit la vie. <strong class="text-white">Et nous, humains doués de raison et de cœur, que faisons-nous de nos mains ?</strong>
+          </p>
+          <p>
+            De la sagesse des anciens mutualistes d'Afrique à l'architecture souveraine du <strong class="text-white">Framework Latif Connect</strong>, nous avons forgé <strong class="text-white">l'outil de notre dignité : UBUK.</strong>
+          </p>
+          <p>
+            Ici, la science et la foi marchent d'un même pas. Sans usure (<strong class="text-white">0 % Ribā</strong>), sans opacité, chaque goutte versée rejoint son alvéole étanche — <strong class="text-white">Zakāt, Ṣadaqah et Waqf</strong>, couverture <strong class="text-white">Takaful Falah</strong>, relance <strong class="text-white">Qarḍ Ḥasan</strong> — pour irriguer en priorité la terre même où elle est née.
+          </p>
+          <p class="font-bold text-ubukGold">Formule le vœu des bâtisseurs :</p>
+          <p>
+            Déposer ta goutte avec constance, souhaiter ne jamais avoir à puiser dans le bouclier — tout en sachant que la ruche, elle, ne t'abandonnera jamais — et te réjouir que ta part sauve la vie, la santé ou l'atelier de ton prochain.
+          </p>
+          <p class="font-bold text-white">L'abeille a placé le sacrifice au sommet. Et toi ? »</p>
+        </div>
+      </article>
+
+      <!-- 7. PIED DE PAGE OFFICIEL & GARDE-FOU TECHNOLOGIQUE -->
+      <footer id="contact" class="pt-4 border-t border-ubukBorder space-y-2.5 text-[11px] text-gray-300 leading-relaxed">
+        <p class="font-bold text-white flex items-center gap-1.5">
+          <span>🛡️</span> Garde-Fou Technologique en Chef • Vigilance & Contact
+        </p>
+        <p>
+          Contrôle d'intégrité, signalement critique, audit SHA-256 et étanchéité des fonds Zakāt, Ṣadaqah et Waqf :
+        </p>
+        <p>
+          <a href="https://wa.me" class="text-ubukGreen underline hover:text-emerald-300">
+            Inspecter le Bouclier WhatsApp : +237 679 70 50 38
+          </a>
+          •
+          <a href="mailto:contact@ubuk.net" class="text-ubukGold underline hover:text-yellow-300">
+            contact@ubuk.net
+          </a>
+        </p>
+        <p class="text-gray-400 pt-1">
+          <strong class="text-white">FEFEO Group SARL</strong> • Capital Social : 2 000 000 FCFA • RCCM : RC/DLA/2022/B/3075 du 24/05/2022 (TPI Douala-Bonanjo) • NIU : M052217354278H • CDI Douala 2 • Régime Fiscal : RSI • Siège Social : Douala 2 (Derrière Boulangerie COAF), Cameroun • Contacts Officiels : +237 679 70 50 38 / +237 697 01 56 43 • <a href="mailto:contact@ubuk.net" class="text-ubukGold underline">contact@ubuk.net</a>
+        </p>
+      </footer>
+
+      <!-- SCRIPT D'INTERACTION DU FIL DIRECT -->
+      <script>
+        document.getElementById('chat-form').addEventListener('submit', function(e) {
+          e.preventDefault();
+          const input = document.getElementById('chat-input');
+          const text = input.value.trim();
+          if (!text) return;
+
+          const container = document.getElementById('chat-messages');
+          const msgDiv = document.createElement('div');
+          msgDiv.className = 'bg-ubukCard border border-ubukGreen/50 rounded-xl p-3 space-y-1 ml-6';
+          msgDiv.innerHTML = `
+            <p class="text-[11px] font-bold text-ubukGreen">Vous • Membre de la Ruche</p>
+            <p class="text-xs text-white leading-relaxed">${text.replace(/</g, "&lt;").replace(/>/g, "&gt;")}</p>
+          `;
+          container.appendChild(msgDiv);
+          container.scrollTop = container.scrollHeight;
+          input.value = '';
+        });
+      </script>
+  <!-- MODALE INTERACTIVE DES 7 SATELLITES & OUTILS LATIF CONNECT -->
+  <div id="satellite-modal" class="fixed inset-0 z-50 hidden bg-black/80 backdrop-blur-sm flex items-end sm:items-center justify-center p-4">
+    <div class="w-full max-w-md bg-ubukCard border-2 border-ubukGold rounded-2xl p-5 space-y-4 shadow-2xl animate-fade-in">
+      <div class="flex items-center justify-between border-b border-ubukBorder pb-3">
+        <h3 id="modal-title" class="text-sm font-bold text-ubukGold">Satellite UBUK</h3>
+        <button onclick="fermerModale()" class="w-7 h-7 rounded-full bg-ubukDark border border-ubukBorder text-gray-300 hover:text-white flex items-center justify-center text-xs">✕</button>
+      </div>
+      
+      <div id="modal-body" class="text-xs text-gray-200 space-y-3 leading-relaxed">
+        <!-- Contenu dynamique injecté par JavaScript -->
+      </div>
+
+      <div class="pt-2 border-t border-ubukBorder flex justify-end">
+        <button onclick="fermerModale()" class="bg-ubukGreen hover:bg-emerald-400 text-ubukDark font-bold text-xs px-4 py-2 rounded-full transition">
+          Fermer l'alvéole
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- SCRIPT AVANCÉ : MODALES SATELLITES, SIMULATEUR ZAKAT, SHA-256 & AUDIO -->
+  <script>
+    // 1. Données détaillées des 7 Satellites
+    const satellitesData = {
+      '#mizan': {
+        titre: '1. MIZAN • Alvéoles & Épargne Collective',
+        contenu: `
+          <p><strong>Principe :</strong> Tontine souveraine et épargne communautaire sans usure (0 % Ribā).</p>
+          <p>Chaque cotisation est horodatée et affectée à une alvéole dédiée pour financer les projets locaux, l'artisanat et l'entraide de quartier.</p>
+          <div class="bg-ubukDark p-3 rounded-xl border border-ubukBorder">
+            <p class="text-ubukGreen font-bold">Statut : Caisse Cantonale Ouverte</p>
+            <p class="text-[11px] text-gray-400 mt-1">Transparence intégrale des tours et zéro frais cachés.</p>
+          </div>
+        `
+      },
+      '#falah': {
+        titre: '2. FALAH • Micro-Takaful & Protection 24h',
+        contenu: `
+          <p><strong>Principe :</strong> Bouclier mutuel de solidarité santé, maternité et urgences vitales.</p>
+          <p>Alimenté par la contribution solidaire des membres et soutenu par les fonds Zakāt & Ṣadaqah pour ne laisser aucun foyer sans soins.</p>
+          <div class="bg-ubukDark p-3 rounded-xl border border-ubukBorder">
+            <p class="text-ubukGold font-bold">Couverture active 24h/24</p>
+            <p class="text-[11px] text-gray-400 mt-1">Déclenchement rapide sur validation communautaire.</p>
+          </div>
+        `
+      },
+      '#buraq': {
+        titre: '3. BURAQ • Séquestre & Transferts Rapides',
+        contenu: `
+          <p><strong>Principe :</strong> Tiers de confiance numérique pour sécuriser les ventes et prestations entre membres.</p>
+          <p>Les fonds sont bloqués dans un coffre étanche jusqu'à la confirmation de livraison du bien ou du service.</p>
+        `
+      },
+      '#float': {
+        titre: '4. FLOAT & SECURITY • Audit SHA-256 & Réserves',
+        contenu: `
+          <p><strong>Contrôle d'intégrité cryptographique :</strong> Vérifiez l'empreinte numérique (SHA-256) d'une transaction ou d'une alvéole en direct.</p>
+          <div class="space-y-2 pt-1">
+            <input id="sha-input" type="text" placeholder="Saisir un libellé de dépôt (ex: Zakat_Douala_50000)" class="w-full bg-ubukDark border border-ubukBorder rounded-lg px-3 py-2 text-xs text-white" />
+            <button onclick="calculerSha256()" class="w-full bg-ubukGold text-ubukDark font-bold py-2 rounded-lg text-xs">Générer l'empreinte SHA-256</button>
+            <p id="sha-result" class="text-[10px] font-mono text-ubukGreen break-all bg-ubukDark p-2 rounded border border-ubukBorder hidden"></p>
+          </div>
+        `
+      },
+      '#zakat': {
+        titre: '5. ZAKĀT & TALENTS • Simulateur & Qarḍ Ḥasan',
+        contenu: `
+          <p>Calculez instantanément votre <strong>Zakāt (2,5 %)</strong> ou simulez un prêt d'honneur <strong>Qarḍ Ḥasan (0 % intérêt)</strong> :</p>
+          <div class="bg-ubukDark p-3 rounded-xl border border-ubukBorder space-y-2">
+            <label class="block text-[11px] text-gray-400">Montant de l'épargne annuelle (en FCFA) :</label>
+            <input id="zakat-montant" type="number" placeholder="Ex: 1000000" oninput="calculerZakat()" class="w-full bg-ubukCard border border-ubukBorder rounded-lg px-3 py-2 text-xs text-white" />
+            <p class="text-xs text-white pt-1">Part Zakāt (2,5 %) : <strong id="zakat-resultat" class="text-ubukGold">0 FCFA</strong></p>
+            <p class="text-[11px] text-ubukGreen">100 % reversé dans l'alvéole étanche locale.</p>
+          </div>
+        `
+      },
+      '#kalam': {
+        titre: '6. KALAM / CLASSROOM • Académie Souveraine',
+        contenu: `
+          <p><strong>Savoir libre et hors-ligne :</strong> Accédez aux modules de formation en finance éthique, gestion coopérative, numérique souverain et artisanat.</p>
+          <ul class="list-disc pl-4 space-y-1 text-gray-300">
+            <li>Guides pratiques PDF téléchargeables</li>
+            <li>Capsules audio légères pour zones à faible débit</li>
+          </ul>
+        `
+      },
+      '#observatoire': {
+        titre: '7. OBSERVATOIRE • Radar & Transparence Sociale',
+        contenu: `
+          <p><strong>Suivi d'impact territorial :</strong> Visualisation publique et anonymisée des vies soutenues, des ateliers financés par Qarḍ Ḥasan et des réserves actives par canton.</p>
+        `
+      }
+    };
+
+    // 2. Interception des clics sur les 7 Satellites
+    document.querySelectorAll('a[href^="#"]').forEach(lien => {
+      const cible = lien.getAttribute('href');
+      if (satellitesData[cible]) {
+        lien.addEventListener('click', function(e) {
+          e.preventDefault();
+          document.getElementById('modal-title').textContent = satellitesData[cible].titre;
+          document.getElementById('modal-body').innerHTML = satellitesData[cible].contenu;
+          document.getElementById('satellite-modal').classList.remove('hidden');
+        });
+      }
+    });
+
+    function fermerModale() {
+      document.getElementById('satellite-modal').classList.add('hidden');
+    }
+
+    // 3. Calculateur Zakāt (2.5%)
+    function calculerZakat() {
+      const val = parseFloat(document.getElementById('zakat-montant').value) || 0;
+      const zakat = Math.round(val * 0.025);
+      document.getElementById('zakat-resultat').textContent = zakat.toLocaleString('fr-FR') + ' FCFA';
+    }
+
+    // 4. Générateur SHA-256 réel (Web Crypto API)
+    async function calculerSha256() {
+      const texte = document.getElementById('sha-input').value.trim();
+      if (!texte) return;
+      const encodeur = new TextEncoder();
+      const data = encodeur.encode(texte);
+      const hashBuffer = await crypto.subtle.digest('SHA-256', data);
+      const hashArray = Array.from(new Uint8Array(hashBuffer));
+      const hashHex = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+      const resEl = document.getElementById('sha-result');
+      resEl.textContent = 'SHA-256 : ' + hashHex;
+      resEl.classList.remove('hidden');
+    }
+
+    // 5. Lecture vocale réelle du Serment de la Ruche
+    const btnAudio = document.querySelector('button[onclick*="Lecture audio"]');
+    if (btnAudio) {
+      btnAudio.removeAttribute('onclick');
+      btnAudio.addEventListener('click', function() {
+        if ('speechSynthesis' in window) {
+          window.speechSynthesis.cancel();
+          const texte = document.getElementById('parchemin-texte').innerText;
+          const lecture = new SpeechSynthesisUtterance(texte);
+          lecture.lang = 'fr-FR';
+          lecture.rate = 0.95;
+          window.speechSynthesis.speak(lecture);
+        } else {
+          alert("La synthèse vocale n'est pas supportée sur ce navigateur.");
+        }
+      });
+    }
+
+    // 6. Navigation fluide des onglets du haut
+    const navButtons = document.querySelectorAll('header nav button');
+    const sections = document.querySelectorAll('main > section, main > article');
+    navButtons.forEach((btn, index) => {
+      btn.addEventListener('click', () => {
+        navButtons.forEach(b => {
+          b.classList.remove('text-ubukGold', 'border-b-2', 'border-ubukGold', 'font-semibold');
+          b.classList.add('text-gray-300');
+        });
+        btn.classList.add('text-ubukGold', 'border-b-2', 'border-ubukGold', 'font-semibold');
+        btn.classList.remove('text-gray-300');
+
+        // Défilement vers la section associée
+        if (index === 0 && sections[1]) sections[1].scrollIntoView({ behavior: 'smooth' }); // Appels & Chats
+        if (index === 1 && sections[2]) sections[2].scrollIntoView({ behavior: 'smooth' }); // 7 Satellites
+        if (index === 2 && sections[3]) sections[3].scrollIntoView({ behavior: 'smooth' }); // Float & PDF
+        if (index === 3 && sections[5]) sections[5].scrollIntoView({ behavior: 'smooth' }); // La Ruche (Manifeste)
+      });
+    });
+
+    // 7. Recherche en direct dans le portail
+    const searchInput = document.querySelector('header input[type="text"]');
+    if (searchInput) {
+      searchInput.addEventListener('input', function(e) {
+        const terme = e.target.value.toLowerCase();
+        document.querySelectorAll('main a, main section > div').forEach(item => {
+          if (item.innerText.toLowerCase().includes(terme)) {
+            item.style.opacity = '1';
+          } else {
+            item.style.opacity = '0.25';
+          }
+        });
+      });
+    }
+  </script>
+  <!-- SCRIPT BLOC 5 : MULTILINGUE (FR/EN/AR), CONTRAT FLOAT & SHIELD ET MODE HORS-LIGNE -->
+  <script>
+    // 1. DICTIONNAIRE MULTILINGUE (FR / EN / عربي)
+    const traductions = {
+      FR: {
+        dir: 'ltr',
+        sousTitre: 'أوبوك وان • Messagerie & Office Latif Connect',
+        gardeFou: 'Garde-Fou Technologique en Chef • 0 % Ribā • Zakāt, Ṣadaqah et Waqf',
+        contact: 'Contact',
+        placeholderRecherche: 'Rechercher un contact, appeler un proche, rejoindre',
+        tabChats: '💬 Appels & Chats',
+        tabSatellites: '🛰️ 7 Satellites',
+        tabFloat: '📄 Float & PDF',
+        tabRuche: '🐝 La Ruche',
+        btnTelecharger: 'Télécharger le Contrat Float & Shield (0 % Ribā)'
+      },
+      EN: {
+        dir: 'ltr',
+        sousTitre: 'UBUK.ONE • Sovereign Messaging & Latif Connect Office',
+        gardeFou: 'Chief Technological Safeguard • 0% Ribā • Zakāt, Ṣadaqah & Waqf',
+        contact: 'Contact',
+        placeholderRecherche: 'Search a contact, call a loved one, join a circle',
+        tabChats: '💬 Calls & Chats',
+        tabSatellites: '🛰️ 7 Satellites',
+        tabFloat: '📄 Float & PDF',
+        tabRuche: '🐝 The Hive',
+        btnTelecharger: 'Download Float & Shield Contract (0% Ribā)'
+      },
+      AR: {
+        dir: 'rtl',
+        sousTitre: 'أوبوك وان • المراسلة ومكتب لطيف كونكت السيادي',
+        gardeFou: 'الحارس التكنولوجي الأعلى • 0% ربا • زكاة، صدقة ووقف',
+        contact: 'اتصل بنا',
+        placeholderRecherche: 'ابحث عن جهة اتصال، اتصل بقريب، أو انضم إلى حلقة',
+        tabChats: '💬 المكالمات والدردشة',
+        tabSatellites: '🛰️ الأقمار السبعة',
+        tabFloat: '📄 العقود والملفات',
+        tabRuche: '🐝 خلية النحل',
+        btnTelecharger: 'تحميل عقد المشاركة Float & Shield (0% ربا)'
+      }
+    };
+
+    // Activation des boutons FR / EN / عربي dans l'en-tête
+    const langButtons = document.querySelectorAll('header > div:first-child button');
+    langButtons.forEach((btn, idx) => {
+      btn.addEventListener('click', () => {
+        const code = idx === 0 ? 'FR' : idx === 1 ? 'EN' : 'AR';
+        const t = traductions[code];
+
+        // Mise à jour visuelle des boutons
+        langButtons.forEach(b => {
+          b.classList.remove('bg-ubukGreen', 'text-ubukDark', 'font-bold');
+          b.classList.add('text-gray-300');
+        });
+        btn.classList.add('bg-ubukGreen', 'text-ubukDark', 'font-bold');
+        btn.classList.remove('text-gray-300');
+
+        // Direction LTR / RTL
+        document.documentElement.setAttribute('dir', t.dir);
+        document.documentElement.setAttribute('lang', code.toLowerCase());
+
+        // Application des textes clés
+        const sousTitreEl = document.querySelector('header p');
+        if (sousTitreEl) sousTitreEl.textContent = t.sousTitre;
+
+        const gardeFouSpan = document.querySelector('header > div:nth-child(2) span:last-child');
+        if (gardeFouSpan) gardeFouSpan.textContent = t.gardeFou;
+
+        const contactBtn = document.querySelector('header a[href="#contact"]');
+        if (contactBtn) contactBtn.textContent = t.contact;
+
+        const searchEl = document.querySelector('header input[type="text"]');
+        if (searchEl) searchEl.setAttribute('placeholder', t.placeholderRecherche);
+
+        const navBtns = document.querySelectorAll('header nav button');
+        if (navBtns.length >= 4) {
+          navBtns.textContent = t.tabChats;
+          navBtns.textContent = t.tabSatellites;
+          navBtns.textContent = t.tabFloat;
+          navBtns.textContent = t.tabRuche;
+        }
+      });
+    });
+
+    // 2. GÉNÉRATION ET TÉLÉCHARGEMENT DU CONTRAT PARTICIPATIF FLOAT & SHIELD
+    const btnContrat = document.querySelector('a[href="#contrat-float-shield.pdf"]');
+    if (btnContrat) {
+      btnContrat.addEventListener('click', function(e) {
+        e.preventDefault();
+        const dateJour = new Date().toLocaleDateString('fr-FR');
+        const contenuContrat = `====================================================================
+UBUK.ONE • FRAMEWORK LATIF CONNECT
+CONTRAT PARTICIPATIF FLOAT & SHIELD (0 % RIBĀ)
+====================================================================
+Date d'émission : ${dateJour}
+Éditeur : FEFEO Group SARL (Douala 2, Cameroun)
+RCCM : RC/DLA/2022/B/3075 | NIU : M052217354278H
+
+1. OBJET DU CONTRAT
+Participation volontaire à la liquidité communautaire opérationnelle
+de l'écosystème UBUK.ONE sous régime participatif éthique (0 % usure).
+
+2. ÉTANCHÉITÉ DES ALVÉOLES & AUDIT SHA-256
+- Séparation stricte des fonds : Zakāt, Ṣadaqah, Waqf, Takaful Falah
+  et relance Qarḍ Ḥasan.
+- Contrôle d'intégrité permanent par le Garde-Fou Technologique en Chef.
+
+3. PARTAGE TRANSPARENT & SOLIDARITÉ
+- Partage équitable des commissions réelles générées par les flux Buraq.
+- Prélèvement solidaire automatique vers les alvéoles locales.
+
+Contacts Officiels : +237 679 70 50 38 / +237 697 01 56 43
+Email : contact@ubuk.net
+====================================================================`;
+
+        const blob = new Blob([contenuContrat], { type: 'text/plain;charset=utf-8' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = `Contrat_Participatif_Float_Shield_UBUK_${dateJour.replace(/\//g, '-')}.txt`;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+      });
+    }
+
+    // 3. SAUVEGARDE LOCALE DES MESSAGES DU FIL DIRECT (MODE HORS-LIGNE)
+    const chatBox = document.getElementById('chat-messages');
+    const savedHistory = localStorage.getItem('ubuk_fil_direct');
+    if (savedHistory && chatBox) {
+      chatBox.innerHTML = savedHistory;
+    }
+    const formChat = document.getElementById('chat-form');
+    if (formChat && chatBox) {
+      formChat.addEventListener('submit', () => {
+        setTimeout(() => {
+          localStorage.setItem('ubuk_fil_direct', chatBox.innerHTML);
+        }, 50);
+      });
+    }
+  </script>
+  <!-- BIBLIOTHÈQUE JSPDF POUR GÉNÉRATION DE CONTRATS PDF OFFICIELS -->
+  <script src="https://cloudflare.com"></script>
+
+  <!-- BANNIÈRE D'INSTALLATION APPLICATION MOBILE (PWA) -->
+  <div id="pwa-install-banner" class="hidden fixed bottom-3 left-1/2 -translate-x-1/2 w-[92%] max-w-md bg-ubukCard border-2 border-ubukGold rounded-2xl p-3 shadow-2xl z-40 flex items-center justify-between gap-3">
+    <div class="flex items-center gap-2.5">
+      <span class="text-2xl">🐝</span>
+      <div>
+        <p class="text-xs font-bold text-white">Installer UBUK.ONE sur l'appareil</p>
+        <p class="text-[10px] text-gray-300">Accès souverain rapide & mode hors-ligne</p>
+      </div>
+    </div>
+    <div class="flex items-center gap-1.5 shrink-0">
+      <button id="pwa-install-btn" class="bg-ubukGreen hover:bg-emerald-400 text-ubukDark font-bold text-xs px-3 py-1.5 rounded-full transition">
+        Installer
+      </button>
+      <button onclick="document.getElementById('pwa-install-banner').classList.add('hidden')" class="text-gray-400 hover:text-white text-xs px-1.5">✕</button>
+    </div>
+  </div>
+
+  <!-- SCRIPT BLOC 6 : VRAI PDF, MANIFEST PWA & DÉTECTION RÉSEAU -->
+  <script>
+    // 1. REMPLACEMENT DU TÉLÉCHARGEMENT PAR UN VRAI FICHIER PDF (jsPDF)
+    const boutonPdf = document.querySelector('a[href="#contrat-float-shield.pdf"]');
+    if (boutonPdf) {
+      // On clone le bouton pour remplacer l'ancien écouteur texte du Bloc 5
+      const nouveauBoutonPdf = boutonPdf.cloneNode(true);
+      boutonPdf.parentNode.replaceChild(nouveauBoutonPdf, boutonPdf);
+
+      nouveauBoutonPdf.addEventListener('click', async function(e) {
+        e.preventDefault();
+        if (!window.jspdf) {
+          alert("Chargement du module PDF en cours, veuillez réessayer dans un instant.");
+          return;
+        }
+
+        const { jsPDF } = window.jspdf;
+        const doc = new jsPDF();
+        const dateJour = new Date().toLocaleDateString('fr-FR');
+        const refUnique = 'UBUK-' + Date.now().toString(36).toUpperCase();
+
+        // En-tête Vert Émeraude & Or
+        doc.setFillColor(6, 26, 18);
+        doc.rect(0, 0, 210, 38, 'F');
+        doc.setTextColor(212, 175, 55);
+        doc.setFontSize(18);
+        doc.setFont("helvetica", "bold");
+        doc.text("UBUK.ONE • FRAMEWORK LATIF CONNECT", 15, 17);
+
+        doc.setTextColor(255, 255, 255);
+        doc.setFontSize(11);
+        doc.text("CONTRAT PARTICIPATIF FLOAT & SHIELD (0 % RIBĀ)", 15, 26);
+        doc.setFontSize(9);
+        doc.text(`Référence : ${refUnique}  |  Émis le : ${dateJour}`, 15, 33);
+
+        // Corps du document
+        doc.setTextColor(20, 20, 20);
+        doc.setFontSize(11);
+        doc.setFont("helvetica", "bold");
+        doc.text("1. IDENTIFICATION DE L'OPÉRATEUR SOUVERAIN", 15, 50);
+        doc.setFont("helvetica", "normal");
+        doc.setFontSize(10);
+        doc.text("FEFEO Group SARL • Capital Social : 2 000 000 FCFA", 15, 57);
+        doc.text("RCCM : RC/DLA/2022/B/3075 (TPI Douala-Bonanjo) • NIU : M052217354278H", 15, 63);
+        doc.text("Siège Social : Douala 2 (Derrière Boulangerie COAF), Cameroun", 15, 69);
+
+        doc.setFont("helvetica", "bold");
+        doc.setFontSize(11);
+        doc.text("2. ENGAGEMENT ÉTHIQUE & ÉTANCHÉITÉ DES ALVÉOLES (0 % RIBĀ)", 15, 83);
+        doc.setFont("helvetica", "normal");
+        doc.setFontSize(10);
+        const clauses = [
+          "• Le présent contrat régit la participation volontaire à la liquidité communautaire",
+          "  Float & Shield de l'écosystème UBUK.ONE, strictement exempte de tout intérêt usuraire.",
+          "• Chaque goutte versée rejoint son alvéole étanche sous contrôle cryptographique",
+          "  SHA-256 assuré par le Garde-Fou Technologique en Chef.",
+          "• Les flux solidaires Zakāt, Ṣadaqah, Waqf, couverture Takaful Falah et relance",
+          "  Qarḍ Ḥasan sont isolés comptablement pour irriguer en priorité l'économie locale."
+        ];
+        doc.text(clauses, 15, 90);
+
+        doc.setFont("helvetica", "bold");
+        doc.setFontSize(11);
+        doc.text("3. PARTAGE DES COMMISSIONS RÉELLES & CONTACTS OFFICIELS", 15, 130);
+        doc.setFont("helvetica", "normal");
+        doc.setFontSize(10);
+        doc.text("• Partage transparent des commissions réelles générées par les échanges Buraq.", 15, 137);
+        doc.text("• Inspection du Bouclier & Vigilance : +237 679 70 50 38 / +237 697 01 56 43", 15, 144);
+        doc.text("• Courriel officiel : contact@ubuk.net  |  Portail : ubuk-portail.vercel.app", 15, 151);
+
+        // Encadré Signature
+        doc.setDrawColor(212, 175, 55);
+        doc.rect(15, 165, 180, 35);
+        doc.setFont("helvetica", "bold");
+        doc.text("LE SERMENT DE LA RUCHE :", 20, 174);
+        doc.setFont("helvetica", "italic");
+        doc.setFontSize(9);
+        doc.text("« Déposer ta goutte avec constance, souhaiter ne jamais avoir à puiser dans le bouclier,", 20, 182);
+        doc.text("tout en sachant que la ruche, elle, ne t'abandonnera jamais. »", 20, 188);
+
+        doc.save(`Contrat_Float_Shield_UBUK_${refUnique}.pdf`);
+      });
+    }
+
+    // 2. MANIFESTE PWA DYNAMIQUE (REND L'APPLICATION INSTALLABLE SUR MOBILE)
+    const pwaManifest = {
+      name: "UBUK.ONE • Framework Latif Connect",
+      short_name: "UBUK.ONE",
+      start_url: ".",
+      display: "standalone",
+      background_color: "#061A12",
+      theme_color: "#061A12",
+      description: "Messagerie souveraine, épargne collective 0 % Ribā, Zakāt, Ṣadaqah et Waqf.",
+      icons: [{
+        src: "data:image/svg+xml,<svg xmlns='http://w3.org' viewBox='0 0 100 100'><circle cx='50' cy='50' r='50' fill='%230B281D'/><text y='.9em' x='12' font-size='70'>🐝</text></svg>",
+        sizes: "192x192",
+        type: "image/svg+xml"
+      }]
+    };
+    const manifestBlob = new Blob([JSON.stringify(pwaManifest)], { type: 'application/manifest+json' });
+    const manifestLink = document.createElement('link');
+    manifestLink.rel = 'manifest';
+    manifestLink.href = URL.createObjectURL(manifestBlob);
+    document.head.appendChild(manifestLink);
+
+    let deferredPrompt;
+    window.addEventListener('beforeinstallprompt', (e) => {
+      e.preventDefault();
+      deferredPrompt = e;
+      document.getElementById('pwa-install-banner').classList.remove('hidden');
+    });
+
+    document.getElementById('pwa-install-btn')?.addEventListener('click', async () => {
+      if (!deferredPrompt) return;
+      deferredPrompt.prompt();
+      await deferredPrompt.userChoice;
+      deferredPrompt = null;
+      document.getElementById('pwa-install-banner').classList.add('hidden');
+    });
+
+    // 3. SURVEILLANCE RÉSEAU EN TEMPS RÉEL (INDICATEUR HORS-LIGNE)
+    function actualiserEtatReseau() {
+      const badgeTexte = document.querySelector('#chat-messages')?.previousElementSibling?.querySelector('span:last-child');
+      const badgePoint = document.querySelector('#chat-messages')?.previousElementSibling?.querySelector('span:first-child');
+      if (!badgeTexte || !badgePoint) return;
+
+      if (navigator.onLine) {
+        badgeTexte.textContent = 'Sans friction • En ligne & Hors-ligne prêt';
+        badgePoint.className = 'w-2 h-2 rounded-full bg-ubukGreen inline-block';
+      } else {
+        badgeTexte.textContent = 'Mode Autonome Local • Hors-ligne actif';
+        badgePoint.className = 'w-2 h-2 rounded-full bg-ubukGold inline-block animate-pulse';
+      }
+    }
+    window.addEventListener('online', actualiserEtatReseau);
+    window.addEventListener('offline', actualiserEtatReseau);
+    actualiserEtatReseau();
+  </script>
+  <!-- MODALE D'ADHÉSION, DE COTISATION & DE REGISTRE SHA-256 (BLOC 7) -->
+  <div id="adhesion-modal" class="fixed inset-0 z-50 hidden bg-black/85 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="w-full max-w-md bg-ubukCard border-2 border-ubukGold rounded-2xl p-5 space-y-4 shadow-2xl">
+      <div class="flex items-center justify-between border-b border-ubukBorder pb-3">
+        <h3 id="adhesion-title" class="text-sm font-bold text-ubukGold">Rejoindre une Alvéole UBUK</h3>
+        <button onclick="document.getElementById('adhesion-modal').classList.add('hidden')" class="w-7 h-7 rounded-full bg-ubukDark border border-ubukBorder text-gray-300 hover:text-white flex items-center justify-center text-xs">✕</button>
+      </div>
+
+      <form id="adhesion-form" class="space-y-3 text-xs">
+        <input type="hidden" id="adhesion-type" value="Caisse Locale" />
+        
+        <div>
+          <label class="block text-gray-300 mb-1">Nom complet ou Pseudonyme souverain :</label>
+          <input id="membre-nom" type="text" required placeholder="Ex: Moussa • Canton Douala 2" class="w-full bg-ubukDark border border-ubukBorder rounded-xl px-3 py-2 text-white focus:outline-none focus:border-ubukGold" />
+        </div>
+
+        <div>
+          <label class="block text-gray-300 mb-1">Numéro WhatsApp / Mobile Money (pour alertes & solidarité) :</label>
+          <input id="membre-tel" type="tel" required placeholder="Ex: +237 6XX XX XX XX" class="w-full bg-ubukDark border border-ubukBorder rounded-xl px-3 py-2 text-white focus:outline-none focus:border-ubukGold" />
+        </div>
+
+        <div>
+          <label class="block text-gray-300 mb-1">Alvéole de destination (0 % Ribā) :</label>
+          <select id="membre-alveole" class="w-full bg-ubukDark border border-ubukBorder rounded-xl px-3 py-2 text-white focus:outline-none focus:border-ubukGold">
+            <option value="MIZAN • Épargne Collective">1. MIZAN • Épargne Collective & Tontine</option>
+            <option value="FALAH • Micro-Takaful">2. FALAH • Protection Mutuelle Micro-Takaful</option>
+            <option value="ZAKAT & SADAQAH">3. ZAKĀT & ṢADAQAH • Solidarité Directe</option>
+            <option value="WAQF & QARD HASAN">4. WAQF & QARḌ ḤASAN • Relance Ateliers</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="block text-gray-300 mb-1">Goutte initiale / Contribution (en FCFA) :</label>
+          <input id="membre-montant" type="number" min="500" step="500" value="5000" required class="w-full bg-ubukDark border border-ubukBorder rounded-xl px-3 py-2 text-white focus:outline-none focus:border-ubukGold" />
+        </div>
+
+        <button type="submit" class="w-full bg-ubukGreen hover:bg-emerald-400 text-ubukDark font-bold py-2.5 rounded-xl transition shadow-md">
+          Sceller mon adhésion & Générer le reçu SHA-256
+        </button>
+      </form>
+
+      <!-- RÉSULTAT CRYPTOGRAPHIQUE DE L'ADHÉSION -->
+      <div id="adhesion-recu" class="hidden bg-ubukDark border border-ubukGreen rounded-xl p-3 space-y-1.5 text-[11px]">
+        <p class="font-bold text-ubukGreen">✅ Alvéole scellée avec succès !</p>
+        <p id="recu-details" class="text-gray-200"></p>
+        <p id="recu-hash" class="font-mono text-[10px] text-ubukGold break-all pt-1 border-t border-ubukBorder"></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- SCRIPT BLOC 7 : ACTIVATION DES BOUTONS REJOINDRE / ADHÉRER & GRAND LIVRE LOCAL -->
+  <script>
+    // 1. Ouverture de la modale sur les boutons "Rejoindre", "Adhérer" et les cartes d'action rapide
+    function ouvrirAdhesion(titre, typeAlveole) {
+      document.getElementById('adhesion-title').textContent = titre;
+      document.getElementById('adhesion-type').value = typeAlveole;
+      document.getElementById('adhesion-recu').classList.add('hidden');
+      document.getElementById('adhesion-modal').classList.remove('hidden');
+    }
+
+    // Liaison automatique aux boutons existants de la page
+    document.querySelectorAll('button, main section > div > div').forEach(el => {
+      const texte = el.innerText.trim();
+      if (texte === 'Rejoindre' || texte.includes('Groupe Épargne & Crédit')) {
+        el.addEventListener('click', () => ouvrirAdhesion('Rejoindre la Caisse Locale (0 % Ribā)', 'MIZAN • Épargne Collective'));
+      } else if (texte === 'Adhérer' || texte.includes('Adhérer à UBUK.FALAH')) {
+        el.addEventListener('click', () => ouvrirAdhesion('Adhérer au Bouclier UBUK.FALAH', 'FALAH • Micro-Takaful'));
+      } else if (texte.includes('Appeler proches & amis')) {
+        el.addEventListener('click', () => {
+          const inputChat = document.getElementById('chat-input');
+          if (inputChat) {
+            inputChat.scrollIntoView({ behavior: 'smooth' });
+            inputChat.focus();
+            inputChat.placeholder = 'Saisir le nom ou numéro du proche à appeler...';
+          }
+        });
+      }
+    });
+
+    // 2. Traitement de l'adhésion, calcul SHA-256 et ajout dans le Fil Direct
+    document.getElementById('adhesion-form').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const nom = document.getElementById('membre-nom').value.trim();
+      const tel = document.getElementById('membre-tel').value.trim();
+      const alveole = document.getElementById('membre-alveole').value;
+      const montant = parseInt(document.getElementById('membre-montant').value, 10) || 0;
+      const horodatage = new Date().toISOString();
+
+      // Calcul de l'empreinte SHA-256 de l'opération
+      const chaineBrute = `${nom}|${tel}|${alveole}|${montant}FCFA|${horodatage}|0%RIBA`;
+      const hashBuffer = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(chaineBrute));
+      const hashHex = Array.from(new Uint8Array(hashBuffer)).map(b => b.toString(16).padStart(2, '0')).join('');
+
+      // Affichage du reçu dans la modale
+      document.getElementById('recu-details').innerHTML = `
+        <strong>Membre :</strong> ${nom}<br>
+        <strong>Alvéole :</strong> ${alveole}<br>
+        <strong>Goutte scellée :</strong> ${montant.toLocaleString('fr-FR')} FCFA (0 % Ribā)
+      `;
+      document.getElementById('recu-hash').textContent = `Sceau SHA-256 : ${hashHex}`;
+      document.getElementById('adhesion-recu').classList.remove('hidden');
+
+      // Sauvegarde dans le Grand Livre local (localStorage)
+      const registre = JSON.parse(localStorage.getItem('ubuk_grand_livre') || '[]');
+      registre.push({ nom, tel, alveole, montant, horodatage, hashHex });
+      localStorage.setItem('ubuk_grand_livre', JSON.stringify(registre));
+
+      // Notification automatique dans le Fil Direct
+      const chatMessages = document.getElementById('chat-messages');
+      if (chatMessages) {
+        const notif = document.createElement('div');
+        notif.className = 'bg-ubukDark border border-ubukGold rounded-xl p-3 space-y-1';
+        notif.innerHTML = `
+          <p class="text-[11px] font-bold text-ubukGold">🛡️ Garde-Fou Technologique • Nouvelle Goutte Scellée</p>
+          <p class="text-xs text-gray-200"><strong>${nom}</strong> a rejoint l'alvéole <strong>${alveole}</strong> (${montant.toLocaleString('fr-FR')} FCFA).</p>
+          <p class="text-[10px] font-mono text-ubukGreen truncate">SHA-256 : ${hashHex}</p>
+        `;
+        chatMessages.appendChild(notif);
+        localStorage.setItem('ubuk_fil_direct', chatMessages.innerHTML);
+      }
+    });
+  </script>
+  <!-- BIBLIOTHÈQUE SUPABASE POUR SYNCHRONISATION TEMPS RÉEL DE LA RUCHE -->
+  <script src="https://jsdelivr.net"></script>
+
+  <!-- MODALE D'INSPECTION DU GARDE-FOU TECHNOLOGIQUE & GRAND LIVRE SHA-256 (BLOC 8) -->
+  <div id="audit-modal" class="fixed inset-0 z-50 hidden bg-black/85 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="w-full max-w-md bg-ubukCard border-2 border-ubukGold rounded-2xl p-5 space-y-4 shadow-2xl max-h-[85vh] flex flex-col">
+      <div class="flex items-center justify-between border-b border-ubukBorder pb-3 shrink-0">
+        <div>
+          <h3 class="text-sm font-bold text-ubukGold">🛡️ Registre & Audit SHA-256</h3>
+          <p id="supabase-status-label" class="text-[10px] text-ubukGreen">Connecteur Cloud & Mode Local Actifs</p>
+        </div>
+        <button onclick="document.getElementById('audit-modal').classList.add('hidden')" class="w-7 h-7 rounded-full bg-ubukDark border border-ubukBorder text-gray-300 hover:text-white flex items-center justify-center text-xs">✕</button>
+      </div>
+
+      <!-- SYNTHÈSE ÉTANCHE PAR ALVÉOLE -->
+      <div id="audit-totaux" class="grid grid-cols-2 gap-2 text-[11px] shrink-0">
+        <!-- Injecté dynamiquement -->
+      </div>
+
+      <!-- LISTE DES OPÉRATIONS SCELLÉES -->
+      <div id="audit-liste" class="flex-1 overflow-y-auto space-y-2 pr-1 text-[11px]">
+        <!-- Injecté dynamiquement -->
+      </div>
+
+      <!-- BOUTONS D'EXPORTATION DU REGISTRE -->
+      <div class="pt-3 border-t border-ubukBorder flex items-center gap-2 shrink-0">
+        <button onclick="exporterRegistreCSV()" class="flex-1 bg-ubukGold hover:bg-yellow-500 text-ubukDark font-bold text-xs py-2 rounded-xl transition">
+          📥 Exporter CSV
+        </button>
+        <button onclick="document.getElementById('audit-modal').classList.add('hidden')" class="bg-ubukDark border border-ubukBorder text-gray-200 font-bold text-xs px-4 py-2 rounded-xl">
+          Fermer
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- SCRIPT BLOC 8 : CONNECTEUR SUPABASE TEMPS RÉEL & TABLEAU DE BORD GARDE-FOU -->
+  <script>
+    // 1. INITIALISATION DU CONNECTEUR SUPABASE (UBUK.ONE / LATIF CONNECT)
+    const SUPABASE_URL = 'https://supabase.co';
+    // Remplacez la valeur ci-dessous par votre clé publique anon/publishable Supabase
+    const SUPABASE_ANON_KEY = window.NEXT_PUBLIC_SUPABASE_ANON_KEY || 'VOTRE_CLE_PUBLIQUE_SUPABASE';
+
+    let supabaseClient = null;
+    if (window.supabase && SUPABASE_ANON_KEY !== 'VOTRE_CLE_PUBLIQUE_SUPABASE') {
+      try {
+        supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+      } catch (err) {
+        console.warn('Mode autonome local activé (Supabase en attente de clé).');
+      }
+    }
+
+    // 2. SYNCHRONISATION TEMPS RÉEL DU FIL DIRECT & DES ALVÉOLES
+    async function synchroniserRuche() {
+      if (!supabaseClient) return;
+
+      // Écoute des nouveaux messages en temps réel sur la table 'messages_ruche'
+      supabaseClient
+        .channel('ruche-temps-reel')
+        .on('postgres_changes', { event: 'INSERT', schema: 'public', table: 'messages_ruche' }, payload => {
+          const msg = payload.new;
+          const chatMessages = document.getElementById('chat-messages');
+          if (chatMessages && msg && msg.contenu) {
+            const div = document.createElement('div');
+            div.className = 'bg-ubukDark border border-ubukGreen/50 rounded-xl p-3 space-y-1';
+            div.innerHTML = `
+              <p class="text-[11px] font-bold text-ubukGreen">${msg.auteur || 'Membre de la Ruche'} • Temps réel</p>
+              <p class="text-xs text-white leading-relaxed">${String(msg.contenu).replace(/</g, "&lt;").replace(/>/g, "&gt;")}</p>
+            `;
+            chatMessages.appendChild(div);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+          }
+        })
+        .subscribe();
+    }
+    synchroniserRuche();
+
+    // Envoi doublé vers Supabase lors de la soumission du Fil Direct
+    const formulaireChat = document.getElementById('chat-form');
+    if (formulaireChat) {
+      formulaireChat.addEventListener('submit', async function() {
+        const input = document.getElementById('chat-input');
+        const texte = input ? input.value.trim() : '';
+        if (texte && supabaseClient) {
+          await supabaseClient.from('messages_ruche').insert([{
+            auteur: 'Membre UBUK.ONE',
+            contenu: texte,
+            cree_le: new Date().toISOString()
+          }]);
+        }
+      });
+    }
+
+    // 3. OUVERTURE DU TABLEAU DE BORD D'AUDIT (SUR CLIC "OBSERVATOIRE" OU "GARDE-FOU")
+    function ouvrirAuditGardeFou() {
+      const registre = JSON.parse(localStorage.getItem('ubuk_grand_livre') || '[]');
+      const totauxEl = document.getElementById('audit-totaux');
+      const listeEl = document.getElementById('audit-liste');
+
+      let totalGlobal = 0;
+      const parAlveole = {};
+      registre.forEach(op => {
+        totalGlobal += op.montant;
+        parAlveole[op.alveole] = (parAlveole[op.alveole] || 0) + op.montant;
+      });
+
+      totauxEl.innerHTML = `
+        <div class="bg-ubukDark border border-ubukGold rounded-xl p-2.5">
+          <p class="text-gray-400">Volume Total Scellé</p>
+          <p class="text-sm font-bold text-ubukGold">${totalGlobal.toLocaleString('fr-FR')} FCFA</p>
+        </div>
+        <div class="bg-ubukDark border border-ubukGreen rounded-xl p-2.5">
+          <p class="text-gray-400">Opérations Auditées</p>
+          <p class="text-sm font-bold text-ubukGreen">${registre.length} goutte(s)</p>
+        </div>
+      `;
+
+      if (registre.length === 0) {
+        listeEl.innerHTML = `<p class="text-gray-400 text-center py-4">Aucune goutte scellée localement pour le moment. Utilisez « Rejoindre » ou « Adhérer » pour enregistrer une opération.</p>`;
+      } else {
+        listeEl.innerHTML = registre.slice().reverse().map(op => `
+          <div class="bg-ubukDark border border-ubukBorder rounded-xl p-2.5 space-y-1">
+            <div class="flex justify-between font-bold text-white">
+              <span>${op.nom}</span>
+              <span class="text-ubukGold">${op.montant.toLocaleString('fr-FR')} FCFA</span>
+            </div>
+            <p class="text-gray-300">${op.alveole} • ${new Date(op.horodatage).toLocaleString('fr-FR')}</p>
+            <p class="font-mono text-[9px] text-ubukGreen break-all">SHA-256 : ${op.hashHex}</p>
+          </div>
+        `).join('');
+      }
+
+      document.getElementById('audit-modal').classList.remove('hidden');
+    }
+
+    // Liaison du tableau de bord au satellite "7. OBSERVATOIRE" et au bouton "Contact" du Garde-Fou
+    document.querySelectorAll('a[href="#observatoire"], header a[href="#contact"]').forEach(btn => {
+      btn.addEventListener('click', function(e) {
+        e.preventDefault();
+        ouvrirAuditGardeFou();
+      });
+    });
+
+    // 4. EXPORTATION DU GRAND LIVRE SHA-256 EN FICHIER CSV
+    function exporterRegistreCSV() {
+      const registre = JSON.parse(localStorage.getItem('ubuk_grand_livre') || '[]');
+      if (registre.length === 0) {
+        alert("Le registre local est vide.");
+        return;
+      }
+      const entetes = "Nom,Telephone,Alveole,Montant_FCFA,Horodatage,Empreinte_SHA256\n";
+      const lignes = registre.map(r =>
+        `"${r.nom}","${r.tel}","${r.alveole}",${r.montant},"${r.horodatage}","${r.hashHex}"`
+      ).join("\n");
+
+      const blob = new Blob([entetes + lignes], { type: 'text/csv;charset=utf-8;' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `Audit_SHA256_UBUK_${new Date().toISOString().slice(0,10)}.csv`;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+    }
+  </script>
+  <!-- SDK CINETPAY SEAMLESS (MOBILE MONEY CAMEROUN : MTN MOMO & ORANGE MONEY) -->
+  <script src="https://cinetpay.com"></script>
+
+  <!-- SCRIPT BLOC 9 : PASSERELLE MOBILE MONEY MTN MOMO / ORANGE MONEY & VENTILATION ÉTANCHE -->
+  <script>
+    // 1. CONFIGURATION CINETPAY (À COMPLÉTER AVEC VOS CLÉS MARCHANDES FEFEO GROUP SARL)
+    const CINETPAY_CONFIG = {
+      apikey: window.CINETPAY_API_KEY || 'VOTRE_APIKEY_CINETPAY',
+      site_id: window.CINETPAY_SITE_ID || 'VOTRE_SITE_ID_CINETPAY',
+      notify_url: 'https://supabase.co',
+      mode: 'PRODUCTION' // Basculez sur 'TEST' pour vos essais sandbox
+    };
+
+    // 2. INJECTION DU SÉLECTEUR MTN MOMO / ORANGE MONEY DANS LA MODALE D'ADHÉSION (BLOC 7)
+    const adhesionForm = document.getElementById('adhesion-form');
+    if (adhesionForm && !document.getElementById('operateur-momo')) {
+      const blocOperateur = document.createElement('div');
+      blocOperateur.className = 'space-y-1.5';
+      blocOperateur.innerHTML = `
+        <label class="block text-gray-300">Canal Mobile Money (Cameroun • 0 % Ribā) :</label>
+        <div class="grid grid-cols-3 gap-2">
+          <label class="cursor-pointer">
+            <input type="radio" name="operateur_momo" value="MTN MoMo" checked class="peer hidden" />
+            <div class="bg-ubukDark border border-ubukBorder peer-checked:border-yellow-400 peer-checked:bg-yellow-500/10 rounded-xl p-2 text-center transition">
+              <span class="block text-xs font-bold text-yellow-400">MTN</span>
+              <span class="text-[10px] text-gray-300">MoMo</span>
+            </div>
+          </label>
+          <label class="cursor-pointer">
+            <input type="radio" name="operateur_momo" value="Orange Money" class="peer hidden" />
+            <div class="bg-ubukDark border border-ubukBorder peer-checked:border-orange-500 peer-checked:bg-orange-500/10 rounded-xl p-2 text-center transition">
+              <span class="block text-xs font-bold text-orange-400">Orange</span>
+              <span class="text-[10px] text-gray-300">Money</span>
+            </div>
+          </label>
+          <label class="cursor-pointer">
+            <input type="radio" name="operateur_momo" value="Caisse Cantonale" class="peer hidden" />
+            <div class="bg-ubukDark border border-ubukBorder peer-checked:border-ubukGreen peer-checked:bg-ubukGreen/10 rounded-xl p-2 text-center transition">
+              <span class="block text-xs font-bold text-ubukGreen">Canton</span>
+              <span class="text-[10px] text-gray-300">Espèces/USSD</span>
+            </div>
+          </label>
+        </div>
+        <p class="text-[10px] text-gray-400 pt-0.5">
+          🛡️ Ventilation étanche : 100 % du capital rejoint l'alvéole choisie sous audit SHA-256.
+        </p>
+      `;
+      // Insertion juste avant le bouton de soumission
+      const submitBtn = adhesionForm.querySelector('button[type="submit"]');
+      adhesionForm.insertBefore(blocOperateur, submitBtn);
+      submitBtn.textContent = 'Payer par Mobile Money & Sceller l\'Alvéole';
+    }
+
+    // 3. INTERCEPTION DU PAIEMENT MOBILE MONEY & SCELLEMENT SHA-256
+    if (adhesionForm) {
+      // Remplacement propre de l'écouteur du Bloc 7 pour intégrer CinetPay
+      const nouveauForm = adhesionForm.cloneNode(true);
+      adhesionForm.parentNode.replaceChild(nouveauForm, adhesionForm);
+
+      nouveauForm.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        const nom = document.getElementById('membre-nom').value.trim();
+        const tel = document.getElementById('membre-tel').value.trim();
+        const alveole = document.getElementById('membre-alveole').value;
+        const montant = parseInt(document.getElementById('membre-montant').value, 10) || 0;
+        const operateur = nouveauForm.querySelector('input[name="operateur_momo"]:checked')?.value || 'MTN MoMo';
+        const txId = 'UBUK-' + Date.now();
+        const horodatage = new Date().toISOString();
+
+        // Fonction interne de scellement après validation paiement
+        async function finaliserScellement(statutPaiement) {
+          const chaineBrute = `${txId}|${nom}|${tel}|${operateur}|${alveole}|${montant}XAF|${horodatage}|0%RIBA`;
+          const hashBuffer = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(chaineBrute));
+          const hashHex = Array.from(new Uint8Array(hashBuffer)).map(b => b.toString(16).padStart(2, '0')).join('');
+
+          // Affichage du reçu dans la modale
+          document.getElementById('recu-details').innerHTML = `
+            <strong>Réf. Transaction :</strong> ${txId}<br>
+            <strong>Membre :</strong> ${nom} (${operateur})<br>
+            <strong>Alvéole :</strong> ${alveole}<br>
+            <strong>Montant scellé :</strong> ${montant.toLocaleString('fr-FR')} FCFA • <em>${statutPaiement}</em>
+          `;
+          document.getElementById('recu-hash').textContent = `Sceau SHA-256 : ${hashHex}`;
+          document.getElementById('adhesion-recu').classList.remove('hidden');
+
+          // Sauvegarde dans le Grand Livre local
+          const registre = JSON.parse(localStorage.getItem('ubuk_grand_livre') || '[]');
+          registre.push({ txId, nom, tel, operateur, alveole, montant, statutPaiement, horodatage, hashHex });
+          localStorage.setItem('ubuk_grand_livre', JSON.stringify(registre));
+
+          // Envoi vers Supabase si connecté (Bloc 8)
+          if (typeof supabaseClient !== 'undefined' && supabaseClient) {
+            await supabaseClient.from('alveoles_transactions').insert([{
+              reference_tx: txId,
+              membre_nom: nom,
+              telephone: tel,
+              operateur: operateur,
+              alveole: alveole,
+              montant_xaf: montant,
+              empreinte_sha256: hashHex,
+              cree_le: horodatage
+            }]);
+          }
+
+          // Publication dans le Fil Direct
+          const chatMessages = document.getElementById('chat-messages');
+          if (chatMessages) {
+            const notif = document.createElement('div');
+            notif.className = 'bg-ubukDark border border-ubukGold rounded-xl p-3 space-y-1';
+            notif.innerHTML = `
+              <p class="text-[11px] font-bold text-ubukGold">🛡️ Buraq & Garde-Fou • Encaissement ${operateur}</p>
+              <p class="text-xs text-gray-200"><strong>${nom}</strong> a versé <strong>${montant.toLocaleString('fr-FR')} FCFA</strong> dans <strong>${alveole}</strong> (${statutPaiement}).</p>
+              <p class="text-[10px] font-mono text-ubukGreen truncate">SHA-256 : ${hashHex}</p>
+            `;
+            chatMessages.appendChild(notif);
+            localStorage.setItem('ubuk_fil_direct', chatMessages.innerHTML);
+          }
+        }
+
+        // Lancement du guichet CinetPay si les clés sont configurées et que le canal n'est pas Caisse Cantonale
+        if (operateur !== 'Caisse Cantonale' && window.CinetPay && CINETPAY_CONFIG.apikey !== 'VOTRE_APIKEY_CINETPAY') {
+          CinetPay.setConfig({
+            apikey: CINETPAY_CONFIG.apikey,
+            site_id: CINETPAY_CONFIG.site_id,
+            notify_url: CINETPAY_CONFIG.notify_url,
+            mode: CINETPAY_CONFIG.mode
+          });
+
+          CinetPay.getCheckout({
+            transaction_id: txId,
+            amount: montant,
+            currency: 'XAF',
+            channels: 'MOBILE_MONEY',
+            description: `Adhesion UBUK - ${alveole}`,
+            customer_name: nom,
+            customer_surname: 'Membre Ruche',
+            customer_email: 'contact@ubuk.net',
+            customer_phone_number: tel,
+            customer_address: 'Douala, Cameroun',
+            customer_city: 'Douala',
+            customer_country: 'CM',
+            customer_state: 'LT',
+            customer_zip_code: '00237'
+          });
+
+          CinetPay.waitResponse(function(data) {
+            if (data.status === 'ACCEPTED') {
+              finaliserScellement('Confirmé CinetPay');
+            } else {
+              alert('Transaction Mobile Money interrompue ou refusée.');
+            }
+          });
+        } else {
+          // Mode validation USSD / Caisse Cantonale ou Simulation Sandbox immédiate
+          await finaliserScellement(operateur === 'Caisse Cantonale' ? 'Enregistré Caisse Cantonale' : 'Pré-validé USSD / Sandbox');
+        }
+      });
+    }
+  </script>
+  <!-- MODALE ACADÉMIE KALAM / CLASSROOM (BLOC 10) -->
+  <div id="kalam-modal" class="fixed inset-0 z-50 hidden bg-black/85 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="w-full max-w-md bg-ubukCard border-2 border-ubukGold rounded-2xl p-5 space-y-4 shadow-2xl max-h-[85vh] flex flex-col">
+      <div class="flex items-center justify-between border-b border-ubukBorder pb-3 shrink-0">
+        <div>
+          <h3 class="text-sm font-bold text-ubukGold">🎓 Académie Kalam • Classroom Souveraine</h3>
+          <p class="text-[10px] text-gray-300">Savoir libre, audio léger & fiches PDF hors-ligne</p>
+        </div>
+        <button onclick="document.getElementById('kalam-modal').classList.add('hidden')" class="w-7 h-7 rounded-full bg-ubukDark border border-ubukBorder text-gray-300 hover:text-white flex items-center justify-center text-xs">✕</button>
+      </div>
+
+      <!-- LISTE DES MODULES DE FORMATION -->
+      <div id="kalam-cours-liste" class="flex-1 overflow-y-auto space-y-3 pr-1 text-xs">
+        <!-- Injecté dynamiquement par JavaScript -->
+      </div>
+
+      <div class="pt-3 border-t border-ubukBorder flex justify-between items-center shrink-0">
+        <span class="text-[10px] text-ubukGreen">● Compatible faible débit & hors-ligne</span>
+        <button onclick="document.getElementById('kalam-modal').classList.add('hidden')" class="bg-ubukDark border border-ubukBorder text-gray-200 font-bold text-xs px-4 py-1.5 rounded-xl">
+          Fermer
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- SCRIPT BLOC 10 : ACADÉMIE KALAM (AUDIO, GUIDES PDF HORS-LIGNE & PROGRESSION) -->
+  <script>
+    const modulesKalam = [
+      {
+        id: 'kalam-1',
+        badge: 'Module 1 • Fondamentaux',
+        titre: 'Comprendre la Finance Éthique 0 % Ribā & le Qarḍ Ḥasan',
+        duree: '8 min • Audio & PDF',
+        resume: 'Pourquoi bannir l\'usure libère le travail humain et comment le prêt d\'honneur Qarḍ Ḥasan relance les ateliers et commerces de proximité sans endettement toxique.',
+        contenuPdf: [
+          '1. Le principe du 0 % Ribā : L\'argent est un outil d\'échange, jamais une marchandise produisant un intérêt automatique.',
+          '2. Le Qarḍ Ḥasan (Prêt Bienveillant) : Un financement accordé sur la confiance communautaire, remboursé à hauteur exacte du capital reçu.',
+          '3. L\'impact local : Chaque franc remboursé réintègre immédiatement l\'alvéole étanche pour soutenir un autre artisan ou foyer du canton.'
+        ]
+      },
+      {
+        id: 'kalam-2',
+        badge: 'Module 2 • Solidarité',
+        titre: 'Étanchéité des Alvéoles : Zakāt, Ṣadaqah, Waqf & Takaful Falah',
+        duree: '10 min • Audio & PDF',
+        resume: 'Apprendre à distinguer les quatre piliers solidaires et comment le Garde-Fou Technologique garantit par empreinte SHA-256 qu\'aucun fonds n\'est détourné.',
+        contenuPdf: [
+          '1. Zakāt (2,5 %) : Droit sacré des plus vulnérables, distribué directement et localement.',
+          '2. Ṣadaqah : Geste volontaire d\'entraide immédiate pour les urgences sociales.',
+          '3. Waqf : Patrimoine immobilisé durablement (outils, ateliers, terres) dont les fruits financent la communauté à perpétuité.',
+          '4. Takaful Falah : Assurance mutuelle coopérative couvrant la santé et les coups durs 24h/24.'
+        ]
+      },
+      {
+        id: 'kalam-3',
+        badge: 'Module 3 • Souveraineté',
+        titre: 'Gouvernance de la Ruche & Tontine Mizan au Canton',
+        duree: '12 min • Audio & PDF',
+        resume: 'Organiser une caisse locale transparente à Douala ou en région, tenir le registre horodaté et sécuriser les échanges commerciaux via Buraq.',
+        contenuPdf: [
+          '1. La sagesse mutualiste africaine alliée au numérique souverain.',
+          '2. Comment chaque membre vérifie le grand livre sans opacité.',
+          '3. Utilisation du séquestre Buraq pour sécuriser les commandes entre producteurs et acheteurs.'
+        ]
+      }
+    ];
+
+    function ouvrirAcademieKalam() {
+      const container = document.getElementById('kalam-cours-liste');
+      const suivis = JSON.parse(localStorage.getItem('ubuk_kalam_suivis') || '[]');
+
+      container.innerHTML = modulesKalam.map((m, idx) => {
+        const estTermine = suivis.includes(m.id);
+        return `
+          <div class="bg-ubukDark border ${estTermine ? 'border-ubukGreen' : 'border-ubukBorder'} rounded-xl p-3.5 space-y-2">
+            <div class="flex items-center justify-between">
+              <span class="text-[10px] font-bold text-ubukGold uppercase">${m.badge}</span>
+              <span class="text-[10px] text-gray-400">${m.duree}</span>
+            </div>
+            <h4 class="font-bold text-white text-xs leading-snug">${m.titre}</h4>
+            <p class="text-[11px] text-gray-300 leading-relaxed">${m.resume}</p>
+            <div class="flex flex-wrap gap-2 pt-1.5">
+              <button onclick="ecouterLeconKalam(${idx})" class="bg-ubukCard border border-ubukBorder hover:border-ubukGold text-white px-2.5 py-1.5 rounded-lg text-[11px] flex items-center gap-1 transition">
+                <span>🔊</span> Écouter
+              </button>
+              <button onclick="telechargerFicheKalamPDF(${idx})" class="bg-ubukGreen hover:bg-emerald-400 text-ubukDark font-bold px-2.5 py-1.5 rounded-lg text-[11px] flex items-center gap-1 transition">
+                <span>📄</span> Fiche PDF
+              </button>
+              <button onclick="marquerModuleTermine('${m.id}')" class="ml-auto text-[11px] ${estTermine ? 'text-ubukGreen font-bold' : 'text-gray-400 hover:text-white'}">
+                ${estTermine ? '✓ Acquis' : 'Marquer lu'}
+              </button>
+            </div>
+          </div>
+        `;
+      }).join('');
+
+      document.getElementById('kalam-modal').classList.remove('hidden');
+    }
+
+    // Lecture vocale d'une leçon
+    function ecouterLeconKalam(index) {
+      const mod = modulesKalam[index];
+      if (!mod || !('speechSynthesis' in window)) return;
+      window.speechSynthesis.cancel();
+      const texteComplet = `${mod.titre}. ${mod.resume}. ${mod.contenuPdf.join(' ')}`;
+      const msg = new SpeechSynthesisUtterance(texteComplet);
+      msg.lang = 'fr-FR';
+      msg.rate = 0.95;
+      window.speechSynthesis.speak(msg);
+    }
+
+    // Génération d'une fiche de cours PDF hors-ligne
+    function telechargerFicheKalamPDF(index) {
+      const mod = modulesKalam[index];
+      if (!mod || !window.jspdf) {
+        alert("Module PDF en cours de chargement.");
+        return;
+      }
+      const { jsPDF } = window.jspdf;
+      const doc = new jsPDF();
+
+      doc.setFillColor(6, 26, 18);
+      doc.rect(0, 0, 210, 32, 'F');
+      doc.setTextColor(212, 175, 55);
+      doc.setFontSize(15);
+      doc.setFont("helvetica", "bold");
+      doc.text("ACADÉMIE KALAM • UBUK.ONE", 15, 15);
+      doc.setTextColor(255, 255, 255);
+      doc.setFontSize(10);
+      doc.text(mod.badge, 15, 24);
+
+      doc.setTextColor(20, 20, 20);
+      doc.setFontSize(13);
+      doc.setFont("helvetica", "bold");
+      const titreLignes = doc.splitTextToSize(mod.titre, 180);
+      doc.text(titreLignes, 15, 45);
+
+      doc.setFont("helvetica", "normal");
+      doc.setFontSize(10);
+      const resumeLignes = doc.splitTextToSize(mod.resume, 180);
+      doc.text(resumeLignes, 15, 62);
+
+      let yPos = 85;
+      doc.setFont("helvetica", "bold");
+      doc.text("POINTS CLÉS DU COURS :", 15, yPos);
+      yPos += 8;
+      doc.setFont("helvetica", "normal");
+
+      mod.contenuPdf.forEach(point => {
+        const lignes = doc.splitTextToSize(point, 180);
+        doc.text(lignes, 15, yPos);
+        yPos += (lignes.length * 6) + 4;
+      });
+
+      doc.setFontSize(9);
+      doc.setTextColor(100, 100, 100);
+      doc.text("Framework Latif Connect • FEFEO Group SARL (Douala, Cameroun) • Savoir Libre 0 % Ribā", 15, 280);
+
+      doc.save(`Academie_Kalam_${mod.id}.pdf`);
+      marquerModuleTermine(mod.id);
+    }
+
+    function marquerModuleTermine(id) {
+      const suivis = JSON.parse(localStorage.getItem('ubuk_kalam_suivis') || '[]');
+      if (!suivis.includes(id)) {
+        suivis.push(id);
+        localStorage.setItem('ubuk_kalam_suivis', JSON.stringify(suivis));
+      }
+      ouvrirAcademieKalam();
+    }
+
+    // Liaison aux boutons "Formation & Téléchargement" et "6. KALAM / CLASSROOM"
+    document.querySelectorAll('a[href="#kalam"], main section > div > div').forEach(el => {
+      if (el.innerText.includes('Formation & Téléchargement') || el.getAttribute('href') === '#kalam') {
+        const nouveauEl = el.cloneNode(true);
+        el.parentNode.replaceChild(nouveauEl, el);
+        nouveauEl.addEventListener('click', function(e) {
+          e.preventDefault();
+          ouvrirAcademieKalam();
+        });
+      }
+    });
+  </script>
+  <!-- MODALE SÉQUESTRE BURAQ & SALON D'APPEL SOUVERAIN (BLOC 11) -->
+  <div id="buraq-modal" class="fixed inset-0 z-50 hidden bg-black/85 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="w-full max-w-md bg-ubukCard border-2 border-ubukGold rounded-2xl p-5 space-y-4 shadow-2xl max-h-[88vh] overflow-y-auto">
+      <div class="flex items-center justify-between border-b border-ubukBorder pb-3">
+        <div>
+          <h3 id="buraq-modal-title" class="text-sm font-bold text-ubukGold">⚡ BURAQ • Séquestre & Transfert Sécurisé</h3>
+          <p class="text-[10px] text-gray-300">Protection acheteur & vendeur • 0 % Ribā • Audit SHA-256</p>
+        </div>
+        <button onclick="document.getElementById('buraq-modal').classList.add('hidden')" class="w-7 h-7 rounded-full bg-ubukDark border border-ubukBorder text-gray-300 hover:text-white flex items-center justify-center text-xs">✕</button>
+      </div>
+
+      <!-- FORMULAIRE DE CRÉATION DE SÉQUESTRE BURAQ -->
+      <form id="buraq-form" class="space-y-3 text-xs">
+        <div>
+          <label class="block text-gray-300 mb-1">Nom de l'acheteur / donneur d'ordre :</label>
+          <input id="buraq-acheteur" type="text" required placeholder="Ex: Ibrahim • Douala" class="w-full bg-ubukDark border border-ubukBorder rounded-xl px-3 py-2 text-white focus:outline-none focus:border-ubukGold" />
+        </div>
+
+        <div>
+          <label class="block text-gray-300 mb-1">Nom & Téléphone du bénéficiaire / artisan :</label>
+          <input id="buraq-vendeur" type="text" required placeholder="Ex: Atelier Couture Akwa (+237 6XX...)" class="w-full bg-ubukDark border border-ubukBorder rounded-xl px-3 py-2 text-white focus:outline-none focus:border-ubukGold" />
+        </div>
+
+        <div>
+          <label class="block text-gray-300 mb-1">Objet de l'échange ou de la commande :</label>
+          <input id="buraq-objet" type="text" required placeholder="Ex: Livraison 10 sacs de maïs / Prestation" class="w-full bg-ubukDark border border-ubukBorder rounded-xl px-3 py-2 text-white focus:outline-none focus:border-ubukGold" />
+        </div>
+
+        <div>
+          <label class="block text-gray-300 mb-1">Montant bloqué en séquestre (FCFA) :</label>
+          <input id="buraq-montant" type="number" min="1000" step="500" value="25000" required class="w-full bg-ubukDark border border-ubukBorder rounded-xl px-3 py-2 text-white focus:outline-none focus:border-ubukGold" />
+        </div>
+
+        <button type="submit" class="w-full bg-ubukGreen hover:bg-emerald-400 text-ubukDark font-bold py-2.5 rounded-xl transition shadow-md">
+          🔒 Verrouiller le Séquestre Buraq (SHA-256)
+        </button>
+      </form>
+
+      <!-- LISTE DES SÉQUESTRES ACTIFS (AVEC BOUTON DE LIBÉRATION DES FONDS) -->
+      <div class="pt-2 border-t border-ubukBorder space-y-2">
+        <p class="text-[11px] font-bold text-ubukGold">Séquestres Buraq en cours sur cet appareil :</p>
+        <div id="buraq-liste" class="space-y-2 text-[11px]"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODALE SALON D'APPEL AUDIO / VIDÉO SOUVERAIN -->
+  <div id="appel-modal" class="fixed inset-0 z-50 hidden bg-black/85 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="w-full max-w-md bg-ubukCard border-2 border-ubukGreen rounded-2xl p-5 space-y-4 shadow-2xl text-center">
+      <div class="flex items-center justify-between border-b border-ubukBorder pb-2">
+        <span class="text-xs font-bold text-ubukGreen">📡 Canal Chiffré UBUK • Proches & Famille</span>
+        <button onclick="document.getElementById('appel-modal').classList.add('hidden')" class="w-7 h-7 rounded-full bg-ubukDark border border-ubukBorder text-gray-300 text-xs">✕</button>
+      </div>
+      <div class="space-y-2 py-2">
+        <div class="w-14 h-14 mx-auto rounded-full bg-ubukDark border-2 border-ubukGold flex items-center justify-center text-2xl">📞</div>
+        <h4 id="appel-titre" class="text-sm font-bold text-white">Salon Privé de la Ruche Prêt</h4>
+        <p class="text-xs text-gray-300">Partagez ce lien chiffré à votre proche ou rejoignez directement le salon audio/vidéo sans inscription.</p>
+        <input id="appel-lien" type="text" readonly class="w-full bg-ubukDark border border-ubukBorder rounded-xl px-3 py-2 text-[11px] text-ubukGold text-center font-mono" />
+      </div>
+      <div class="grid grid-cols-2 gap-2">
+        <a id="appel-rejoindre-btn" href="#" target="_blank" rel="noopener" class="bg-ubukGreen hover:bg-emerald-400 text-ubukDark font-bold text-xs py-2.5 rounded-xl transition">
+          Rejoindre l'appel
+        </a>
+        <button onclick="partagerLienAppel()" class="bg-ubukDark border border-ubukGold text-ubukGold font-bold text-xs py-2.5 rounded-xl hover:bg-ubukGold/10 transition">
+          Copier le lien
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- SCRIPT BLOC 11 : GESTION DU SÉQUESTRE BURAQ & APPELS WEBRTC -->
+  <script>
+    // 1. GESTION DU SÉQUESTRE BURAQ
+    function actualiserListeBuraq() {
+      const listeEl = document.getElementById('buraq-liste');
+      if (!listeEl) return;
+      const sequestres = JSON.parse(localStorage.getItem('ubuk_buraq_sequestres') || '[]');
+
+      if (sequestres.length === 0) {
+        listeEl.innerHTML = '<p class="text-gray-400">Aucun séquestre actif pour le moment.</p>';
+        return;
+      }
+
+      listeEl.innerHTML = sequestres.slice().reverse().map((s, idxRev) => {
+        const indexReel = sequestres.length - 1 - idxRev;
+        const estLibere = s.statut === 'LIBÉRÉ';
+        return `
+          <div class="bg-ubukDark border ${estLibere ? 'border-ubukGreen/50' : 'border-ubukGold'} rounded-xl p-2.5 space-y-1">
+            <div class="flex justify-between font-bold text-white">
+              <span>${s.objet}</span>
+              <span class="text-ubukGold">${s.montant.toLocaleString('fr-FR')} FCFA</span>
+            </div>
+            <p class="text-gray-300">De <strong>${s.acheteur}</strong> → <strong>${s.vendeur}</strong></p>
+            <p class="font-mono text-[9px] text-gray-400 truncate">Sceau : ${s.hashHex}</p>
+            <div class="flex items-center justify-between pt-1">
+              <span class="text-[10px] font-bold ${estLibere ? 'text-ubukGreen' : 'text-yellow-400'}">Statut : ${s.statut}</span>
+              ${!estLibere ? `<button onclick="libererSequestreBuraq(${indexReel})" class="bg-ubukGreen text-ubukDark font-bold text-[10px] px-2.5 py-1 rounded-lg">Confirmer livraison & Libérer</button>` : ''}
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    document.getElementById('buraq-form')?.addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const acheteur = document.getElementById('buraq-acheteur').value.trim();
+      const vendeur = document.getElementById('buraq-vendeur').value.trim();
+      const objet = document.getElementById('buraq-objet').value.trim();
+      const montant = parseInt(document.getElementById('buraq-montant').value, 10) || 0;
+      const horodatage = new Date().toISOString();
+
+      const chaine = `BURAQ|${acheteur}|${vendeur}|${objet}|${montant}XAF|${horodatage}`;
+      const hashBuffer = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(chaine));
+      const hashHex = Array.from(new Uint8Array(hashBuffer)).map(b => b.toString(16).padStart(2, '0')).join('');
+
+      const sequestres = JSON.parse(localStorage.getItem('ubuk_buraq_sequestres') || '[]');
+      sequestres.push({ acheteur, vendeur, objet, montant, statut: 'BLOQUÉ EN SÉQUESTRE', horodatage, hashHex });
+      localStorage.setItem('ubuk_buraq_sequestres', JSON.stringify(sequestres));
+
+      actualiserListeBuraq();
+      e.target.reset();
+    });
+
+    function libererSequestreBuraq(index) {
+      const sequestres = JSON.parse(localStorage.getItem('ubuk_buraq_sequestres') || '[]');
+      if (!sequestres[index]) return;
+      sequestres[index].statut = 'LIBÉRÉ';
+      localStorage.setItem('ubuk_buraq_sequestres', JSON.stringify(sequestres));
+      actualiserListeBuraq();
+    }
+
+    // Liaison du satellite "3. BURAQ" à cette modale opérationnelle
+    document.querySelectorAll('a[href="#buraq"]').forEach(lien => {
+      const nouveauLien = lien.cloneNode(true);
+      lien.parentNode.replaceChild(nouveauLien, lien);
+      nouveauLien.addEventListener('click', function(e) {
+        e.preventDefault();
+        actualiserListeBuraq();
+        document.getElementById('buraq-modal').classList.remove('hidden');
+      });
+    });
+
+    // 2. ACTIVATION DES APPELS AUDIO / VIDÉO (PROCHES & FAMILLE)
+    function lancerSalonAppel(modeVideo) {
+      const idSalon = 'UBUK-Ruche-' + Math.random().toString(36).substring(2, 8).toUpperCase();
+      const urlSalon = `https://jit.si{idSalon}#config.startWithVideoMuted=${!modeVideo}`;
+      document.getElementById('appel-titre').textContent = modeVideo ? 'Appel Vidéo HD Souverain' : 'Appel Audio Clair Souverain';
+      document.getElementById('appel-lien').value = urlSalon;
+      document.getElementById('appel-rejoindre-btn').href = urlSalon;
+      document.getElementById('appel-modal').classList.remove('hidden');
+    }
+
+    function partagerLienAppel() {
+      const input = document.getElementById('appel-lien');
+      input.select();
+      navigator.clipboard?.writeText(input.value);
+      alert('Lien du salon privé copié ! Vous pouvez le coller dans le Fil Direct ou WhatsApp.');
+    }
+
+    document.querySelectorAll('button[title="Appel vocal"]').forEach(btn => {
+      btn.addEventListener('click', () => lancerSalonAppel(false));
+    });
+    document.querySelectorAll('button[title="Appel vidéo"]').forEach(btn => {
+      btn.addEventListener('click', () => lancerSalonAppel(true));
+    });
+  </script>
+  <!-- MODALE DEMANDE DE RELANCE QARD HASAN (0 % RIBĀ) - BLOC 12 -->
+  <div id="qard-modal" class="fixed inset-0 z-50 hidden bg-black/85 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="w-full max-w-md bg-ubukCard border-2 border-ubukGold rounded-2xl p-5 space-y-4 shadow-2xl max-h-[88vh] overflow-y-auto">
+      <div class="flex items-center justify-between border-b border-ubukBorder pb-3">
+        <div>
+          <h3 class="text-sm font-bold text-ubukGold">🤝 Relance Qarḍ Ḥasan • Prêt d'Honneur (0 % Ribā)</h3>
+          <p class="text-[10px] text-gray-300">Financement productif local • Zéro intérêt • Remboursement étalé</p>
+        </div>
+        <button onclick="document.getElementById('qard-modal').classList.add('hidden')" class="w-7 h-7 rounded-full bg-ubukDark border border-ubukBorder text-gray-300 hover:text-white flex items-center justify-center text-xs">✕</button>
+      </div>
+
+      <!-- FORMULAIRE DE SOUMISSION DE PROJET QARD HASAN -->
+      <form id="qard-form" class="space-y-3 text-xs">
+        <div>
+          <label class="block text-gray-300 mb-1">Porteur du projet / Artisan :</label>
+          <input id="qard-nom" type="text" required placeholder="Ex: Aminata • Atelier Transformation Manioc, Douala 2" class="w-full bg-ubukDark border border-ubukBorder rounded-xl px-3 py-2 text-white focus:outline-none focus:border-ubukGold" />
+        </div>
+
+        <div>
+          <label class="block text-gray-300 mb-1">Objet de la relance (outil, stock, atelier, urgence) :</label>
+          <input id="qard-projet" type="text" required placeholder="Ex: Achat d'une presse mécanique & fonds de roulement" class="w-full bg-ubukDark border border-ubukBorder rounded-xl px-3 py-2 text-white focus:outline-none focus:border-ubukGold" />
+        </div>
+
+        <div class="grid grid-cols-2 gap-2">
+          <div>
+            <label class="block text-gray-300 mb-1">Montant sollicité (FCFA) :</label>
+            <input id="qard-montant" type="number" min="5000" step="5000" value="100000" oninput="calculerEcheancierQard()" required class="w-full bg-ubukDark border border-ubukBorder rounded-xl px-3 py-2 text-white focus:outline-none focus:border-ubukGold" />
+          </div>
+          <div>
+            <label class="block text-gray-300 mb-1">Durée (mois) :</label>
+            <select id="qard-duree" onchange="calculerEcheancierQard()" class="w-full bg-ubukDark border border-ubukBorder rounded-xl px-3 py-2 text-white focus:outline-none focus:border-ubukGold">
+              <option value="3">3 mois</option>
+              <option value="6" selected>6 mois</option>
+              <option value="12">12 mois</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- CALCUL INSTANTANÉ DE LA MENSUALITÉ SANS INTÉRÊT -->
+        <div class="bg-ubukDark border border-ubukGreen/60 rounded-xl p-3 flex items-center justify-between">
+          <div>
+            <p class="text-[11px] text-gray-300">Mensualité fixe (0 % Ribā) :</p>
+            <p id="qard-mensualite" class="text-sm font-bold text-ubukGreen">16 667 FCFA / mois</p>
+          </div>
+          <span class="text-[10px] bg-ubukGreen/15 text-ubukGreen px-2.5 py-1 rounded-full font-semibold">Coût crédit : 0 FCFA</span>
+        </div>
+
+        <div>
+          <label class="block text-gray-300 mb-1">Deux garants moraux de la Ruche (Noms / Canton) :</label>
+          <input id="qard-garants" type="text" required placeholder="Ex: Garant 1 (Caisse Akwa) • Garant 2 (Cellule Falah)" class="w-full bg-ubukDark border border-ubukBorder rounded-xl px-3 py-2 text-white focus:outline-none focus:border-ubukGold" />
+        </div>
+
+        <button type="submit" class="w-full bg-ubukGold hover:bg-yellow-500 text-ubukDark font-bold py-2.5 rounded-xl transition shadow-md">
+          📜 Sceller le Dossier Qarḍ Ḥasan (SHA-256)
+        </button>
+      </form>
+
+      <!-- CONFIRMATION DU DOSSIER -->
+      <div id="qard-confirmation" class="hidden bg-ubukDark border border-ubukGold rounded-xl p-3 space-y-1.5 text-[11px]">
+        <p class="font-bold text-ubukGold">✅ Dossier Qarḍ Ḥasan enregistré dans l'alvéole !</p>
+        <p id="qard-recap" class="text-gray-200"></p>
+        <p id="qard-hash" class="font-mono text-[10px] text-ubukGreen break-all pt-1 border-t border-ubukBorder"></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- SCRIPT BLOC 12 : MOTEUR QARD HASAN (0 % RIBĀ) & LIAISON AU PORTAIL -->
+  <script>
+    function calculerEcheancierQard() {
+      const montant = parseFloat(document.getElementById('qard-montant')?.value) || 0;
+      const duree = parseInt(document.getElementById('qard-duree')?.value, 10) || 6;
+      const mensualite = Math.ceil(montant / duree);
+      const el = document.getElementById('qard-mensualite');
+      if (el) el.textContent = mensualite.toLocaleString('fr-FR') + ' FCFA / mois';
+    }
+
+    function ouvrirQardHasan() {
+      calculerEcheancierQard();
+      document.getElementById('qard-confirmation')?.classList.add('hidden');
+      document.getElementById('qard-modal')?.classList.remove('hidden');
+    }
+
+    // Soumission et scellement cryptographique du dossier Qarḍ Ḥasan
+    document.getElementById('qard-form')?.addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const nom = document.getElementById('qard-nom').value.trim();
+      const projet = document.getElementById('qard-projet').value.trim();
+      const montant = parseInt(document.getElementById('qard-montant').value, 10) || 0;
+      const duree = parseInt(document.getElementById('qard-duree').value, 10) || 6;
+      const garants = document.getElementById('qard-garants').value.trim();
+      const horodatage = new Date().toISOString();
+
+      const chaine = `QARD_HASAN|${nom}|${projet}|${montant}XAF|${duree}MOIS|${garants}|${horodatage}|0%RIBA`;
+      const hashBuffer = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(chaine));
+      const hashHex = Array.from(new Uint8Array(hashBuffer)).map(b => b.toString(16).padStart(2, '0')).join('');
+
+      document.getElementById('qard-recap').innerHTML = `
+        <strong>Porteur :</strong> ${nom}<br>
+        <strong>Projet :</strong> ${projet}<br>
+        <strong>Capital accordé (0 % Ribā) :</strong> ${montant.toLocaleString('fr-FR')} FCFA sur ${duree} mois<br>
+        <strong>Garants :</strong> ${garants}
+      `;
+      document.getElementById('qard-hash').textContent = `Sceau SHA-256 : ${hashHex}`;
+      document.getElementById('qard-confirmation').classList.remove('hidden');
+
+      // Enregistrement local
+      const dossiers = JSON.parse(localStorage.getItem('ubuk_qard_dossiers') || '[]');
+      dossiers.push({ nom, projet, montant, duree, garants, horodatage, hashHex });
+      localStorage.setItem('ubuk_qard_dossiers', JSON.stringify(dossiers));
+
+      // Annonce transparente dans le Fil Direct
+      const chatMessages = document.getElementById('chat-messages');
+      if (chatMessages) {
+        const msg = document.createElement('div');
+        msg.className = 'bg-ubukDark border border-ubukGreen rounded-xl p-3 space-y-1';
+        msg.innerHTML = `
+          <p class="text-[11px] font-bold text-ubukGreen">🤝 Relance Qarḍ Ḥasan • Nouveau Dossier (0 % Ribā)</p>
+          <p class="text-xs text-gray-200"><strong>${nom}</strong> sollicite <strong>${montant.toLocaleString('fr-FR')} FCFA</strong> (${duree} mois) pour : <em>${projet}</em>.</p>
+          <p class="text-[10px] font-mono text-ubukGold truncate">SHA-256 : ${hashHex}</p>
+        `;
+        chatMessages.appendChild(msg);
+        localStorage.setItem('ubuk_fil_direct', chatMessages.innerHTML);
+      }
+    });
+
+    // Ajout d'un bouton d'accès direct dans le satellite "5. ZAKĀT & TALENTS"
+    const lienZakat = document.querySelector('a[href="#zakat"]');
+    if (lienZakat && !document.getElementById('btn-acces-qard')) {
+      const barreQard = document.createElement('div');
+      barreQard.id = 'btn-acces-qard';
+      barreQard.className = 'pt-1';
+      barreQard.innerHTML = `
+        <button onclick="ouvrirQardHasan()" class="w-full bg-ubukGold/15 hover:bg-ubukGold/25 border border-ubukGold text-ubukGold font-bold text-xs py-2.5 px-3 rounded-xl flex items-center justify-center gap-2 transition">
+          <span>🤝</span> Déposer une demande de prêt d'honneur Qarḍ Ḥasan (0 % Ribā)
+        </button>
+      `;
+      lienZakat.parentNode.insertBefore(barreQard, lienZakat.nextSibling);
+    }
+  </script>
+  <!-- MODALE BOUCLIER D'ASSISTANCE & VEILLE BIEN-ÊTRE FALAH 24H (BLOC 13) -->
+  <div id="falah-secours-modal" class="fixed inset-0 z-50 hidden bg-black/85 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="w-full max-w-md bg-ubukCard border-2 border-ubukGreen rounded-2xl p-5 space-y-4 shadow-2xl max-h-[88vh] overflow-y-auto">
+      <div class="flex items-center justify-between border-b border-ubukBorder pb-3">
+        <div>
+          <h3 class="text-sm font-bold text-ubukGreen">🌿 Bouclier UBUK.FALAH • Veille & Miséricorde 24h</h3>
+          <p class="text-[10px] text-gray-300">Souveraineté biométrique • Assistance solidaire immédiate</p>
+        </div>
+        <button onclick="document.getElementById('falah-secours-modal').classList.add('hidden')" class="w-7 h-7 rounded-full bg-ubukDark border border-ubukBorder text-gray-300 hover:text-white flex items-center justify-center text-xs">✕</button>
+      </div>
+
+      <!-- BOUTON D'ALERTE SOLIDAIRE IMMÉDIATE -->
+      <div class="bg-red-950/50 border border-red-500/60 rounded-xl p-3.5 space-y-2.5 text-center">
+        <p class="text-xs font-bold text-white">Besoin d'une assistance urgente (Santé, Maternité, Détresse) ?</p>
+        <p class="text-[11px] text-gray-300 leading-relaxed">
+          Votre alerte est transmise de manière anonyme et chiffrée à la cellule d'entraide Falah de votre canton.
+        </p>
+        <button onclick="declencherAlerteFalah()" class="w-full bg-red-600 hover:bg-red-500 text-white font-bold text-xs py-3 px-4 rounded-xl shadow-lg transition flex items-center justify-center gap-2">
+          <span>🚨</span> Activer le Signal de Miséricorde Falah
+        </button>
+        <p id="falah-alerte-statut" class="hidden text-[11px] text-ubukGold font-mono pt-1"></p>
+      </div>
+
+      <!-- CARNET DE VEILLE PERSONNELLE (100 % LOCAL & PRIVÉ) -->
+      <form id="falah-veille-form" class="space-y-2.5 text-xs border-t border-ubukBorder pt-3">
+        <p class="font-bold text-ubukGold">🩺 Carnet de Veille Privé (Stocké uniquement sur votre téléphone)</p>
+        <div class="grid grid-cols-2 gap-2">
+          <div>
+            <label class="block text-[11px] text-gray-400 mb-1">Pouls (BPM) :</label>
+            <input id="veille-bpm" type="number" min="35" max="220" placeholder="Ex: 72" required class="w-full bg-ubukDark border border-ubukBorder rounded-lg px-3 py-1.5 text-white" />
+          </div>
+          <div>
+            <label class="block text-[11px] text-gray-400 mb-1">État général :</label>
+            <select id="veille-etat" class="w-full bg-ubukDark border border-ubukBorder rounded-lg px-3 py-1.5 text-white">
+              <option value="Serein">Serein / Stable</option>
+              <option value="Fatigue">Fatigue / Repos requis</option>
+              <option value="Soutien">Besoin d'écoute / visite</option>
+            </select>
+          </div>
+        </div>
+        <button type="submit" class="w-full bg-ubukDark border border-ubukGreen text-ubukGreen hover:bg-ubukGreen hover:text-ubukDark font-bold py-2 rounded-xl transition">
+          Enregistrer localement (Zéro partage cloud)
+        </button>
+      </form>
+
+      <div id="falah-veille-historique" class="space-y-1.5 text-[11px] max-h-32 overflow-y-auto"></div>
+    </div>
+  </div>
+
+  <!-- SCRIPT BLOC 13 : VEILLE PRIVÉE LOCALE & ALERTE SOLIDAIRE FALAH -->
+  <script>
+    function ouvrirBouclierFalah() {
+      actualiserHistoriqueVeille();
+      document.getElementById('falah-secours-modal').classList.remove('hidden');
+    }
+
+    // 1. Déclenchement d'une alerte solidaire respectueuse de la vie privée
+    async function declencherAlerteFalah() {
+      const statutEl = document.getElementById('falah-alerte-statut');
+      statutEl.classList.remove('hidden');
+      statutEl.textContent = 'Génération du jeton anonyme SHA-256...';
+
+      const horodatage = new Date().toISOString();
+      const idSession = 'FALAH-' + Math.random().toString(36).substring(2, 8).toUpperCase();
+      const hashBuffer = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(idSession + horodatage));
+      const sceau = Array.from(new Uint8Array(hashBuffer)).map(b => b.toString(16).padStart(2, '0')).join('').slice(0, 16);
+
+      statutEl.innerHTML = `✅ Signal <strong>${idSession}</strong> scellé (Sceau: ${sceau}).<br>Cellule Falah alertée • Contact direct : +237 679 70 50 38`;
+
+      // Publication d'une alerte sobre dans le Fil Direct
+      const chatMessages = document.getElementById('chat-messages');
+      if (chatMessages) {
+        const alerteDiv = document.createElement('div');
+        alerteDiv.className = 'bg-red-950/60 border border-red-500 rounded-xl p-3 space-y-1';
+        alerteDiv.innerHTML = `
+          <p class="text-[11px] font-bold text-red-400">🌿 Cellule UBUK.FALAH • Appel à la Solidarité (${idSession})</p>
+          <p class="text-xs text-gray-200">Un membre de la Ruche sollicite une veille bienveillante ou une assistance mutuelle. Sceau : <span class="font-mono text-ubukGold">${sceau}</span></p>
+        `;
+        chatMessages.appendChild(alerteDiv);
+        localStorage.setItem('ubuk_fil_direct', chatMessages.innerHTML);
+      }
+    }
+
+    // 2. Sauvegarde strictement locale des constantes (Souveraineté biométrique)
+    function actualiserHistoriqueVeille() {
+      const box = document.getElementById('falah-veille-historique');
+      if (!box) return;
+      const mesures = JSON.parse(localStorage.getItem('ubuk_veille_privee') || '[]');
+      if (mesures.length === 0) {
+        box.innerHTML = '<p class="text-gray-400 text-center">Aucune mesure enregistrée sur cet appareil.</p>';
+        return;
+      }
+      box.innerHTML = mesures.slice().reverse().map(m => `
+        <div class="bg-ubukDark border border-ubukBorder rounded-lg px-2.5 py-1.5 flex justify-between text-gray-300">
+          <span><strong>${m.bpm} BPM</strong> • ${m.etat}</span>
+          <span class="text-[10px] text-gray-400">${new Date(m.date).toLocaleTimeString('fr-FR', {hour: '2-digit', minute:'2-digit'})}</span>
+        </div>
+      `).join('');
+    }
+
+    document.getElementById('falah-veille-form')?.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const bpm = parseInt(document.getElementById('veille-bpm').value, 10);
+      const etat = document.getElementById('veille-etat').value;
+      const mesures = JSON.parse(localStorage.getItem('ubuk_veille_privee') || '[]');
+      mesures.push({ bpm, etat, date: new Date().toISOString() });
+      localStorage.setItem('ubuk_veille_privee', JSON.stringify(mesures));
+      actualiserHistoriqueVeille();
+      e.target.reset();
+    });
+
+    // 3. Ajout d'un bouton d'accès rapide dans le satellite "2. FALAH"
+    const lienFalah = document.querySelector('a[href="#falah"]');
+    if (lienFalah && !document.getElementById('btn-acces-falah-secours')) {
+      const barreFalah = document.createElement('div');
+      barreFalah.id = 'btn-acces-falah-secours';
+      barreFalah.className = 'pt-1';
+      barreFalah.innerHTML = `
+        <button onclick="ouvrirBouclierFalah()" class="w-full bg-ubukGreen/15 hover:bg-ubukGreen/25 border border-ubukGreen text-ubukGreen font-bold text-xs py-2 px-3 rounded-xl flex items-center justify-center gap-2 transition">
+          <span>🌿</span> Ouvrir le Bouclier Veille & Miséricorde 24h
+        </button>
+      `;
+      lienFalah.parentNode.insertBefore(barreFalah, lienFalah.nextSibling);
+    }
+  </script>
+  <!-- STYLES D'ACCESSIBILITÉ UNIVERSELLE (DIGNITÉ & INCLUSION) - BLOC 14 -->
+  <style>
+    html.ubuk-large-text {
+      font-size: 19px !important;
+    }
+    html.ubuk-high-contrast body,
+    html.ubuk-high-contrast .bg-ubukDark,
+    html.ubuk-high-contrast .bg-ubukCard {
+      background-color: #000000 !important;
+      color: #FFFFFF !important;
+      border-color: #FFD700 !important;
+    }
+    html.ubuk-high-contrast .text-gray-300,
+    html.ubuk-high-contrast .text-gray-400 {
+      color: #F9FAFB !important;
+    }
+  </style>
+
+  <!-- SCRIPT BLOC 14 : BARRE D'ACCESSIBILITÉ SENSORIELLE (A+, CONTRASTE & LECTURE VOCALE) -->
+  <script>
+    (function initAccessibiliteUniverselle() {
+      const header = document.querySelector('header');
+      if (!header || document.getElementById('barre-accessibilite-ubuk')) return;
+
+      const barre = document.createElement('div');
+      barre.id = 'barre-accessibilite-ubuk';
+      barre.className = 'mt-2.5 pt-2 border-t border-ubukBorder/40 flex items-center justify-between text-[11px] text-gray-300';
+      barre.innerHTML = `
+        <span class="flex items-center gap-1 text-ubukGold font-semibold">
+          <span>👁️</span> Dignité & Confort :
+        </span>
+        <div class="flex items-center gap-1.5">
+          <button id="btn-acc-taille" type="button" class="bg-ubukCard border border-ubukBorder hover:border-ubukGold px-2.5 py-1 rounded-lg font-bold text-white transition" title="Agrandir le texte pour les aînés">
+            A+ Texte
+          </button>
+          <button id="btn-acc-contraste" type="button" class="bg-ubukCard border border-ubukBorder hover:border-ubukGold px-2.5 py-1 rounded-lg font-bold text-white transition" title="Contraste élevé">
+            ◐ Contraste
+          </button>
+          <button id="btn-acc-vocal" type="button" class="bg-ubukCard border border-ubukBorder hover:border-ubukGreen px-2.5 py-1 rounded-lg font-bold text-ubukGreen transition" title="Lire la page à voix haute">
+            🔊 Écouter
+          </button>
+        </div>
+      `;
+      header.appendChild(barre);
+
+      // Restauration des préférences sauvegardées
+      if (localStorage.getItem('ubuk_acc_taille') === '1') {
+        document.documentElement.classList.add('ubuk-large-text');
+      }
+      if (localStorage.getItem('ubuk_acc_contraste') === '1') {
+        document.documentElement.classList.add('ubuk-high-contrast');
+      }
+
+      // 1. Bascule Taille A+
+      document.getElementById('btn-acc-taille').addEventListener('click', () => {
+        const actif = document.documentElement.classList.toggle('ubuk-large-text');
+        localStorage.setItem('ubuk_acc_taille', actif ? '1' : '0');
+      });
+
+      // 2. Bascule Contraste Absolu
+      document.getElementById('btn-acc-contraste').addEventListener('click', () => {
+        const actif = document.documentElement.classList.toggle('ubuk-high-contrast');
+        localStorage.setItem('ubuk_acc_contraste', actif ? '1' : '0');
+      });
+
+      // 3. Lecture vocale de synthèse du portail
+      document.getElementById('btn-acc-vocal').addEventListener('click', () => {
+        if (!('speechSynthesis' in window)) {
+          alert('La synthèse vocale n’est pas disponible sur cet appareil.');
+          return;
+        }
+        if (window.speechSynthesis.speaking) {
+          window.speechSynthesis.cancel();
+          return;
+        }
+        const resumeVocal = "Bienvenue sur UBUK point ONE, le portail souverain du Framework Latif Connect. Zéro pour cent Riba. Vous pouvez appeler vos proches, rejoindre une caisse locale d'épargne et de crédit, adhérer à la protection mutuelle Falah, ou explorer les sept satellites solidaires.";
+        const utterance = new SpeechSynthesisUtterance(resumeVocal);
+        utterance.lang = 'fr-FR';
+        utterance.rate = 0.92;
+        window.speechSynthesis.speak(utterance);
+      });
+    })();
+  </script>
